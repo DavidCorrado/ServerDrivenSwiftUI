@@ -13,5 +13,5 @@ struct ServerRow: GenericIdentifiable{
     var spacing: Float?
     var modifier: ServerModifier?
     var alignment: ServerAlignment?
-    var items: [AnyObject]
+    var items: [GenericIdentifiable]
 }

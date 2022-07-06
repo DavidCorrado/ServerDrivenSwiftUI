@@ -15,6 +15,12 @@ struct SDContent: View {
             switch item {
             case let item as ServerText:
                 Text(item.text)
+            case let item as ServerColumn:
+                SDColumn(items: item.items)
+            case _ as ServerSpacer:
+                SDSpacer()
+            case let item as ServerRow:
+                SDRow(items: item.items)
             default:
                 Text("Not View Found")
             }

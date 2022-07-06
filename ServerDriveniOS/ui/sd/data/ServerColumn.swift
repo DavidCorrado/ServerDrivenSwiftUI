@@ -15,5 +15,5 @@ struct ServerColumn: GenericIdentifiable{
     var alignment: ServerAlignment?
     var color: String?
     var colorCornerRadius: Float?
-    var items: [AnyObject]
+    var items: [GenericIdentifiable]
 }

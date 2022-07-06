@@ -26,6 +26,9 @@
 		FFCF24D6286E4BC600B53EB3 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCF24D5286E4BC600B53EB3 /* Counter.swift */; };
 		FFCF24D8286F34DD00B53EB3 /* SDContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCF24D7286F34DD00B53EB3 /* SDContent.swift */; };
 		FFF4653728761D85007E7A13 /* GenericIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4653628761D85007E7A13 /* GenericIdentifiable.swift */; };
+		FFF4653928762F88007E7A13 /* SDRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4653828762F88007E7A13 /* SDRow.swift */; };
+		FFF4653B28762F9B007E7A13 /* SDColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4653A28762F9B007E7A13 /* SDColumn.swift */; };
+		FFF4653D28763451007E7A13 /* SDSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4653C28763451007E7A13 /* SDSpacer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,9 @@
 		FFCF24D5286E4BC600B53EB3 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		FFCF24D7286F34DD00B53EB3 /* SDContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDContent.swift; sourceTree = "<group>"; };
 		FFF4653628761D85007E7A13 /* GenericIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericIdentifiable.swift; sourceTree = "<group>"; };
+		FFF4653828762F88007E7A13 /* SDRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDRow.swift; sourceTree = "<group>"; };
+		FFF4653A28762F9B007E7A13 /* SDColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDColumn.swift; sourceTree = "<group>"; };
+		FFF4653C28763451007E7A13 /* SDSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDSpacer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +197,9 @@
 			isa = PBXGroup;
 			children = (
 				FFCF24D7286F34DD00B53EB3 /* SDContent.swift */,
+				FFF4653828762F88007E7A13 /* SDRow.swift */,
+				FFF4653A28762F9B007E7A13 /* SDColumn.swift */,
+				FFF4653C28763451007E7A13 /* SDSpacer.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -341,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFF4653928762F88007E7A13 /* SDRow.swift in Sources */,
 				FFCF24D1286E48AE00B53EB3 /* ServerBubble.swift in Sources */,
 				FFF4653728761D85007E7A13 /* GenericIdentifiable.swift in Sources */,
 				FFCF24D6286E4BC600B53EB3 /* Counter.swift in Sources */,
@@ -350,10 +360,12 @@
 				FFCF24D8286F34DD00B53EB3 /* SDContent.swift in Sources */,
 				FFCF2492286E430200B53EB3 /* ServerDriveniOSApp.swift in Sources */,
 				FFCF24C7286E45D500B53EB3 /* ServerSpacer.swift in Sources */,
+				FFF4653D28763451007E7A13 /* SDSpacer.swift in Sources */,
 				FFCF24CD286E482F00B53EB3 /* ServerColumn.swift in Sources */,
 				FFCF24BF286E43D500B53EB3 /* ServerAlignment.swift in Sources */,
 				FFCF24C1286E444400B53EB3 /* ServerText.swift in Sources */,
 				FFCF24CF286E487700B53EB3 /* ServerCard.swift in Sources */,
+				FFF4653B28762F9B007E7A13 /* SDColumn.swift in Sources */,
 				FFCF24C3286E44F700B53EB3 /* ServerItemType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,5 +11,5 @@ struct ServerCard: GenericIdentifiable{
     var type: ServerItemType = ServerItemType.CARD
     var id = UUID()
     var modifier: ServerModifier?
-    var items: [AnyObject]
+    var items: [GenericIdentifiable]
 }

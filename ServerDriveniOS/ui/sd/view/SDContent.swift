@@ -21,6 +21,10 @@ struct SDContent: View {
                 SDSpacer()
             case let item as ServerRow:
                 SDRow(serverRow: item)
+            case let item as ServerImage:
+                SDImage(serverImage: item)
+            case let item as ServerCard:
+                SDCard(serverCard: item)
             default:
                 Text("Not View Found")
             }

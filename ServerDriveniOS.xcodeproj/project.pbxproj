@@ -31,6 +31,9 @@
 		FFF4653D28763451007E7A13 /* SDSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4653C28763451007E7A13 /* SDSpacer.swift */; };
 		FFF4654328763DFA007E7A13 /* ServerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4654228763DFA007E7A13 /* ServerViewModifier.swift */; };
 		FFF4654528775A94007E7A13 /* SDText.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4654428775A94007E7A13 /* SDText.swift */; };
+		FFF4654728776972007E7A13 /* SDImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4654628776972007E7A13 /* SDImage.swift */; };
+		FFF4654928776E2D007E7A13 /* SDCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4654828776E2D007E7A13 /* SDCard.swift */; };
+		FFF4654B28777000007E7A13 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4654A28777000007E7A13 /* Entry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,9 @@
 		FFF4653C28763451007E7A13 /* SDSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDSpacer.swift; sourceTree = "<group>"; };
 		FFF4654228763DFA007E7A13 /* ServerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerViewModifier.swift; sourceTree = "<group>"; };
 		FFF4654428775A94007E7A13 /* SDText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDText.swift; sourceTree = "<group>"; };
+		FFF4654628776972007E7A13 /* SDImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDImage.swift; sourceTree = "<group>"; };
+		FFF4654828776E2D007E7A13 /* SDCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDCard.swift; sourceTree = "<group>"; };
+		FFF4654A28777000007E7A13 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +212,8 @@
 				FFF4653A28762F9B007E7A13 /* SDColumn.swift */,
 				FFF4653C28763451007E7A13 /* SDSpacer.swift */,
 				FFF4654428775A94007E7A13 /* SDText.swift */,
+				FFF4654628776972007E7A13 /* SDImage.swift */,
+				FFF4654828776E2D007E7A13 /* SDCard.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -214,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				FFCF24D5286E4BC600B53EB3 /* Counter.swift */,
+				FFF4654A28777000007E7A13 /* Entry.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -366,15 +375,18 @@
 			files = (
 				FFF4653928762F88007E7A13 /* SDRow.swift in Sources */,
 				FFCF24D1286E48AE00B53EB3 /* ServerBubble.swift in Sources */,
+				FFF4654728776972007E7A13 /* SDImage.swift in Sources */,
 				FFF4653728761D85007E7A13 /* GenericIdentifiable.swift in Sources */,
 				FFCF24D6286E4BC600B53EB3 /* Counter.swift in Sources */,
 				FFCF24C9286E477100B53EB3 /* ServerRow.swift in Sources */,
+				FFF4654B28777000007E7A13 /* Entry.swift in Sources */,
 				FFCF24CB286E47DB00B53EB3 /* ServerImage.swift in Sources */,
 				FFF4654528775A94007E7A13 /* SDText.swift in Sources */,
 				FFCF24C5286E455C00B53EB3 /* ServerModifer.swift in Sources */,
 				FFCF24D8286F34DD00B53EB3 /* SDContent.swift in Sources */,
 				FFCF2492286E430200B53EB3 /* ServerDriveniOSApp.swift in Sources */,
 				FFCF24C7286E45D500B53EB3 /* ServerSpacer.swift in Sources */,
+				FFF4654928776E2D007E7A13 /* SDCard.swift in Sources */,
 				FFF4653D28763451007E7A13 /* SDSpacer.swift in Sources */,
 				FFCF24CD286E482F00B53EB3 /* ServerColumn.swift in Sources */,
 				FFCF24BF286E43D500B53EB3 /* ServerAlignment.swift in Sources */,

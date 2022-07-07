@@ -32,7 +32,9 @@ func counter() -> ServerColumn {
                              ServerRow( modifier: ServerModifier(paddingStart: 18,paddingEnd: 14, paddingBottom: 14),items: [
                                 ServerText(text: "test2"),
                                 ServerSpacer(),
-                                ServerText(text: "test3", modifier: ServerModifier(paddingStart: 8))
+                                ServerImage(drawableRes: "TotalEntries",
+                                            modifier: ServerModifier(paddingStart: 8,     width: 33,
+                                                                     height : 33))
                              ])
                             ])
 }

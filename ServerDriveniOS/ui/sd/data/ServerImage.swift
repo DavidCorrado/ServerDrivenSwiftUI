@@ -10,7 +10,7 @@ import Foundation
 struct ServerImage: GenericIdentifiable{
     var type: ServerItemType = ServerItemType.IMAGE
     var id = UUID()
-    var drawableRes: Int
+    var drawableRes: String
     var adaText: String?
     var modifier: ServerModifier?
 }

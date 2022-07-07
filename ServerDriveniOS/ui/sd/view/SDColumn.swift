@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 struct SDColumn: View {
-    var items: [GenericIdentifiable]
+    var serverColumn: ServerColumn
     var body: some View {
         VStack(alignment: .leading) {
-            SDContent(items: items)
-        }
+            SDContent(items: serverColumn.items)
+        }.serverModifier(serverModifier: serverColumn.modifier)
     }
 }

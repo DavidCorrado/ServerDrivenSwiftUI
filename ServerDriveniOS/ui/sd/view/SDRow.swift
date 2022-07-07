@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 struct SDRow: View {
-    var items: [GenericIdentifiable]
+    var serverRow: ServerRow
     var body: some View {
         HStack(spacing: 0) {
-            SDContent(items: items)
-        }
+            SDContent(items: serverRow.items)
+        }.serverModifier(serverModifier: serverRow.modifier)
     }
 }

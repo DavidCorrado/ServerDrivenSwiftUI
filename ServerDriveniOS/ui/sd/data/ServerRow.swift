@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 struct ServerRow: GenericIdentifiable{
     var type: ServerItemType = ServerItemType.ROW
     var id = UUID()
-    var spacing: Float?
+    var spacing: CGFloat?
     var modifier: ServerModifier?
     var alignment: ServerAlignment?
     var items: [GenericIdentifiable]

@@ -18,6 +18,6 @@ struct ServerDriveniOSApp: App {
 
 struct ContentView: View {
     var body: some View {
-        SDContent(items: counter())
+        SDContent(items: counters())
     }
 }

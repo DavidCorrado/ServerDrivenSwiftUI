@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import UIKit
 
 struct ServerModifier{
-    var paddingStart: Float?
-    var paddingEnd: Float?
-    var paddingTop: Float?
-    var paddingBottom: Float?
-    var width: Float?
-    var height: Float?
-    var weight: Float?
+    var paddingStart: CGFloat?
+    var paddingEnd: CGFloat?
+    var paddingTop: CGFloat?
+    var paddingBottom: CGFloat?
+    var width: CGFloat?
+    var height: CGFloat?
+    var weight: CGFloat?
 }

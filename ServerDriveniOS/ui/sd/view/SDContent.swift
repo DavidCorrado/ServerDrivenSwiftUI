@@ -14,13 +14,13 @@ struct SDContent: View {
         ForEach(items, id: \.id) { item in
             switch item {
             case let item as ServerText:
-                Text(item.text)
+                SDText(serverText: item)
             case let item as ServerColumn:
-                SDColumn(items: item.items)
+                SDColumn(serverColumn: item)
             case _ as ServerSpacer:
                 SDSpacer()
             case let item as ServerRow:
-                SDRow(items: item.items)
+                SDRow(serverRow: item)
             default:
                 Text("Not View Found")
             }

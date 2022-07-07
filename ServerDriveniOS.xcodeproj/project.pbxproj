@@ -29,6 +29,8 @@
 		FFF4653928762F88007E7A13 /* SDRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4653828762F88007E7A13 /* SDRow.swift */; };
 		FFF4653B28762F9B007E7A13 /* SDColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4653A28762F9B007E7A13 /* SDColumn.swift */; };
 		FFF4653D28763451007E7A13 /* SDSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4653C28763451007E7A13 /* SDSpacer.swift */; };
+		FFF4654328763DFA007E7A13 /* ServerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4654228763DFA007E7A13 /* ServerViewModifier.swift */; };
+		FFF4654528775A94007E7A13 /* SDText.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4654428775A94007E7A13 /* SDText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		FFF4653828762F88007E7A13 /* SDRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDRow.swift; sourceTree = "<group>"; };
 		FFF4653A28762F9B007E7A13 /* SDColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDColumn.swift; sourceTree = "<group>"; };
 		FFF4653C28763451007E7A13 /* SDSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDSpacer.swift; sourceTree = "<group>"; };
+		FFF4654228763DFA007E7A13 /* ServerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerViewModifier.swift; sourceTree = "<group>"; };
+		FFF4654428775A94007E7A13 /* SDText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 		FFCF2490286E430200B53EB3 /* ServerDriveniOS */ = {
 			isa = PBXGroup;
 			children = (
+				FFF4654128763DD7007E7A13 /* viewmodifier */,
 				FFF4652D287617B3007E7A13 /* data */,
 				FFCF24D4286E4B9000B53EB3 /* views */,
 				FFCF24BB286E43A300B53EB3 /* ui */,
@@ -200,6 +205,7 @@
 				FFF4653828762F88007E7A13 /* SDRow.swift */,
 				FFF4653A28762F9B007E7A13 /* SDColumn.swift */,
 				FFF4653C28763451007E7A13 /* SDSpacer.swift */,
+				FFF4654428775A94007E7A13 /* SDText.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -218,6 +224,14 @@
 				FFF4653628761D85007E7A13 /* GenericIdentifiable.swift */,
 			);
 			path = data;
+			sourceTree = "<group>";
+		};
+		FFF4654128763DD7007E7A13 /* viewmodifier */ = {
+			isa = PBXGroup;
+			children = (
+				FFF4654228763DFA007E7A13 /* ServerViewModifier.swift */,
+			);
+			path = viewmodifier;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +370,7 @@
 				FFCF24D6286E4BC600B53EB3 /* Counter.swift in Sources */,
 				FFCF24C9286E477100B53EB3 /* ServerRow.swift in Sources */,
 				FFCF24CB286E47DB00B53EB3 /* ServerImage.swift in Sources */,
+				FFF4654528775A94007E7A13 /* SDText.swift in Sources */,
 				FFCF24C5286E455C00B53EB3 /* ServerModifer.swift in Sources */,
 				FFCF24D8286F34DD00B53EB3 /* SDContent.swift in Sources */,
 				FFCF2492286E430200B53EB3 /* ServerDriveniOSApp.swift in Sources */,
@@ -364,6 +379,7 @@
 				FFCF24CD286E482F00B53EB3 /* ServerColumn.swift in Sources */,
 				FFCF24BF286E43D500B53EB3 /* ServerAlignment.swift in Sources */,
 				FFCF24C1286E444400B53EB3 /* ServerText.swift in Sources */,
+				FFF4654328763DFA007E7A13 /* ServerViewModifier.swift in Sources */,
 				FFCF24CF286E487700B53EB3 /* ServerCard.swift in Sources */,
 				FFF4653B28762F9B007E7A13 /* SDColumn.swift in Sources */,
 				FFCF24C3286E44F700B53EB3 /* ServerItemType.swift in Sources */,

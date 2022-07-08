@@ -34,6 +34,7 @@
 		FFF4654728776972007E7A13 /* SDImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4654628776972007E7A13 /* SDImage.swift */; };
 		FFF4654928776E2D007E7A13 /* SDCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4654828776E2D007E7A13 /* SDCard.swift */; };
 		FFF4654B28777000007E7A13 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4654A28777000007E7A13 /* Entry.swift */; };
+		FFF4654E2878C201007E7A13 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4654D2878C201007E7A13 /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		FFF4654628776972007E7A13 /* SDImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDImage.swift; sourceTree = "<group>"; };
 		FFF4654828776E2D007E7A13 /* SDCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDCard.swift; sourceTree = "<group>"; };
 		FFF4654A28777000007E7A13 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		FFF4654D2878C201007E7A13 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		FFCF2490286E430200B53EB3 /* ServerDriveniOS */ = {
 			isa = PBXGroup;
 			children = (
+				FFF4654C2878C1F5007E7A13 /* Extensions */,
 				FFF4654128763DD7007E7A13 /* viewmodifier */,
 				FFF4652D287617B3007E7A13 /* data */,
 				FFCF24D4286E4B9000B53EB3 /* views */,
@@ -241,6 +244,14 @@
 				FFF4654228763DFA007E7A13 /* ServerViewModifier.swift */,
 			);
 			path = viewmodifier;
+			sourceTree = "<group>";
+		};
+		FFF4654C2878C1F5007E7A13 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FFF4654D2878C201007E7A13 /* ColorExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,6 +386,7 @@
 			files = (
 				FFF4653928762F88007E7A13 /* SDRow.swift in Sources */,
 				FFCF24D1286E48AE00B53EB3 /* ServerBubble.swift in Sources */,
+				FFF4654E2878C201007E7A13 /* ColorExtension.swift in Sources */,
 				FFF4654728776972007E7A13 /* SDImage.swift in Sources */,
 				FFF4653728761D85007E7A13 /* GenericIdentifiable.swift in Sources */,
 				FFCF24D6286E4BC600B53EB3 /* Counter.swift in Sources */,

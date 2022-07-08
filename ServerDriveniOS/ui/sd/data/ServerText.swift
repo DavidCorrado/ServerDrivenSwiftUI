@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct ServerText: GenericIdentifiable {
     var type: ServerItemType = ServerItemType.TEXT
@@ -18,6 +19,20 @@ struct ServerText: GenericIdentifiable {
     var weight: String?
     var isHeading: Bool?
     var modifier: ServerModifier?
+    func fontWeight() -> Font.Weight {
+        switch(weight) {
+            case "100": return .light
+            case "200": return .light
+            case "300": return .light
+            case "400": return .regular
+            case "500": return .medium
+            case "600": return .semibold
+            case "700": return .bold
+            case "800": return .heavy
+            case "900": return .black
+            default: return .regular
+        }
+    }
 }
 
 enum DecorationType {

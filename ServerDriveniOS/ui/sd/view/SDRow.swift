@@ -11,7 +11,16 @@ import SwiftUI
 struct SDRow: View {
     var serverRow: ServerRow
     var body: some View {
-        HStack(spacing: 0) {
+        let alignment: VerticalAlignment = {
+            if(serverRow.alignment == .END){
+                return .bottom
+            } else if(serverRow.alignment == .CENTER){
+                return .center
+            } else {
+                return .top
+            }
+        }()
+        HStack(alignment: alignment, spacing: serverRow.spacing ?? 0) {
             SDContent(items: serverRow.items)
         }.serverModifier(serverModifier: serverRow.modifier)
     }

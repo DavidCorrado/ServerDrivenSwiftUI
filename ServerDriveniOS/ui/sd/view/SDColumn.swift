@@ -11,8 +11,21 @@ import SwiftUI
 struct SDColumn: View {
     var serverColumn: ServerColumn
     var body: some View {
-        VStack(alignment: .leading) {
+        let alignment: HorizontalAlignment = {
+            if(serverColumn.alignment == .END){
+                return .trailing
+            } else if(serverColumn.alignment == .CENTER){
+                return .center
+            } else {
+                return .leading
+            }
+        }()
+        VStack(alignment: alignment, spacing: serverColumn.spacing ?? 0) {
             SDContent(items: serverColumn.items)
-        }.serverModifier(serverModifier: serverColumn.modifier)
+        }.modifyIf(serverColumn.color != nil, transform: {
+            $0.background(
+                RoundedRectangle(cornerRadius: CGFloat(serverColumn.colorCornerRadius ?? 0), style: .continuous).fill(Color(UIColor.init(withHex: serverColumn.color!)))
+            )
+        }).serverModifier(serverModifier: serverColumn.modifier)
     }
 }

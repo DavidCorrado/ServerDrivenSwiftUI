@@ -35,6 +35,7 @@
 		FFF4654928776E2D007E7A13 /* SDCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4654828776E2D007E7A13 /* SDCard.swift */; };
 		FFF4654B28777000007E7A13 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4654A28777000007E7A13 /* Entry.swift */; };
 		FFF4654E2878C201007E7A13 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4654D2878C201007E7A13 /* ColorExtension.swift */; };
+		FFF465502878E452007E7A13 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4654F2878E452007E7A13 /* History.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		FFF4654828776E2D007E7A13 /* SDCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDCard.swift; sourceTree = "<group>"; };
 		FFF4654A28777000007E7A13 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		FFF4654D2878C201007E7A13 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		FFF4654F2878E452007E7A13 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 			children = (
 				FFCF24D5286E4BC600B53EB3 /* Counter.swift */,
 				FFF4654A28777000007E7A13 /* Entry.swift */,
+				FFF4654F2878E452007E7A13 /* History.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				FFF4653D28763451007E7A13 /* SDSpacer.swift in Sources */,
 				FFCF24CD286E482F00B53EB3 /* ServerColumn.swift in Sources */,
 				FFCF24BF286E43D500B53EB3 /* ServerAlignment.swift in Sources */,
+				FFF465502878E452007E7A13 /* History.swift in Sources */,
 				FFCF24C1286E444400B53EB3 /* ServerText.swift in Sources */,
 				FFF4654328763DFA007E7A13 /* ServerViewModifier.swift in Sources */,
 				FFCF24CF286E487700B53EB3 /* ServerCard.swift in Sources */,

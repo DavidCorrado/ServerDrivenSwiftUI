@@ -10,29 +10,24 @@ import SwiftUI
 
 struct Counters_Previews: PreviewProvider {
     static var previews: some View {
-        VStack(alignment: .leading) {
-            Text("test1")
-            HStack(spacing: 0){
-                Text("test2").padding(.top,50).padding(.leading,50)
-                Spacer()
-                Text("text3").serverModifier(serverModifier: ServerModifier())
-            }
-        }.border(.gray)
+        SDContent(items: counters())
     }
 }
 
 func counters() -> [GenericIdentifiable] {
-    return [ServerRow(items: [counter(),counter()])]
+    return [ServerRow(spacing: 10, items: [counter(count: 27,label: "Active streak",image: "Streak"),counter(count: 451,label: "Total entries",image: "TotalEntries")])]
 }
 
 
-func counter() -> ServerColumn {
-    return ServerColumn(items:
-                            [ServerText(text: "test1", modifier: ServerModifier(paddingStart: 18, paddingTop: 18)),
-                             ServerRow( modifier: ServerModifier(paddingStart: 18,paddingEnd: 14, paddingBottom: 14),items: [
-                                ServerText(text: "test2"),
+func counter(count: Int, label: String, image: String) -> ServerColumn {
+    return ServerColumn(color: "#F5F5F5",
+                        colorCornerRadius: 16,
+                        items:
+                            [ServerText(text: String(count),size: 32, color: "#002F8C", weight: "300", modifier: ServerModifier(paddingStart: 18, paddingTop: 18)),
+                             ServerRow(modifier: ServerModifier(paddingStart: 18,paddingEnd: 14, paddingBottom: 14), alignment: .CENTER,items: [
+                                ServerText(text: label, size: 12, weight: "500"),
                                 ServerSpacer(),
-                                ServerImage(drawableRes: "TotalEntries",
+                                ServerImage(drawableRes: image,
                                             modifier: ServerModifier(paddingStart: 8,     width: 33,
                                                                      height : 33))
                              ])

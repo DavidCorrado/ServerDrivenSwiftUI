@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF22B2EC287CBE3700390642 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF22B2EB287CBE3700390642 /* Testing.swift */; };
 		FFCF2492286E430200B53EB3 /* ServerDriveniOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCF2491286E430200B53EB3 /* ServerDriveniOSApp.swift */; };
 		FFCF2496286E430400B53EB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFCF2495286E430400B53EB3 /* Assets.xcassets */; };
 		FFCF2499286E430400B53EB3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFCF2498286E430400B53EB3 /* Preview Assets.xcassets */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF22B2EB287CBE3700390642 /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 		FFCF248E286E430200B53EB3 /* ServerDriveniOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServerDriveniOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFCF2491286E430200B53EB3 /* ServerDriveniOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDriveniOSApp.swift; sourceTree = "<group>"; };
 		FFCF2495286E430400B53EB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				FFCF24D5286E4BC600B53EB3 /* Counter.swift */,
 				FFF4654A28777000007E7A13 /* Entry.swift */,
 				FFF4654F2878E452007E7A13 /* History.swift */,
+				FF22B2EB287CBE3700390642 /* Testing.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				FFF4654528775A94007E7A13 /* SDText.swift in Sources */,
 				FFCF24C5286E455C00B53EB3 /* ServerModifer.swift in Sources */,
 				FFCF24D8286F34DD00B53EB3 /* SDContent.swift in Sources */,
+				FF22B2EC287CBE3700390642 /* Testing.swift in Sources */,
 				FFCF2492286E430200B53EB3 /* ServerDriveniOSApp.swift in Sources */,
 				FFCF24C7286E45D500B53EB3 /* ServerSpacer.swift in Sources */,
 				FFF4654928776E2D007E7A13 /* SDCard.swift in Sources */,

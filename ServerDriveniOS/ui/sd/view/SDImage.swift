@@ -11,7 +11,7 @@ import SwiftUI
 struct SDImage: View {
     var serverImage: ServerImage
     var body: some View {
-        Image(serverImage.drawableRes).serverModifier(serverModifier: serverImage.modifier).modifyIf(serverImage.adaText != nil, transform: {
+        Image(serverImage.drawableRes).resizable().serverModifier(serverModifier: serverImage.modifier).modifyIf(serverImage.adaText != nil, transform: {
             $0.accessibilityLabel(serverImage.adaText!)
         })
     }

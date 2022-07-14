@@ -25,15 +25,21 @@ struct Testing2_Previews: PreviewProvider {
 
 func testing() -> [ServerCard] {
     return [
-        ServerCard(items: [ServerText(text: "Card")]),
+        ServerCard(items: [
+            ServerText(text: "Card")
+        ]),
         ServerCard(modifier: ServerModifier(
             paddingStart: 30,
             paddingEnd: 30,
             paddingTop: 30,
             paddingBottom: 30
-        ), items: [ServerText(text: "Card Padding")]),
+        ), items: [
+            ServerText(text: "Card Padding")
+        ]),
         ServerCard(modifier: ServerModifier(
             width: 200, height: 200
-        ), items: [ServerText(text: "Card Padding HW")])
+        ), items: [
+            ServerText(text: "Card Padding HW")
+        ])
     ]
 }

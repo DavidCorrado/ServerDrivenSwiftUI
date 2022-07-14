@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct ServerCard: GenericIdentifiable{
-    var type: ServerItemType = ServerItemType.CARD
+struct ServerCard: GenericIdentifiable {
+    var type: ServerItemType = .CARD
     var id = UUID()
     var modifier: ServerModifier?
     var items: [GenericIdentifiable]

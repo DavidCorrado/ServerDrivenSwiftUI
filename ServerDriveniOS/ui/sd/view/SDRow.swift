@@ -12,9 +12,9 @@ struct SDRow: View {
     var serverRow: ServerRow
     var body: some View {
         let alignment: VerticalAlignment = {
-            if(serverRow.alignment == .END){
+            if serverRow.alignment == .END {
                 return .bottom
-            } else if(serverRow.alignment == .CENTER){
+            } else if serverRow.alignment == .CENTER {
                 return .center
             } else {
                 return .top

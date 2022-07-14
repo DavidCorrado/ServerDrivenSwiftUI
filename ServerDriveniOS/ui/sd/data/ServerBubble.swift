@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct ServerBubble: GenericIdentifiable{
-    var type: ServerItemType = ServerItemType.BUBBLE
+struct ServerBubble: GenericIdentifiable {
+    var type: ServerItemType = .BUBBLE
     var id = UUID()
     var text: ServerText
     var textADA: String?

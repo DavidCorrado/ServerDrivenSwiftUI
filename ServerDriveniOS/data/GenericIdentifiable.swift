@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GenericIdentifiable {
-    var id: UUID {get}
+    var id: UUID { get }
 }

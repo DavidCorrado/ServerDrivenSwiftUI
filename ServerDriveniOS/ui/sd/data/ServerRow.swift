@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-struct ServerRow: GenericIdentifiable{
-    var type: ServerItemType = ServerItemType.ROW
+struct ServerRow: GenericIdentifiable {
+    var type: ServerItemType = .ROW
     var id = UUID()
     var spacing: CGFloat?
     var modifier: ServerModifier?

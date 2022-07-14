@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ServerSpacer: GenericIdentifiable{
-    var type: ServerItemType = ServerItemType.SPACER
+struct ServerSpacer: GenericIdentifiable {
+    var type: ServerItemType = .SPACER
     var id = UUID()
 }

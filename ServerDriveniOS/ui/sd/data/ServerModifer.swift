@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct ServerModifier{
+struct ServerModifier {
     var paddingStart: CGFloat?
     var paddingEnd: CGFloat?
     var paddingTop: CGFloat?

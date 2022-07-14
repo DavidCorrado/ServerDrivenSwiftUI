@@ -12,7 +12,7 @@ struct SDText: View {
     var serverText: ServerText
     var body: some View {
         Text(serverText.text)
-            .foregroundColor(Color(UIColor.init(withHex: serverText.color ?? "#4C5870")))
+            .foregroundColor(Color(UIColor(withHex: serverText.color ?? "#4C5870")))
             .fontWeight(serverText.fontWeight())
             .font(.system(size: CGFloat(serverText.size ?? 16)))
             .modifyIf(serverText.decoration.contains(.STRIKETHROUGH), transform: {
@@ -22,10 +22,8 @@ struct SDText: View {
                 ($0 as? Text)?.italic()
             })
             .modifyIf(serverText.isHeading ?? false, transform: {
-                        $0.accessibilityAddTraits(.isHeader)
-                    })
+                $0.accessibilityAddTraits(.isHeader)
+            })
             .serverModifier(serverModifier: serverText.modifier)
-           
-
     }
 }

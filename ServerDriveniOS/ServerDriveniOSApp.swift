@@ -18,6 +18,10 @@ struct ServerDriveniOSApp: App {
 
 struct ContentView: View {
     var body: some View {
-        SDContent(items: [ServerColumn(items: [history1(),history2()])])
+        ScrollView {
+            LazyVStack(alignment: .leading, spacing: 0) {
+                SDContent(items: testing())
+            }
+        }
     }
 }

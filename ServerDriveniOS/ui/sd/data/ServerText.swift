@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct ServerText: GenericIdentifiable {
-    var type: ServerItemType = ServerItemType.TEXT
+    var type: ServerItemType = .TEXT
     var id = UUID()
     var text: String
     var size: Int?
@@ -20,7 +20,7 @@ struct ServerText: GenericIdentifiable {
     var isHeading: Bool?
     var modifier: ServerModifier?
     func fontWeight() -> Font.Weight {
-        switch(weight) {
+        switch weight {
             case "100": return .light
             case "200": return .light
             case "300": return .light

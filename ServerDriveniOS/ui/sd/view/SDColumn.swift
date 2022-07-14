@@ -12,9 +12,9 @@ struct SDColumn: View {
     var serverColumn: ServerColumn
     var body: some View {
         let alignment: HorizontalAlignment = {
-            if(serverColumn.alignment == .END){
+            if serverColumn.alignment == .END {
                 return .trailing
-            } else if(serverColumn.alignment == .CENTER){
+            } else if serverColumn.alignment == .CENTER {
                 return .center
             } else {
                 return .leading
@@ -24,7 +24,7 @@ struct SDColumn: View {
             SDContent(items: serverColumn.items)
         }.modifyIf(serverColumn.color != nil, transform: {
             $0.background(
-                RoundedRectangle(cornerRadius: CGFloat(serverColumn.colorCornerRadius ?? 0), style: .continuous).fill(Color(UIColor.init(withHex: serverColumn.color!)))
+                RoundedRectangle(cornerRadius: CGFloat(serverColumn.colorCornerRadius ?? 0), style: .continuous).fill(Color(UIColor(withHex: serverColumn.color!)))
             )
         }).serverModifier(serverModifier: serverColumn.modifier)
     }

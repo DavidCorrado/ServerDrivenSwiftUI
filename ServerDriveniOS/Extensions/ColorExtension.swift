@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 extension UIColor {
-    
     convenience init(withHex: String, alpha: CGFloat = 1.0) {
         var hexString = withHex
         if hexString.isEmpty {

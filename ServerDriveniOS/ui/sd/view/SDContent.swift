@@ -31,4 +31,3 @@ struct SDContent: View {
         }
     }
 }
-

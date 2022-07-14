@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct ServerImage: GenericIdentifiable{
-    var type: ServerItemType = ServerItemType.IMAGE
+struct ServerImage: GenericIdentifiable {
+    var type: ServerItemType = .IMAGE
     var id = UUID()
     var drawableRes: String
     var adaText: String?

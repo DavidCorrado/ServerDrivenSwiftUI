@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-struct ServerColumn: GenericIdentifiable{
-    var type: ServerItemType = ServerItemType.COLUMN
+struct ServerColumn: GenericIdentifiable {
+    var type: ServerItemType = .COLUMN
     var id = UUID()
     var spacing: CGFloat?
     var modifier: ServerModifier?

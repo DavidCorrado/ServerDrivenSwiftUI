@@ -22,6 +22,8 @@ struct SDRow: View {
         }()
         HStack(alignment: alignment, spacing: serverRow.spacing ?? 0) {
             SDContent(items: serverRow.items)
-        }.serverModifier(serverModifier: serverRow.modifier)
+        }
+        .size(serverModifier: serverRow.modifier)
+        .padding(serverModifier: serverRow.modifier)
     }
 }

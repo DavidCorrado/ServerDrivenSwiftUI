@@ -22,10 +22,13 @@ struct SDColumn: View {
         }()
         VStack(alignment: alignment, spacing: serverColumn.spacing ?? 0) {
             SDContent(items: serverColumn.items)
-        }.modifyIf(serverColumn.color != nil, transform: {
+        }
+        .size(serverModifier: serverColumn.modifier)
+        .modifyIf(serverColumn.color != nil, transform: {
             $0.background(
                 RoundedRectangle(cornerRadius: CGFloat(serverColumn.colorCornerRadius ?? 0), style: .continuous).fill(Color(UIColor(withHex: serverColumn.color!)))
             )
-        }).serverModifier(serverModifier: serverColumn.modifier)
+        })
+        .padding(serverModifier: serverColumn.modifier)
     }
 }

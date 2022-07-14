@@ -9,20 +9,26 @@ import Foundation
 import SwiftUI
 // struct Testing_Previews: PreviewProvider {
 //    static var previews: some View {
-//        HStack{
-//            Text("test")
-//            Image("Disappointed").resizable().frame(width: 24, height: 22).padding(.trailing,20).padding(.leading,20)
-//            Text("test2")
+//        ScrollView {
+//            LazyVStack(alignment: .leading, spacing: 0) {
+//                VStack(alignment: .leading) {
+//                    Text("Test")
+//                }.cornerRadius(10)
+//                    .overlay(
+//                        RoundedRectangle(cornerRadius: 10)
+//                            .stroke(Color.gray, lineWidth: 1)
+//                    ).frame(width: 200, height: 200)
+//            }
 //        }
 //    }
 // }
 
-struct Testing2_Previews: PreviewProvider {
-    static var previews: some View {
-        SDContent(items: testing())
-    }
-}
-
+// struct Testing2_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SDContent(items: testing())
+//    }
+// }
+//
 func testing() -> [ServerCard] {
     return [
         ServerCard(items: [
@@ -37,7 +43,7 @@ func testing() -> [ServerCard] {
             ServerText(text: "Card Padding")
         ]),
         ServerCard(modifier: ServerModifier(
-            width: 200, height: 200
+            paddingStart: 30, paddingEnd: 30, paddingTop: 30,  paddingBottom: 30, width: 200, height: 200
         ), items: [
             ServerText(text: "Card Padding HW")
         ])

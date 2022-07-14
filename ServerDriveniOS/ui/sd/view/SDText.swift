@@ -21,9 +21,11 @@ struct SDText: View {
             .modifyIf(serverText.style == .ITALIC, transform: {
                 ($0 as? Text)?.italic()
             })
+            .size(serverModifier: serverText.modifier)
             .modifyIf(serverText.isHeading ?? false, transform: {
                 $0.accessibilityAddTraits(.isHeader)
             })
-            .serverModifier(serverModifier: serverText.modifier)
+            .padding(serverModifier: serverText.modifier)
+            .frame(alignment: .topLeading)
     }
 }

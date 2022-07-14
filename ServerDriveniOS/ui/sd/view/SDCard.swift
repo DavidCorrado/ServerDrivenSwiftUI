@@ -13,10 +13,13 @@ struct SDCard: View {
     var body: some View {
         VStack(alignment: .leading) {
             SDContent(items: serverCard.items)
-        }.cornerRadius(10)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.gray, lineWidth: 1)
-            ).serverModifier(serverModifier: serverCard.modifier)
+        }
+        .size(serverModifier: serverCard.modifier)
+        .cornerRadius(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1)
+        )
+        .padding(serverModifier: serverCard.modifier)
+        
     }
 }

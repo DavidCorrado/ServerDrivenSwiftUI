@@ -43,9 +43,12 @@ func testing() -> [ServerCard] {
             ServerText(text: "Card Padding")
         ]),
         ServerCard(modifier: ServerModifier(
-            paddingStart: 30, paddingEnd: 30, paddingTop: 30,  paddingBottom: 30, width: 200, height: 200
+            paddingStart: 30, paddingEnd: 30, paddingTop: 30, paddingBottom: 30, width: 200, height: 200
         ), items: [
-            ServerText(text: "Card Padding HW")
+            ServerColumn(items: [
+                ServerText(text: "Card Padding HW"),
+                ServerText(text: "Card Padding HW")
+            ])
         ])
     ]
 }

@@ -24,17 +24,16 @@ struct SizeViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         return content
             .modifyIf(serverModifier?.width != nil && serverModifier?.height != nil, transform: {
-                $0.frame(width: serverModifier?.width, height: serverModifier?.height, alignment: .leading)
+                $0.frame(width: serverModifier?.width, height: serverModifier?.height, alignment: .topLeading)
             })
     }
 }
 
 extension View {
-    
     func padding(serverModifier: ServerModifier?) -> some View {
         modifier(PaddingViewModifier(serverModifier: serverModifier))
     }
-    
+
     func size(serverModifier: ServerModifier?) -> some View {
         modifier(SizeViewModifier(serverModifier: serverModifier))
     }

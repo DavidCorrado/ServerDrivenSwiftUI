@@ -26,6 +26,5 @@ struct SDText: View {
                 $0.accessibilityAddTraits(.isHeader)
             })
             .padding(serverModifier: serverText.modifier)
-            .frame(alignment: .topLeading)
     }
 }

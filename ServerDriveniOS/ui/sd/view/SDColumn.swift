@@ -24,11 +24,9 @@ struct SDColumn: View {
             SDContent(items: serverColumn.items)
         }
         .size(serverModifier: serverColumn.modifier)
-        .modifyIf(serverColumn.color != nil, transform: {
-            $0.background(
-                RoundedRectangle(cornerRadius: CGFloat(serverColumn.colorCornerRadius ?? 0), style: .continuous).fill(Color(UIColor(withHex: serverColumn.color!)))
-            )
-        })
+        .backgroundColor(serverModifier: serverColumn.modifier)
+        .cornerRadius(serverModifier: serverColumn.modifier)
+        .border(serverModifier: serverColumn.modifier)
         .padding(serverModifier: serverColumn.modifier)
     }
 }

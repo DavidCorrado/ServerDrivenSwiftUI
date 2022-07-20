@@ -16,4 +16,8 @@ struct ServerModifier {
     var width: CGFloat?
     var height: CGFloat?
     var weight: CGFloat?
+    var backgroundColor: String?
+    var borderSize: Float?
+    var borderColor: String?
+    var cornerRadius: Float?
 }

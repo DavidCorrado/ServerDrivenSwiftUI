@@ -43,61 +43,128 @@ func testing() -> [GenericIdentifiable] {
             ServerText(text: "Card Padding")
         ]),
         ServerCard(modifier: ServerModifier(
-            paddingStart: 30, paddingEnd: 30, paddingTop: 30, paddingBottom: 30, width: 200, height: 200
+            paddingStart: 30,
+            paddingEnd: 30,
+            paddingTop: 30,
+            paddingBottom: 30,
+            width: 200,
+            height: 200
         ), items: [
             ServerColumn(items: [
                 ServerText(text: "Card Padding HW"),
                 ServerText(text: "Card 2")
             ])
         ]),
-        ServerColumn(modifier: ServerModifier(width: 200, height: 200), alignment: .CENTER, items: [
+        ServerColumn(modifier: ServerModifier(
+            width: 200,
+            height: 200,
+            backgroundColor: "#ff0000",
+            cornerRadius: 5
+        ), alignment: .CENTER, items: [
             ServerText(text: "Col Center")
         ]),
-        ServerColumn(modifier: ServerModifier(width: 200, height: 200), alignment: .END, items: [
+        ServerColumn(modifier: ServerModifier(
+            width: 200,
+            height: 200,
+            backgroundColor: "#00ff00",
+            cornerRadius: 5
+        ), alignment: .END, items: [
             ServerText(text: "Col End")
         ]),
-        ServerRow(modifier: ServerModifier(width: 200, height: 200), alignment: .CENTER, items: [
+        ServerRow(modifier: ServerModifier(
+            width: 200,
+            height: 200,
+            backgroundColor: "#ff0000",
+            cornerRadius: 5
+        ), alignment: .CENTER, items: [
             ServerText(text: "Row Center")
         ]),
-        ServerRow(modifier: ServerModifier(width: 200, height: 200), alignment: .CENTER, items: [
+        ServerRow(modifier: ServerModifier(
+            width: 200,
+            height: 200,
+            backgroundColor: "#00ff00",
+            cornerRadius: 5
+        ), alignment: .CENTER, items: [
             ServerText(text: "Row End")
         ]),
         ServerRow(spacing: 20, modifier: ServerModifier(
-            paddingStart: 30, paddingEnd: 30, paddingTop: 30, paddingBottom: 30, width: 200, height: 200
+            paddingStart: 30,
+            paddingEnd: 30,
+            paddingTop: 30,
+            paddingBottom: 30,
+            width: 200,
+            height: 200,
+            backgroundColor: "#ff0000",
+            cornerRadius: 5
         ),
         items: [
             ServerText(text: "Row Padding HW"),
             ServerText(text: "Row 2")
         ]),
         ServerColumn(spacing: 20, modifier: ServerModifier(
-            paddingStart: 30, paddingEnd: 30, paddingTop: 30, paddingBottom: 30, width: 200, height: 200
+            paddingStart: 30,
+            paddingEnd: 30,
+            paddingTop: 30,
+            paddingBottom: 30,
+            width: 200,
+            height: 200,
+            backgroundColor: "#00ff00",
+            cornerRadius: 5
         ),
         items: [
             ServerText(text: "Col Padding HW"),
             ServerText(text: "Col 2")
         ]),
         ServerRow(modifier: ServerModifier(
-            paddingStart: 30, paddingEnd: 30, paddingTop: 30, paddingBottom: 30
+            paddingStart: 30,
+            paddingEnd: 30,
+            paddingTop: 30,
+            paddingBottom: 30,
+            backgroundColor:"#ff0000",
+            cornerRadius: 5
         ), items: [
             ServerText(text: "Row"),
             ServerColumn(modifier: ServerModifier(
-                paddingStart: 30, paddingEnd: 30, paddingTop: 30, paddingBottom: 30
+                paddingStart: 30,
+                paddingEnd: 30,
+                paddingTop: 30,
+                paddingBottom: 30,
+                backgroundColor:"#00ff00",
+                cornerRadius: 5
             ), items: [
                 ServerText(text: "Col Padding HW"),
                 ServerText(text: "Col 2")
             ])
         ]),
-        ServerColumn(modifier: ServerModifier(width: 200, height: 200),
-                     items: [
-                         ServerText(text: "Col Spacer"),
-                         ServerSpacer(),
-                         ServerText(text: "Col Spacer")
-                     ]),
-        ServerRow(modifier: ServerModifier(width: 200, height: 200),
-                     items: [
-                         ServerText(text: "Row Spacer"),
-                         ServerSpacer(),
-                         ServerText(text: "Row Spacer")
-                     ])
+        ServerColumn(modifier: ServerModifier(
+            width: 200,
+            height: 200,
+            backgroundColor: "#00ff00",
+            cornerRadius: 5
+        ), items: [
+             ServerText(text: "Col Spacer"),
+             ServerSpacer(),
+             ServerText(text: "Col Spacer")
+         ]),
+        ServerRow(modifier: ServerModifier(
+            width: 200,
+            height: 200,
+            backgroundColor:"#ff0000",
+            cornerRadius:5
+        ), items: [
+             ServerText(text: "Row Spacer"),
+             ServerSpacer(),
+             ServerText(text: "Row Spacer")
+        ]),
+        ServerRow(modifier: ServerModifier(
+            width: 200,
+            height: 200,
+            backgroundColor: "#ff0000",
+            borderSize: 2,
+            borderColor: "#0000ff",
+            cornerRadius: 5
+        ), items: [
+            ServerText(text: "Row Border Background")
+        ])
     ]
 }

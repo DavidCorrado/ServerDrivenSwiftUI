@@ -26,6 +26,7 @@ struct SDColumn: View {
         .size(serverModifier: serverColumn.modifier)
         .backgroundColor(serverModifier: serverColumn.modifier)
         .cornerRadius(serverModifier: serverColumn.modifier)
+        .border(serverModifier: serverColumn.modifier)
         .padding(serverModifier: serverColumn.modifier)
     }
 }

@@ -54,9 +54,9 @@ struct BorderViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .modifyIf(serverModifier?.borderColor != nil, transform: {
-                return $0.overlay(
+                $0.overlay(
                     RoundedRectangle(cornerRadius: CGFloat(serverModifier?.cornerRadius ?? 0))
-                        .stroke(Color(UIColor(withHex: serverModifier!.backgroundColor!)), lineWidth: CGFloat(serverModifier?.borderSize ?? 1))
+                        .stroke(Color(UIColor(withHex: serverModifier!.borderColor!)), lineWidth: CGFloat(serverModifier?.borderSize ?? 1))
                 )
             })
     }
@@ -77,6 +77,10 @@ extension View {
     
     func cornerRadius(serverModifier: ServerModifier?) -> some View {
         modifier(CornerRadiusViewModifier(serverModifier: serverModifier))
+    }
+    
+    func border(serverModifier: ServerModifier?) -> some View {
+        modifier(BorderViewModifier(serverModifier: serverModifier))
     }
 
     @ViewBuilder func modifyIf<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {

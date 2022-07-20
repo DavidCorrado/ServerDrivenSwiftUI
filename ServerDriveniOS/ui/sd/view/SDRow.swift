@@ -24,6 +24,9 @@ struct SDRow: View {
             SDContent(items: serverRow.items)
         }
         .size(serverModifier: serverRow.modifier)
+        .backgroundColor(serverModifier: serverRow.modifier)
+        .cornerRadius(serverModifier: serverRow.modifier)
         .padding(serverModifier: serverRow.modifier)
+        .border(serverModifier: serverRow.modifier)
     }
 }

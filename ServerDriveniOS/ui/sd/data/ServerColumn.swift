@@ -14,7 +14,5 @@ struct ServerColumn: GenericIdentifiable {
     var spacing: CGFloat?
     var modifier: ServerModifier?
     var alignment: ServerAlignment?
-    var color: String?
-    var colorCornerRadius: Float?
     var items: [GenericIdentifiable]
 }

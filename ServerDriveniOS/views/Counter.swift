@@ -22,7 +22,7 @@ func counters() -> [GenericIdentifiable] {
 }
 
 func counter(count: Int, label: String, image: String) -> ServerColumn {
-    return ServerColumn(color: "#F5F5F5", colorCornerRadius: 16, items: [
+    return ServerColumn(modifier: ServerModifier(backgroundColor: "#F5F5F5", cornerRadius: 16), items: [
         ServerText(text: String(count), size: 32, color: "#002F8C", weight: "300", modifier: ServerModifier(paddingStart: 18, paddingTop: 18)),
         ServerRow(modifier: ServerModifier(paddingStart: 18, paddingEnd: 14, paddingBottom: 14), alignment: .CENTER, items: [
             ServerText(text: label, size: 12, weight: "500"),

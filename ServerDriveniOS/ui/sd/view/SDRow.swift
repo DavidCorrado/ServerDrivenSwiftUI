@@ -23,10 +23,6 @@ struct SDRow: View {
         HStack(alignment: alignment, spacing: serverRow.spacing ?? 0) {
             SDContent(items: serverRow.items)
         }
-        .size(serverModifier: serverRow.modifier)
-        .backgroundColor(serverModifier: serverRow.modifier)
-        .cornerRadius(serverModifier: serverRow.modifier)
-        .padding(serverModifier: serverRow.modifier)
-        .border(serverModifier: serverRow.modifier)
+        .serverModifier(serverModifier: serverRow.modifier)
     }
 }

@@ -8,6 +8,18 @@
 import Foundation
 import SwiftUI
 
+struct ServerViewModifier: ViewModifier {
+    var serverModifier: ServerModifier?
+    func body(content: Content) -> some View {
+        content
+            .size(serverModifier: serverModifier)
+            .backgroundColor(serverModifier: serverModifier)
+            .cornerRadius(serverModifier: serverModifier)
+            .border(serverModifier: serverModifier)
+            .padding(serverModifier: serverModifier)
+    }
+}
+
 struct PaddingViewModifier: ViewModifier {
     var serverModifier: ServerModifier?
     func body(content: Content) -> some View {
@@ -54,7 +66,9 @@ struct BorderViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .modifyIf(serverModifier?.borderColor != nil, transform: {
-                $0.overlay(
+                $0
+                    .padding(.all, max(CGFloat(serverModifier?.borderSize ?? 1) / 2 - 1, 0))
+                    .overlay(
                     RoundedRectangle(cornerRadius: CGFloat(serverModifier?.cornerRadius ?? 0))
                         .stroke(Color(UIColor(withHex: serverModifier!.borderColor!)), lineWidth: CGFloat(serverModifier?.borderSize ?? 1))
                 )
@@ -63,6 +77,10 @@ struct BorderViewModifier: ViewModifier {
 }
 
 extension View {
+    func serverModifier(serverModifier: ServerModifier?) -> some View {
+        modifier(ServerViewModifier(serverModifier: serverModifier))
+    }
+    
     func padding(serverModifier: ServerModifier?) -> some View {
         modifier(PaddingViewModifier(serverModifier: serverModifier))
     }

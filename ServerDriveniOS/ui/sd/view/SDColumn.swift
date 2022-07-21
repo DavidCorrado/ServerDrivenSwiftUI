@@ -23,10 +23,6 @@ struct SDColumn: View {
         VStack(alignment: alignment, spacing: serverColumn.spacing ?? 0) {
             SDContent(items: serverColumn.items)
         }
-        .size(serverModifier: serverColumn.modifier)
-        .backgroundColor(serverModifier: serverColumn.modifier)
-        .cornerRadius(serverModifier: serverColumn.modifier)
-        .border(serverModifier: serverColumn.modifier)
-        .padding(serverModifier: serverColumn.modifier)
+        .serverModifier(serverModifier: serverColumn.modifier)
     }
 }

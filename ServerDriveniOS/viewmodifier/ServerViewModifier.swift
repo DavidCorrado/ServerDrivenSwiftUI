@@ -10,12 +10,14 @@ import SwiftUI
 
 struct ServerViewModifier: ViewModifier {
     var serverModifier: ServerModifier?
+    var alignment: Alignment?
     func body(content: Content) -> some View {
         content
-            .size(serverModifier: serverModifier)
+            .padding(serverModifier: serverModifier)
+            .size(serverModifier: serverModifier, alignment: alignment)
             .backgroundColor(serverModifier: serverModifier)
             .cornerRadius(serverModifier: serverModifier)
-            .padding(serverModifier: serverModifier)
+            
     }
 }
 
@@ -32,10 +34,11 @@ struct PaddingViewModifier: ViewModifier {
 
 struct SizeViewModifier: ViewModifier {
     var serverModifier: ServerModifier?
+    var alignment: Alignment?
     func body(content: Content) -> some View {
         content
             .modifyIf(serverModifier?.width != nil && serverModifier?.height != nil, transform: {
-                $0.frame(width: serverModifier?.width, height: serverModifier?.height, alignment: .topLeading)
+                $0.frame(width: serverModifier?.width, height: serverModifier?.height, alignment: alignment ?? .topLeading)
             })
     }
 }
@@ -61,16 +64,16 @@ struct CornerRadiusViewModifier: ViewModifier {
 }
 
 extension View {
-    func serverModifier(serverModifier: ServerModifier?) -> some View {
-        modifier(ServerViewModifier(serverModifier: serverModifier))
+    func serverModifier(serverModifier: ServerModifier?, alignment: Alignment? = nil) -> some View {
+        modifier(ServerViewModifier(serverModifier: serverModifier, alignment: alignment))
     }
     
     func padding(serverModifier: ServerModifier?) -> some View {
         modifier(PaddingViewModifier(serverModifier: serverModifier))
     }
 
-    func size(serverModifier: ServerModifier?) -> some View {
-        modifier(SizeViewModifier(serverModifier: serverModifier))
+    func size(serverModifier: ServerModifier?, alignment: Alignment?) -> some View {
+        modifier(SizeViewModifier(serverModifier: serverModifier, alignment: alignment))
     }
     
     func backgroundColor(serverModifier: ServerModifier?) -> some View {

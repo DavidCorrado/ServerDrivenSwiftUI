@@ -84,7 +84,7 @@ func testing() -> [GenericIdentifiable] {
             height: 200,
             backgroundColor: "#00ff00",
             cornerRadius: 5
-        ), alignment: .CENTER, items: [
+        ), alignment: .END, items: [
             ServerText(text: "Row End")
         ]),
         ServerRow(spacing: 20, modifier: ServerModifier(

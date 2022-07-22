@@ -10,19 +10,31 @@ import SwiftUI
 
 struct SDRow: View {
     var serverRow: ServerRow
+    
+    var sizeAlignment: Alignment {
+        if serverRow.alignment == .END {
+            return .bottomLeading
+        } else if serverRow.alignment == .CENTER {
+            return .leading
+        } else {
+            return .topLeading
+        }
+    }
+    
+    var stackAlignment: VerticalAlignment {
+        if serverRow.alignment == .END {
+            return .bottom
+        } else if serverRow.alignment == .CENTER {
+            return .center
+        } else {
+            return .top
+        }
+    }
+    
     var body: some View {
-        let alignment: VerticalAlignment = {
-            if serverRow.alignment == .END {
-                return .bottom
-            } else if serverRow.alignment == .CENTER {
-                return .center
-            } else {
-                return .top
-            }
-        }()
-        HStack(alignment: alignment, spacing: serverRow.spacing ?? 0) {
+        HStack(alignment: stackAlignment, spacing: serverRow.spacing ?? 0) {
             SDContent(items: serverRow.items)
         }
-        .serverModifier(serverModifier: serverRow.modifier)
+        .serverModifier(serverModifier: serverRow.modifier, alignment: sizeAlignment)
     }
 }

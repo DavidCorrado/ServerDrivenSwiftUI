@@ -157,14 +157,46 @@ func testing() -> [GenericIdentifiable] {
              ServerText(text: "Row Spacer")
         ]),
         ServerRow(modifier: ServerModifier(
+            paddingStart: 20,
+            paddingEnd: 20,
+            paddingTop: 20,
+            paddingBottom: 20,
             width: 200,
             height: 200,
             backgroundColor: "#ff0000",
-            borderSize: 2,
-            borderColor: "#0000ff",
-            cornerRadius: 5
+            cornerRadius: 20
         ), items: [
-            ServerText(text: "Row Border Background")
+            ServerRow(modifier: ServerModifier(
+                paddingStart: 20,
+                paddingEnd: 20,
+                paddingTop: 20,
+                paddingBottom: 20,
+                width: 200,
+                height: 200,
+                backgroundColor: "#00ff00",
+                cornerRadius: 20
+            ), items: [
+                ServerText(text: "Row Border Background")
+            ])
+        ]),
+        ServerRow(modifier: ServerModifier(
+            paddingStart: 20,
+            paddingEnd: 20,
+            paddingTop: 20,
+            paddingBottom: 20,
+            backgroundColor: "#ff0000",
+            cornerRadius: 20
+        ), items: [
+            ServerRow(modifier: ServerModifier(
+                paddingStart: 20,
+                paddingEnd: 20,
+                paddingTop: 20,
+                paddingBottom: 20,
+                backgroundColor: "#00ff00",
+                cornerRadius: 20
+            ), items: [
+                ServerText(text: "Row Border Background")
+            ])
         ])
     ]
 }

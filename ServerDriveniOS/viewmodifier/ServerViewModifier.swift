@@ -15,7 +15,6 @@ struct ServerViewModifier: ViewModifier {
             .size(serverModifier: serverModifier)
             .backgroundColor(serverModifier: serverModifier)
             .cornerRadius(serverModifier: serverModifier)
-            .border(serverModifier: serverModifier)
             .padding(serverModifier: serverModifier)
     }
 }
@@ -61,21 +60,6 @@ struct CornerRadiusViewModifier: ViewModifier {
     }
 }
 
-struct BorderViewModifier: ViewModifier {
-    var serverModifier: ServerModifier?
-    func body(content: Content) -> some View {
-        content
-            .modifyIf(serverModifier?.borderColor != nil, transform: {
-                $0
-                    .padding(.all, max(CGFloat(serverModifier?.borderSize ?? 1) / 2 - 1, 0))
-                    .overlay(
-                    RoundedRectangle(cornerRadius: CGFloat(serverModifier?.cornerRadius ?? 0))
-                        .stroke(Color(UIColor(withHex: serverModifier!.borderColor!)), lineWidth: CGFloat(serverModifier?.borderSize ?? 1))
-                )
-            })
-    }
-}
-
 extension View {
     func serverModifier(serverModifier: ServerModifier?) -> some View {
         modifier(ServerViewModifier(serverModifier: serverModifier))
@@ -95,10 +79,6 @@ extension View {
     
     func cornerRadius(serverModifier: ServerModifier?) -> some View {
         modifier(CornerRadiusViewModifier(serverModifier: serverModifier))
-    }
-    
-    func border(serverModifier: ServerModifier?) -> some View {
-        modifier(BorderViewModifier(serverModifier: serverModifier))
     }
 
     @ViewBuilder func modifyIf<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {

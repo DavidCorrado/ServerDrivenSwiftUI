@@ -17,7 +17,7 @@ struct ServerViewModifier: ViewModifier {
             .size(serverModifier: serverModifier, alignment: alignment)
             .backgroundColor(serverModifier: serverModifier)
             .cornerRadius(serverModifier: serverModifier)
-            
+            .accessibilityLabel(serverModifier: serverModifier)
     }
 }
 
@@ -63,6 +63,16 @@ struct CornerRadiusViewModifier: ViewModifier {
     }
 }
 
+struct AccessibilityLabelModifier: ViewModifier {
+    var serverModifier: ServerModifier?
+    func body(content: Content) -> some View {
+        content
+            .modifyIf(serverModifier?.adaText != nil, transform: {
+                $0.accessibilityLabel(serverModifier!.adaText!)
+            })
+    }
+}
+
 extension View {
     func serverModifier(serverModifier: ServerModifier?, alignment: Alignment? = nil) -> some View {
         modifier(ServerViewModifier(serverModifier: serverModifier, alignment: alignment))
@@ -82,6 +92,10 @@ extension View {
     
     func cornerRadius(serverModifier: ServerModifier?) -> some View {
         modifier(CornerRadiusViewModifier(serverModifier: serverModifier))
+    }
+    
+    func accessibilityLabel(serverModifier: ServerModifier?) -> some View {
+        modifier(AccessibilityLabelModifier(serverModifier: serverModifier))
     }
 
     @ViewBuilder func modifyIf<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {

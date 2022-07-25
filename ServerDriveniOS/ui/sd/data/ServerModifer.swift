@@ -18,4 +18,5 @@ struct ServerModifier {
     var weight: CGFloat?
     var backgroundColor: String?
     var cornerRadius: Float?
+    var adaText: String?
 }

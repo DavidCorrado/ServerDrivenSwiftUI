@@ -11,6 +11,5 @@ struct ServerImage: GenericIdentifiable {
     var type: ServerItemType = .IMAGE
     var id = UUID()
     var drawableRes: String
-    var adaText: String?
     var modifier: ServerModifier?
 }

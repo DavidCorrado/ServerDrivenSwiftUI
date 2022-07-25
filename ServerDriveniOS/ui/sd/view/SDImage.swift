@@ -13,9 +13,6 @@ struct SDImage: View {
     var body: some View {
         Image(serverImage.drawableRes)
             .resizable()
-            .modifyIf(serverImage.adaText != nil, transform: {
-                $0.accessibilityLabel(serverImage.adaText!)
-            })
             .serverModifier(serverModifier: serverImage.modifier)
     }
 }

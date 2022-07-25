@@ -31,6 +31,21 @@ import SwiftUI
 //
 func testing() -> [GenericIdentifiable] {
     return [
+        ServerRow(items: [
+            ServerText(text: "Read Me"),
+            ServerText(text: "Do Not Read", modifier: ServerModifier(adaText: "Read Me")),
+            ServerText(text: "Read me Heading", isHeading: true),
+            ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(
+                width: 20,
+                height: 20,
+                adaText: "Disappointed"
+            )),
+            ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(width: 20, height: 20))
+        ]),
+        ServerRow(modifier: ServerModifier(adaText: "Read Me"), items: [
+            ServerText(text: "Don't Read"),
+            ServerText(text: "Don't Read", modifier: ServerModifier(adaText: "Don't Read"))
+        ]),
         ServerCard(items: [
             ServerText(text: "Card")
         ]),

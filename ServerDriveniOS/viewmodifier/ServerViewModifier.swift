@@ -68,7 +68,9 @@ struct AccessibilityLabelModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .modifyIf(serverModifier?.adaText != nil, transform: {
-                $0.accessibilityLabel(serverModifier!.adaText!)
+                $0
+                    .accessibilityElement(children: .ignore) // Ignore the children and read adaText for the whole view
+                    .accessibilityLabel(serverModifier!.adaText!)
             })
     }
 }

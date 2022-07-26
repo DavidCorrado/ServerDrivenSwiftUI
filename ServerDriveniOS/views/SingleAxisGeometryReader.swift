@@ -7,6 +7,8 @@
 // See https://www.wooji-juice.com/blog/stupid-swiftui-tricks-single-axis-geometry-reader.html
 import SwiftUI
 
+// This is working by observing size multiple times
+// May need a performance-wise inspection
 struct SingleAxisGeometryReader<Content: View>: View
 {
     private struct SizeKey: PreferenceKey

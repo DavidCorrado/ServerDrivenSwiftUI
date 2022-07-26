@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		36965F482890105B00C2B75C /* SingleAxisGeometryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36965F472890105B00C2B75C /* SingleAxisGeometryReader.swift */; };
+		36965F4A2890273400C2B75C /* ServerWeightedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36965F492890273400C2B75C /* ServerWeightedContainer.swift */; };
+		36965F4C2890277500C2B75C /* SDWeightedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36965F4B2890277500C2B75C /* SDWeightedContainer.swift */; };
 		FF22B2EC287CBE3700390642 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF22B2EB287CBE3700390642 /* Testing.swift */; };
 		FFCF2492286E430200B53EB3 /* ServerDriveniOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCF2491286E430200B53EB3 /* ServerDriveniOSApp.swift */; };
 		FFCF2496286E430400B53EB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFCF2495286E430400B53EB3 /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 
 /* Begin PBXFileReference section */
 		36965F472890105B00C2B75C /* SingleAxisGeometryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAxisGeometryReader.swift; sourceTree = "<group>"; };
+		36965F492890273400C2B75C /* ServerWeightedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerWeightedContainer.swift; sourceTree = "<group>"; };
+		36965F4B2890277500C2B75C /* SDWeightedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDWeightedContainer.swift; sourceTree = "<group>"; };
 		FF22B2EB287CBE3700390642 /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 		FFCF248E286E430200B53EB3 /* ServerDriveniOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServerDriveniOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFCF2491286E430200B53EB3 /* ServerDriveniOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDriveniOSApp.swift; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 				FFCF24CC286E482F00B53EB3 /* ServerColumn.swift */,
 				FFCF24CE286E487700B53EB3 /* ServerCard.swift */,
 				FFCF24D0286E48AE00B53EB3 /* ServerBubble.swift */,
+				36965F492890273400C2B75C /* ServerWeightedContainer.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				FFF4654428775A94007E7A13 /* SDText.swift */,
 				FFF4654628776972007E7A13 /* SDImage.swift */,
 				FFF4654828776E2D007E7A13 /* SDCard.swift */,
+				36965F4B2890277500C2B75C /* SDWeightedContainer.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -401,12 +407,14 @@
 				FFCF24D6286E4BC600B53EB3 /* Counter.swift in Sources */,
 				FFCF24C9286E477100B53EB3 /* ServerRow.swift in Sources */,
 				FFF4654B28777000007E7A13 /* Entry.swift in Sources */,
+				36965F4A2890273400C2B75C /* ServerWeightedContainer.swift in Sources */,
 				FFCF24CB286E47DB00B53EB3 /* ServerImage.swift in Sources */,
 				FFF4654528775A94007E7A13 /* SDText.swift in Sources */,
 				FFCF24C5286E455C00B53EB3 /* ServerModifer.swift in Sources */,
 				FFCF24D8286F34DD00B53EB3 /* SDContent.swift in Sources */,
 				FF22B2EC287CBE3700390642 /* Testing.swift in Sources */,
 				FFCF2492286E430200B53EB3 /* ServerDriveniOSApp.swift in Sources */,
+				36965F4C2890277500C2B75C /* SDWeightedContainer.swift in Sources */,
 				FFCF24C7286E45D500B53EB3 /* ServerSpacer.swift in Sources */,
 				36965F482890105B00C2B75C /* SingleAxisGeometryReader.swift in Sources */,
 				FFF4654928776E2D007E7A13 /* SDCard.swift in Sources */,

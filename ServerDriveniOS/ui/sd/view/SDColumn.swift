@@ -8,11 +8,12 @@
 import Foundation
 import SwiftUI
 
-struct SDColumn: View {
+struct SDColumn: View, SDWeightedContainer {
     var serverColumn: ServerColumn
-    var parentWeightDirection: ParentWeightDirection
+    var parentWeightDirection: WeightDirection
     var parentSize: CGFloat
-    var parentModifier: ServerModifier?
+    var weightDirection = WeightDirection.vertical
+    
     var sizeAlignment: Alignment {
         if serverColumn.alignment == .END {
             return .topTrailing
@@ -33,12 +34,18 @@ struct SDColumn: View {
         }
     }
     
+    var weightedContainer: ServerWeightedContainer {
+        serverColumn
+    }
+    
     var body: some View {
         SingleAxisGeometryReader(axis: .vertical) { height in
             VStack(alignment: stackAlignment, spacing: serverColumn.spacing ?? 0) {
-                SDContent(items: serverColumn.items, parentWeightDirection: .vertical, parentSize: height, parentModifier: serverColumn.modifier)
+                SDContent(items: serverColumn.items, parentWeightDirection: weightDirection, parentSize: calculateAvailableSpace(from: height))
             }
-            .serverModifier(serverModifier: serverColumn.modifier, alignment: sizeAlignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentModifier: parentModifier)
+            .serverModifier(serverModifier: serverColumn.modifier, alignment: sizeAlignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
         }
     }
 }
+
+

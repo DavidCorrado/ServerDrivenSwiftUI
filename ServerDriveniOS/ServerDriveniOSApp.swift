@@ -18,6 +18,8 @@ struct ServerDriveniOSApp: App {
 
 struct ContentView: View {
     var body: some View {
+        // Normally all VStacks has vertical axis with parentWeightDirection: .vertical and parentSize: height
+        // But since this main one is in scroll view only use case of weight is to fill screen horizonyally
         SingleAxisGeometryReader(axis: .horizontal) { width in
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 0) {

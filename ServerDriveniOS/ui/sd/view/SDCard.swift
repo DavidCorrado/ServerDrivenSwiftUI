@@ -8,12 +8,18 @@
 import Foundation
 import SwiftUI
 
-struct SDCard: View {
+struct SDCard: View, SDWeightedContainer {
     var serverCard: ServerCard
-    var parentWeightDirection: ParentWeightDirection
+    var parentWeightDirection: WeightDirection
     var parentSize: CGFloat
-    var parentModifier: ServerModifier?
-    init(serverCard: ServerCard, parentWeightDirection: ParentWeightDirection, parentSize: CGFloat, parentModifier: ServerModifier?) {
+    
+    var weightDirection = WeightDirection.vertical
+    
+    var weightedContainer: ServerWeightedContainer {
+        serverCard
+    }
+    
+    init(serverCard: ServerCard, parentWeightDirection: WeightDirection, parentSize: CGFloat) {
         // Provide default values for backgroundColor and cornerRadius if they are empty
         // They can still be overriden by the server
         var serverCard = serverCard
@@ -26,15 +32,14 @@ struct SDCard: View {
         self.serverCard = serverCard
         self.parentWeightDirection = parentWeightDirection
         self.parentSize = parentSize
-        self.parentModifier = parentModifier
     }
     
     var body: some View {
         SingleAxisGeometryReader(axis: .vertical) { height in
-            VStack(alignment: .leading) {
-                SDContent(items: serverCard.items, parentWeightDirection: .vertical, parentSize: height, parentModifier: serverCard.modifier)
+            VStack(alignment: .leading, spacing: serverCard.spacing) {
+                SDContent(items: serverCard.items, parentWeightDirection: weightDirection, parentSize: calculateAvailableSpace(from: height))
             }
-            .serverModifier(serverModifier: serverCard.modifier, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentModifier: parentModifier)
+            .serverModifier(serverModifier: serverCard.modifier, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
             .shadow(color: Color(UIColor.black.withAlphaComponent(0.08)), radius: 15, x: 0, y: 5)
         }
 

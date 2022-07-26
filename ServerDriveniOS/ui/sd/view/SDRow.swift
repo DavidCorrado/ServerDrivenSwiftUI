@@ -8,11 +8,12 @@
 import Foundation
 import SwiftUI
 
-struct SDRow: View {
+struct SDRow: View, SDWeightedContainer {
     var serverRow: ServerRow
-    var parentWeightDirection: ParentWeightDirection
+    var parentWeightDirection: WeightDirection
     var parentSize: CGFloat
-    var parentModifier: ServerModifier?
+    var weightDirection: WeightDirection = .horizontal
+    
     var sizeAlignment: Alignment {
         if serverRow.alignment == .END {
             return .bottomLeading
@@ -33,13 +34,16 @@ struct SDRow: View {
         }
     }
     
+    var weightedContainer: ServerWeightedContainer {
+        serverRow
+    }
+    
     var body: some View {
         SingleAxisGeometryReader(axis: .horizontal) { width in
             HStack(alignment: stackAlignment, spacing: serverRow.spacing ?? 0) {
-                SDContent(items: serverRow.items, parentWeightDirection: .horizontal, parentSize: width, parentModifier: serverRow.modifier)
+                SDContent(items: serverRow.items, parentWeightDirection: weightDirection, parentSize: calculateAvailableSpace(from: width))
             }
-            .serverModifier(serverModifier: serverRow.modifier, alignment: sizeAlignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentModifier: parentModifier)
+            .serverModifier(serverModifier: serverRow.modifier, alignment: sizeAlignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
         }
-        
     }
 }

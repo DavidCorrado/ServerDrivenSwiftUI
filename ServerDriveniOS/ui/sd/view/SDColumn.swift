@@ -37,7 +37,7 @@ struct SDColumn: View {
             VStack(alignment: stackAlignment, spacing: serverColumn.spacing ?? 0) {
                 SDContent(items: serverColumn.items, parentDirection: .vertical, parentSize: geo.size)
             }
-            .serverModifier(serverModifier: serverColumn.modifier, alignment: sizeAlignment, parentDirection: parentDirection, parentSize: parentSize)
         }
+        .serverModifier(serverModifier: serverColumn.modifier, alignment: sizeAlignment, parentDirection: parentDirection, parentSize: parentSize)
     }
 }

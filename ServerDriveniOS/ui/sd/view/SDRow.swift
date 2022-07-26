@@ -37,7 +37,7 @@ struct SDRow: View {
             HStack(alignment: stackAlignment, spacing: serverRow.spacing ?? 0) {
                 SDContent(items: serverRow.items, parentDirection: .horizontal, parentSize: geo.size)
             }
-            .serverModifier(serverModifier: serverRow.modifier, alignment: sizeAlignment, parentDirection: parentDirection, parentSize: parentSize)
         }
+        .serverModifier(serverModifier: serverRow.modifier, alignment: sizeAlignment, parentDirection: parentDirection, parentSize: parentSize)
     }
 }

@@ -32,8 +32,8 @@ struct SDCard: View {
             VStack(alignment: .leading) {
                 SDContent(items: serverCard.items, parentDirection: .vertical, parentSize: geo.size)
             }
-            .serverModifier(serverModifier: serverCard.modifier, parentDirection: parentDirection, parentSize: parentSize)
-            .shadow(color: Color(UIColor.black.withAlphaComponent(0.08)), radius: 15, x: 0, y: 5)
         }
+        .serverModifier(serverModifier: serverCard.modifier, parentDirection: parentDirection, parentSize: parentSize)
+        .shadow(color: Color(UIColor.black.withAlphaComponent(0.08)), radius: 15, x: 0, y: 5)
     }
 }

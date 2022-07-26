@@ -9,7 +9,12 @@ import Foundation
 import SwiftUI
 
 struct SDSpacer: View {
+    var serverSpacer: ServerSpacer
+    var parentWeightDirection: WeightDirection
+    var parentSize: CGFloat
+    
     var body: some View {
         Spacer()
+            .serverModifier(serverModifier: serverSpacer.modifier, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
     }
 }

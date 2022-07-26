@@ -19,8 +19,8 @@ struct SDContent: View {
                 SDText(serverText: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
             case let item as ServerColumn:
                 SDColumn(serverColumn: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
-            case _ as ServerSpacer:
-                SDSpacer()
+            case let item as ServerSpacer:
+                SDSpacer(serverSpacer: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
             case let item as ServerRow:
                 SDRow(serverRow: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
             case let item as ServerImage:

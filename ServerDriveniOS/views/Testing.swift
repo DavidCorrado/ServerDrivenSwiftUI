@@ -199,7 +199,7 @@ func testing() -> [GenericIdentifiable] {
             paddingEnd: 20,
             paddingTop: 20,
             paddingBottom: 20,
-            weight: 1,
+            weight: 1, // we also need a weight here to fill horizontally, adding this doesn't break android
             backgroundColor: "#ff0000",
             cornerRadius: 20
         ), items: [
@@ -214,6 +214,23 @@ func testing() -> [GenericIdentifiable] {
             ), items: [
                 ServerText(text: "Row Border Background")
             ])
-        ])
+        ]),
+        ServerRow(modifier: ServerModifier(weight: 1), // we need the weight here to fill horizontally
+            items: [
+                ServerSpacer(modifier: ServerModifier(
+                    height: 20, // we don't need a weight here because spacers on iOS take all space by default, tried on android it is also working same if we remove it and att it to ServerRow
+                    backgroundColor: "#0000ff"
+                ))
+        ]),
+        ServerRow(
+            items: [
+                ServerSpacer(),
+                ServerSpacer(modifier: ServerModifier(
+                    width: 50,
+                    height: 20,
+                    backgroundColor: "#0000ff"
+                )),
+                ServerSpacer()
+        ]),
     ]
 }

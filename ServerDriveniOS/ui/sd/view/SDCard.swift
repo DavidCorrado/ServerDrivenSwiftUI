@@ -10,9 +10,10 @@ import SwiftUI
 
 struct SDCard: View {
     var serverCard: ServerCard
-    var parentDirection: ParentDirection
-    var parentSize: CGSize
-    init(serverCard: ServerCard, parentDirection: ParentDirection, parentSize: CGSize) {
+    var parentWeightDirection: ParentWeightDirection
+    var parentSize: CGFloat
+    var parentModifier: ServerModifier?
+    init(serverCard: ServerCard, parentWeightDirection: ParentWeightDirection, parentSize: CGFloat, parentModifier: ServerModifier?) {
         // Provide default values for backgroundColor and cornerRadius if they are empty
         // They can still be overriden by the server
         var serverCard = serverCard
@@ -23,17 +24,19 @@ struct SDCard: View {
             serverCard.modifier?.cornerRadius = 16
         }
         self.serverCard = serverCard
-        self.parentDirection = parentDirection
+        self.parentWeightDirection = parentWeightDirection
         self.parentSize = parentSize
+        self.parentModifier = parentModifier
     }
     
     var body: some View {
-        GeometryReader { geo in
+        SingleAxisGeometryReader(axis: .vertical) { height in
             VStack(alignment: .leading) {
-                SDContent(items: serverCard.items, parentDirection: .vertical, parentSize: geo.size)
+                SDContent(items: serverCard.items, parentWeightDirection: .vertical, parentSize: height, parentModifier: serverCard.modifier)
             }
+            .serverModifier(serverModifier: serverCard.modifier, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentModifier: parentModifier)
+            .shadow(color: Color(UIColor.black.withAlphaComponent(0.08)), radius: 15, x: 0, y: 5)
         }
-        .serverModifier(serverModifier: serverCard.modifier, parentDirection: parentDirection, parentSize: parentSize)
-        .shadow(color: Color(UIColor.black.withAlphaComponent(0.08)), radius: 15, x: 0, y: 5)
+
     }
 }

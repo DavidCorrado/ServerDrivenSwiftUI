@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36965F482890105B00C2B75C /* SingleAxisGeometryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36965F472890105B00C2B75C /* SingleAxisGeometryReader.swift */; };
 		FF22B2EC287CBE3700390642 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF22B2EB287CBE3700390642 /* Testing.swift */; };
 		FFCF2492286E430200B53EB3 /* ServerDriveniOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCF2491286E430200B53EB3 /* ServerDriveniOSApp.swift */; };
 		FFCF2496286E430400B53EB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFCF2495286E430400B53EB3 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36965F472890105B00C2B75C /* SingleAxisGeometryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAxisGeometryReader.swift; sourceTree = "<group>"; };
 		FF22B2EB287CBE3700390642 /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 		FFCF248E286E430200B53EB3 /* ServerDriveniOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServerDriveniOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFCF2491286E430200B53EB3 /* ServerDriveniOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDriveniOSApp.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				FFF4654A28777000007E7A13 /* Entry.swift */,
 				FFF4654F2878E452007E7A13 /* History.swift */,
 				FF22B2EB287CBE3700390642 /* Testing.swift */,
+				36965F472890105B00C2B75C /* SingleAxisGeometryReader.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				FF22B2EC287CBE3700390642 /* Testing.swift in Sources */,
 				FFCF2492286E430200B53EB3 /* ServerDriveniOSApp.swift in Sources */,
 				FFCF24C7286E45D500B53EB3 /* ServerSpacer.swift in Sources */,
+				36965F482890105B00C2B75C /* SingleAxisGeometryReader.swift in Sources */,
 				FFF4654928776E2D007E7A13 /* SDCard.swift in Sources */,
 				FFF4653D28763451007E7A13 /* SDSpacer.swift in Sources */,
 				FFCF24CD286E482F00B53EB3 /* ServerColumn.swift in Sources */,

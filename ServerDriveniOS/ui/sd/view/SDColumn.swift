@@ -10,8 +10,9 @@ import SwiftUI
 
 struct SDColumn: View {
     var serverColumn: ServerColumn
-    var parentDirection: ParentDirection
-    var parentSize: CGSize
+    var parentWeightDirection: ParentWeightDirection
+    var parentSize: CGFloat
+    var parentModifier: ServerModifier?
     var sizeAlignment: Alignment {
         if serverColumn.alignment == .END {
             return .topTrailing
@@ -33,11 +34,11 @@ struct SDColumn: View {
     }
     
     var body: some View {
-        GeometryReader { geo in
+        SingleAxisGeometryReader(axis: .vertical) { height in
             VStack(alignment: stackAlignment, spacing: serverColumn.spacing ?? 0) {
-                SDContent(items: serverColumn.items, parentDirection: .vertical, parentSize: geo.size)
+                SDContent(items: serverColumn.items, parentWeightDirection: .vertical, parentSize: height, parentModifier: serverColumn.modifier)
             }
+            .serverModifier(serverModifier: serverColumn.modifier, alignment: sizeAlignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentModifier: parentModifier)
         }
-        .serverModifier(serverModifier: serverColumn.modifier, alignment: sizeAlignment, parentDirection: parentDirection, parentSize: parentSize)
     }
 }

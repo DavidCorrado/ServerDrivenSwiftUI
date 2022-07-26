@@ -18,10 +18,10 @@ struct ServerDriveniOSApp: App {
 
 struct ContentView: View {
     var body: some View {
-        GeometryReader { geo in
+        SingleAxisGeometryReader(axis: .horizontal) { width in
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 0) {
-                    SDContent(items: testing(), parentDirection: .vertical, parentSize: geo.size)
+                    SDContent(items: testing(), parentWeightDirection: .horizontal, parentSize: width)
                 }
             }
         }

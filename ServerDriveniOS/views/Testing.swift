@@ -199,6 +199,7 @@ func testing() -> [GenericIdentifiable] {
             paddingEnd: 20,
             paddingTop: 20,
             paddingBottom: 20,
+            weight: 1,
             backgroundColor: "#ff0000",
             cornerRadius: 20
         ), items: [
@@ -207,6 +208,7 @@ func testing() -> [GenericIdentifiable] {
                 paddingEnd: 20,
                 paddingTop: 20,
                 paddingBottom: 20,
+                weight: 1,
                 backgroundColor: "#00ff00",
                 cornerRadius: 20
             ), items: [

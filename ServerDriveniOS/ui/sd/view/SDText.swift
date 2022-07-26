@@ -10,8 +10,9 @@ import SwiftUI
 
 struct SDText: View {
     var serverText: ServerText
-    var parentDirection: ParentDirection
-    var parentSize: CGSize
+    var parentWeightDirection: ParentWeightDirection
+    var parentSize: CGFloat
+    var parentModifier: ServerModifier?
     var body: some View {
         Text(serverText.text)
             .foregroundColor(Color(UIColor(withHex: serverText.color ?? "#4C5870")))
@@ -26,6 +27,6 @@ struct SDText: View {
             .modifyIf(serverText.isHeading ?? false, transform: {
                 $0.accessibilityAddTraits(.isHeader)
             })
-            .serverModifier(serverModifier: serverText.modifier, parentDirection: parentDirection, parentSize: parentSize)
+            .serverModifier(serverModifier: serverText.modifier, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentModifier: parentModifier)
     }
 }

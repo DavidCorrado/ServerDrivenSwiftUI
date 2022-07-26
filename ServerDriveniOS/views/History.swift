@@ -10,7 +10,7 @@ import SwiftUI
 
 struct History_Previews: PreviewProvider {
     static var previews: some View {
-        SDContent(items: [ServerColumn(items: [history1(), history2()])])
+        SDContent(items: [ServerColumn(items: [history1(), history2()])], parentDirection: .other, parentSize: .zero)
     }
 }
 

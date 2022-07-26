@@ -20,7 +20,7 @@ struct ContentView: View {
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 0) {
-                SDContent(items: testing())
+                SDContent(items: testing(), parentDirection: .vertical, parentSize: .zero)
             }
         }
     }

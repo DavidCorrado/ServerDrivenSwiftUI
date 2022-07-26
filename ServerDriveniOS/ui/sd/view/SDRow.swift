@@ -10,7 +10,8 @@ import SwiftUI
 
 struct SDRow: View {
     var serverRow: ServerRow
-    
+    var parentDirection: ParentDirection
+    var parentSize: CGSize
     var sizeAlignment: Alignment {
         if serverRow.alignment == .END {
             return .bottomLeading
@@ -32,9 +33,11 @@ struct SDRow: View {
     }
     
     var body: some View {
-        HStack(alignment: stackAlignment, spacing: serverRow.spacing ?? 0) {
-            SDContent(items: serverRow.items)
+        GeometryReader { geo in
+            HStack(alignment: stackAlignment, spacing: serverRow.spacing ?? 0) {
+                SDContent(items: serverRow.items, parentDirection: .horizontal, parentSize: geo.size)
+            }
+            .serverModifier(serverModifier: serverRow.modifier, alignment: sizeAlignment, parentDirection: parentDirection, parentSize: parentSize)
         }
-        .serverModifier(serverModifier: serverRow.modifier, alignment: sizeAlignment)
     }
 }

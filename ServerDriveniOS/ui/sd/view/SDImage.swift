@@ -10,9 +10,11 @@ import SwiftUI
 
 struct SDImage: View {
     var serverImage: ServerImage
+    var parentDirection: ParentDirection
+    var parentSize: CGSize
     var body: some View {
         Image(serverImage.drawableRes)
             .resizable()
-            .serverModifier(serverModifier: serverImage.modifier)
+            .serverModifier(serverModifier: serverImage.modifier, parentDirection: parentDirection, parentSize: parentSize)
     }
 }

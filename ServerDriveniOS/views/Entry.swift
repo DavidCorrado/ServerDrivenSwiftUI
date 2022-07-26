@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Entry_Previews: PreviewProvider {
     static var previews: some View {
-        SDContent(items: [entry()])
+        SDContent(items: [entry()], parentDirection: .other, parentSize: .zero)
     }
 }
 

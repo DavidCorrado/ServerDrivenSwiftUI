@@ -8,13 +8,21 @@
 import Foundation
 import SwiftUI
 
+enum ParentDirection {
+    case vertical
+    case horizontal
+    case other
+}
+
 struct ServerViewModifier: ViewModifier {
     var serverModifier: ServerModifier?
     var alignment: Alignment?
+    var parentDirection: ParentDirection
+    var parentSize: CGSize
     func body(content: Content) -> some View {
         content
             .padding(serverModifier: serverModifier)
-            .size(serverModifier: serverModifier, alignment: alignment)
+            .size(serverModifier: serverModifier, alignment: alignment, parentDirection: parentDirection, parentSize: parentSize)
             .backgroundColor(serverModifier: serverModifier)
             .cornerRadius(serverModifier: serverModifier)
             .accessibilityLabel(serverModifier: serverModifier)
@@ -35,11 +43,27 @@ struct PaddingViewModifier: ViewModifier {
 struct SizeViewModifier: ViewModifier {
     var serverModifier: ServerModifier?
     var alignment: Alignment?
+    var parentDirection: ParentDirection
+    var parentSize: CGSize
     func body(content: Content) -> some View {
         content
-            .modifyIf(serverModifier?.width != nil && serverModifier?.height != nil, transform: {
-                $0.frame(width: serverModifier?.width, height: serverModifier?.height, alignment: alignment ?? .topLeading)
-            })
+            .frame(width: getWidth(), height: getHeight(), alignment: alignment ?? .topLeading)
+    }
+    
+    private func getHeight() -> CGFloat? {
+        var height = serverModifier?.height
+        if let weight = serverModifier?.weight, parentDirection == .vertical {
+            height = parentSize.height * weight
+        }
+        return height
+    }
+    
+    private func getWidth() -> CGFloat? {
+        var width = serverModifier?.width
+        if let weight = serverModifier?.weight, parentDirection == .vertical {
+            width = parentSize.width * weight
+        }
+        return width
     }
 }
 
@@ -76,16 +100,16 @@ struct AccessibilityLabelModifier: ViewModifier {
 }
 
 extension View {
-    func serverModifier(serverModifier: ServerModifier?, alignment: Alignment? = nil) -> some View {
-        modifier(ServerViewModifier(serverModifier: serverModifier, alignment: alignment))
+    func serverModifier(serverModifier: ServerModifier?, alignment: Alignment? = nil, parentDirection: ParentDirection, parentSize: CGSize) -> some View {
+        modifier(ServerViewModifier(serverModifier: serverModifier, alignment: alignment, parentDirection: parentDirection, parentSize: parentSize))
     }
     
     func padding(serverModifier: ServerModifier?) -> some View {
         modifier(PaddingViewModifier(serverModifier: serverModifier))
     }
 
-    func size(serverModifier: ServerModifier?, alignment: Alignment?) -> some View {
-        modifier(SizeViewModifier(serverModifier: serverModifier, alignment: alignment))
+    func size(serverModifier: ServerModifier?, alignment: Alignment?, parentDirection: ParentDirection, parentSize: CGSize) -> some View {
+        modifier(SizeViewModifier(serverModifier: serverModifier, alignment: alignment, parentDirection: parentDirection, parentSize: parentSize))
     }
     
     func backgroundColor(serverModifier: ServerModifier?) -> some View {

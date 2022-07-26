@@ -10,21 +10,23 @@ import SwiftUI
 
 struct SDContent: View {
     var items: [GenericIdentifiable]
+    var parentDirection: ParentDirection
+    var parentSize: CGSize
     var body: some View {
         ForEach(items, id: \.id) { item in
             switch item {
             case let item as ServerText:
-                SDText(serverText: item)
+                SDText(serverText: item, parentDirection: parentDirection, parentSize: parentSize)
             case let item as ServerColumn:
-                SDColumn(serverColumn: item)
+                SDColumn(serverColumn: item, parentDirection: parentDirection, parentSize: parentSize)
             case _ as ServerSpacer:
                 SDSpacer()
             case let item as ServerRow:
-                SDRow(serverRow: item)
+                SDRow(serverRow: item, parentDirection: parentDirection, parentSize: parentSize)
             case let item as ServerImage:
-                SDImage(serverImage: item)
+                SDImage(serverImage: item, parentDirection: parentDirection, parentSize: parentSize)
             case let item as ServerCard:
-                SDCard(serverCard: item)
+                SDCard(serverCard: item, parentDirection: parentDirection, parentSize: parentSize)
             default:
                 Text("Not View Found")
             }

@@ -186,8 +186,8 @@ func testing() -> [GenericIdentifiable] {
                 paddingEnd: 20,
                 paddingTop: 20,
                 paddingBottom: 20,
-                width: 200,
-                height: 200,
+                width: 160, // Those are 200 on Android, but should be 200 - (20 0 2) = 160 on iOS
+                height: 160,
                 backgroundColor: "#00ff00",
                 cornerRadius: 20
             ), items: [
@@ -232,5 +232,53 @@ func testing() -> [GenericIdentifiable] {
                 )),
                 ServerSpacer()
         ]),
+        ServerRow(items: [
+            ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(width: 20, height: 20)),
+            ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(paddingStart: 20, paddingEnd: 20, paddingTop: 20, paddingBottom: 20, width: 20, height: 20)) // This will be squished to zero since  we are adding 20 padding to 20x20 image because of the call order
+        ]),
+        ServerRow(modifier: ServerModifier(weight: 1),
+            items: [
+                ServerText(text: "Left 25", modifier: ServerModifier(weight: 0.25, backgroundColor: "#ff0000")),
+                ServerText(text: "Mid 50", modifier: ServerModifier(weight: 0.5, backgroundColor: "#00ff00")),
+                ServerText(text: "Right 25", modifier: ServerModifier(weight: 0.25, backgroundColor: "#0000ff")),
+        ]),
+        ServerRow(items: [
+            ServerRow(modifier: ServerModifier(width: 200), items: [
+                ServerText(text: "Left 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#ff0000")),
+                ServerText(text: "Mid 50 is going to get really long", modifier: ServerModifier(weight: 0.5, backgroundColor: "#00ff00")),
+                ServerText(text: "Right 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#0000ff")),
+            ])
+        ]),
+        ServerCard(modifier: ServerModifier(
+            paddingStart: 20,
+            paddingEnd: 20,
+            paddingTop: 20,
+            paddingBottom: 20,
+            backgroundColor: "#ff0000",
+            cornerRadius: 60
+        ),items: [
+            ServerText(text: "Card BG", modifier: ServerModifier(backgroundColor: "#ff0000"))
+        ]),
+        ServerRow(items: [
+            ServerText(text: "Text is going to get really long.Left 30 is going to get really long", modifier: ServerModifier(backgroundColor: "#ff0000")),
+            ServerText(text: "Text", modifier: ServerModifier(backgroundColor: "#00ff00"))
+        ]),
+        ServerRow(modifier: ServerModifier(weight: 1), // We need to define a weight here otherwise spacer will only fill the serverrow which has no weight
+            items: [
+            ServerSpacer(modifier: ServerModifier(
+                paddingStart: 20, paddingEnd: 20, paddingTop: 20, paddingBottom: 20, weight: 1, backgroundColor: "#ff0000", cornerRadius: 20
+            ))
+        ]),
+        ServerText(
+            text: "Test",
+            modifier: ServerModifier(
+                paddingStart: 20,
+                paddingEnd: 20,
+                paddingTop: 20,
+                paddingBottom: 20,
+                backgroundColor: "#ff0000",
+                cornerRadius: 60
+            )
+        ),
     ]
 }

@@ -13,6 +13,7 @@ enum ServerItemType {
     case CARD
     case ROW
     case COLUMN
+    case BOX
     case IMAGE
     case BUBBLE
 }

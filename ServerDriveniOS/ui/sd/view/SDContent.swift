@@ -27,6 +27,8 @@ struct SDContent: View {
                 SDImage(serverImage: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
             case let item as ServerCard:
                 SDCard(serverCard: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+            case let item as ServerBox:
+                SDBox(serverBox: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
             default:
                 Text("Not View Found")
             }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		364DBE2728927136007C91F9 /* ServerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364DBE2628927136007C91F9 /* ServerBox.swift */; };
+		364DBE2928927379007C91F9 /* SDBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364DBE2828927379007C91F9 /* SDBox.swift */; };
 		36965F482890105B00C2B75C /* SingleAxisGeometryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36965F472890105B00C2B75C /* SingleAxisGeometryReader.swift */; };
 		36965F4A2890273400C2B75C /* ServerWeightedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36965F492890273400C2B75C /* ServerWeightedContainer.swift */; };
 		36965F4C2890277500C2B75C /* SDWeightedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36965F4B2890277500C2B75C /* SDWeightedContainer.swift */; };
@@ -60,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		364DBE2628927136007C91F9 /* ServerBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerBox.swift; sourceTree = "<group>"; };
+		364DBE2828927379007C91F9 /* SDBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDBox.swift; sourceTree = "<group>"; };
 		36965F472890105B00C2B75C /* SingleAxisGeometryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAxisGeometryReader.swift; sourceTree = "<group>"; };
 		36965F492890273400C2B75C /* ServerWeightedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerWeightedContainer.swift; sourceTree = "<group>"; };
 		36965F4B2890277500C2B75C /* SDWeightedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDWeightedContainer.swift; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 				FFCF24CE286E487700B53EB3 /* ServerCard.swift */,
 				FFCF24D0286E48AE00B53EB3 /* ServerBubble.swift */,
 				36965F492890273400C2B75C /* ServerWeightedContainer.swift */,
+				364DBE2628927136007C91F9 /* ServerBox.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 				FFF4654628776972007E7A13 /* SDImage.swift */,
 				FFF4654828776E2D007E7A13 /* SDCard.swift */,
 				36965F4B2890277500C2B75C /* SDWeightedContainer.swift */,
+				364DBE2828927379007C91F9 /* SDBox.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				364DBE2728927136007C91F9 /* ServerBox.swift in Sources */,
 				FFF4653928762F88007E7A13 /* SDRow.swift in Sources */,
 				FFCF24D1286E48AE00B53EB3 /* ServerBubble.swift in Sources */,
 				FFF4654E2878C201007E7A13 /* ColorExtension.swift in Sources */,
@@ -406,6 +413,7 @@
 				FFF4653728761D85007E7A13 /* GenericIdentifiable.swift in Sources */,
 				FFCF24D6286E4BC600B53EB3 /* Counter.swift in Sources */,
 				FFCF24C9286E477100B53EB3 /* ServerRow.swift in Sources */,
+				364DBE2928927379007C91F9 /* SDBox.swift in Sources */,
 				FFF4654B28777000007E7A13 /* Entry.swift in Sources */,
 				36965F4A2890273400C2B75C /* ServerWeightedContainer.swift in Sources */,
 				FFCF24CB286E47DB00B53EB3 /* ServerImage.swift in Sources */,

@@ -25,6 +25,7 @@ struct ServerViewModifier: ViewModifier {
         content
             .padding(serverModifier: serverModifier)
             .size(serverModifier: serverModifier, alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+            .aspectRatio(serverModifier: serverModifier)
             .backgroundColor(serverModifier: serverModifier)
             .cornerRadius(serverModifier: serverModifier)
             .accessibilityLabel(serverModifier: serverModifier)
@@ -71,6 +72,17 @@ struct SizeViewModifier: ViewModifier {
     }
 }
 
+struct AspectRatioModifier: ViewModifier {
+    var serverModifier: ServerModifier?
+    func body(content: Content) -> some View {
+        content
+            .modifyIf(serverModifier?.aspectRatio != nil, transform: {
+                // content mode can conflict with the image content mode
+                $0.aspectRatio(serverModifier!.wrappedAspectRatio!, contentMode: .fill)
+            })
+    }
+}
+
 struct BackgroundColorViewModifier: ViewModifier {
     var serverModifier: ServerModifier?
     func body(content: Content) -> some View {
@@ -114,6 +126,10 @@ extension View {
 
     func size(serverModifier: ServerModifier?, alignment: Alignment?, parentWeightDirection: WeightDirection, parentSize: CGFloat) -> some View {
         modifier(SizeViewModifier(serverModifier: serverModifier, alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize))
+    }
+    
+    func aspectRatio(serverModifier: ServerModifier?) -> some View {
+        modifier(AspectRatioModifier(serverModifier: serverModifier))
     }
     
     func backgroundColor(serverModifier: ServerModifier?) -> some View {

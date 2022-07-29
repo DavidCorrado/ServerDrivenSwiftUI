@@ -280,5 +280,6 @@ func testing() -> [GenericIdentifiable] {
                 cornerRadius: 60
             )
         ),
+        ServerImage(drawableRes: "Running", tint: "#ff0000", modifier: ServerModifier(width: 20, height: 20)),
     ]
 }

@@ -10,4 +10,5 @@ import Foundation
 enum ServerAlignment {
     case CENTER
     case END
+    case START
 }

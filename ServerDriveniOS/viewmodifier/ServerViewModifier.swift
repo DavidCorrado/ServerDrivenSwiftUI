@@ -70,10 +70,6 @@ struct SizeViewModifier: ViewModifier {
             width = parentSize * weight // Calculate width from the available width of the parent
         }
         
-        if serverModifier?.aspectRatio == 1.2, serverModifier?.backgroundColor != nil {
-            print(width)
-        }
-        
         return width
     }
 }

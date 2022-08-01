@@ -17,7 +17,6 @@ struct SDImage: View {
             .renderingMode(serverImage.tint != nil ? .template: .original)
             .resizable()
             .serverModifier(serverModifier: serverImage.modifier, alignment: serverImage.alignment?.alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
-            
             .modifyIf(serverImage.tint != nil, transform: {
                 $0.foregroundColor(Color(UIColor(withHex: serverImage.tint!)))
             })

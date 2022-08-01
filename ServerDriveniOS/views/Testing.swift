@@ -281,5 +281,68 @@ func testing() -> [GenericIdentifiable] {
             )
         ),
         ServerImage(drawableRes: "Running", tint: "#ff0000", modifier: ServerModifier(width: 20, height: 20)),
+        ServerColumn(modifier: ServerModifier(weight: 1), items: [
+            ServerBox(modifier: ServerModifier(weight: 1),items: [
+                ServerRow(modifier: ServerModifier(weight: 1), items: [
+                    ServerImage(drawableRes: "Background", contentScale: .FILL_HEIGHT, alignment: .TOP_END, modifier: ServerModifier(weight: 1, aspectRatio: 1.2))
+                ]),
+                ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#0000FF", aspectRatio: 1.2), // This does not fill screen width with weight since it is in vertical stack, aspect ratio also not working for some reason
+                    items: [
+                    ServerText(text: "Overlay", modifier: ServerModifier(backgroundColor: "#FF0000")),
+                    ServerSpacer(),
+                    ServerText(text: "Overlay", modifier: ServerModifier(backgroundColor: "#FF0000"))
+                ])
+            ])
+        
+        ])
     ]
+    
+    
+    
+    /*
+     
+     ServerColumn(
+         items = listOf(
+             ServerBox(
+                 items = listOf(
+                     ServerRow(
+                         items = listOf(
+                             ServerImage(
+                                 drawableRes = R.drawable.ic_background,
+                                 alignment = ImageAlignment.TOP_END,
+                                 modifier = ServerModifier(
+                                     weight = 1f,
+                                     aspectRatio = 1.2f
+                                 ),
+                                 contentScale = ImageContentScale.FILL_HEIGHT
+                             )
+                         )
+                     ),
+                     ServerColumn(
+                         items = listOf(
+                             ServerText(
+                                 text = "Overlay",
+                                 modifier = ServerModifier(backgroundColor = "#FF0000")
+                             ),
+                             ServerSpacer(),
+                             ServerText(
+                                 text = "Overlay",
+                                 modifier = ServerModifier(backgroundColor = "#FF0000")
+                             ),
+                         ),
+                         modifier = ServerModifier(
+                             weight = 1f,
+                             aspectRatio = 1.2f
+                         ),
+                     )
+
+                 )
+             ),
+         )
+     )
+     
+     
+     */
+    
+    
 }

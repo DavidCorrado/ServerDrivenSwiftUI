@@ -14,8 +14,8 @@ struct SDBox: View {
     var parentSize: CGFloat
 
     var body: some View {
-        ZStack {
-            SDContent(items: serverBox.items, parentWeightDirection: .none, parentSize: .zero)
+        ZStack(alignment: .topLeading) { // Should this be top leading as hardcoded?
+            SDContent(items: serverBox.items, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
                 .serverModifier(serverModifier: serverBox.modifier, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
         }
     }

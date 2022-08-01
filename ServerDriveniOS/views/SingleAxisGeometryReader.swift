@@ -11,7 +11,7 @@ import SwiftUI
 // May need a performance-wise inspection
 struct SingleAxisGeometryReader<Content: View>: View {
     private struct SizeKey: PreferenceKey {
-        static var defaultValue: CGFloat { 10 }
+        static var defaultValue: CGFloat { 0 }
         static func reduce(value: inout CGFloat, nextValue: () -> CGFloat)
         {
             value = max(value, nextValue())

@@ -56,18 +56,24 @@ struct SizeViewModifier: ViewModifier {
     private func getHeight() -> CGFloat? {
         var height = serverModifier?.height // Take fixed height first
         // If there is no fixed height, but view has a weight and can grow vertically with weight calculate new height
-        if height == nil, let weight = serverModifier?.weight, parentWeightDirection == .vertical {
+        if height == nil, let weight = serverModifier?.weight, parentWeightDirection == .vertical, parentSize > 0 {
             height = parentSize * weight // Calculate height from the available height of the parent
         }
+        
         return height
     }
     
     private func getWidth() -> CGFloat? {
         var width = serverModifier?.width
         // If there is no fixed width, but view has a weight and can grow horizontally with weight calculate new height
-        if width == nil, let weight = serverModifier?.weight, parentWeightDirection == .horizontal {
+        if width == nil, let weight = serverModifier?.weight, parentWeightDirection == .horizontal, parentSize > 0 {
             width = parentSize * weight // Calculate width from the available width of the parent
         }
+        
+        if serverModifier?.aspectRatio == 1.2, serverModifier?.backgroundColor != nil {
+            print(width)
+        }
+        
         return width
     }
 }

@@ -53,21 +53,29 @@ struct SizeViewModifier: ViewModifier {
             .frame(width: getWidth(), height: getHeight(), alignment: alignment ?? .topLeading)
     }
     
-    private func getHeight() -> CGFloat? {
+    private func getHeight(ignoreAspectRatio: Bool = false) -> CGFloat? {
         var height = serverModifier?.height // Take fixed height first
         // If there is no fixed height, but view has a weight and can grow vertically with weight calculate new height
         if height == nil, let weight = serverModifier?.weight, parentWeightDirection == .vertical, parentSize > 0 {
             height = parentSize * weight // Calculate height from the available height of the parent
         }
+        // Manually calculate height for aspect ratio if we have manually calculated width and there is no height
+        if ignoreAspectRatio == false, let aspectRatio = serverModifier?.aspectRatio, height == nil, let width = getWidth(ignoreAspectRatio: true) {
+            height = width / CGFloat(aspectRatio)
+        }
         
         return height
     }
     
-    private func getWidth() -> CGFloat? {
+    private func getWidth(ignoreAspectRatio: Bool = false) -> CGFloat? {
         var width = serverModifier?.width
         // If there is no fixed width, but view has a weight and can grow horizontally with weight calculate new height
         if width == nil, let weight = serverModifier?.weight, parentWeightDirection == .horizontal, parentSize > 0 {
             width = parentSize * weight // Calculate width from the available width of the parent
+        }
+        // Manually calculate width for aspect ratio if we have manually calculated height and there is no width
+        if ignoreAspectRatio == false, let aspectRatio = serverModifier?.aspectRatio, width == nil, let height = getHeight(ignoreAspectRatio: true) {
+            width = height * CGFloat(aspectRatio)
         }
         
         return width

@@ -286,7 +286,7 @@ func testing() -> [GenericIdentifiable] {
                 ServerRow(modifier: ServerModifier(weight: 1), items: [
                     ServerImage(drawableRes: "Background", contentScale: .FILL_HEIGHT, alignment: .TOP_END, modifier: ServerModifier(weight: 1, aspectRatio: 1.2))
                 ]),
-                ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#0000FF", aspectRatio: 1.2), // This does not fill screen width with weight since it is in vertical stack, aspect ratio also not working for some reason
+                ServerColumn(modifier: ServerModifier(weight: 1, aspectRatio: 1.2), // Normally aspectRatio modifier only works for images (also maybe shapes) on swiftui, I added manual calculations for it but it only runs if server view size is calculated manually (if view has a fixed height or fixed width or a weight)
                     items: [
                     ServerText(text: "Overlay", modifier: ServerModifier(backgroundColor: "#FF0000")),
                     ServerSpacer(),
@@ -294,7 +294,7 @@ func testing() -> [GenericIdentifiable] {
                 ])
             ])
         
-        ])
+        ]),
     ]
     
     

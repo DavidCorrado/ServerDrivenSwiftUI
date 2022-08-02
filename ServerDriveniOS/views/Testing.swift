@@ -295,54 +295,176 @@ func testing() -> [GenericIdentifiable] {
             ])
         
         ]),
+        ServerColumn(modifier: ServerModifier(weight: 1), items: [ // need weight on nested views if child has weight because child can only fill its parent
+            ServerBox(modifier: ServerModifier(weight: 1),items: [
+                ServerRow(modifier: ServerModifier(weight: 1), items: [
+                    ServerImage(drawableRes: "Background", contentScale: .FILL_HEIGHT, alignment: .BOTTOM_END, modifier: ServerModifier(weight: 1, aspectRatio: 3))
+                ]),
+                ServerRow(modifier: ServerModifier(weight: 1, aspectRatio: 3), // Normally aspectRatio modifier only works for images (also maybe shapes) on swiftui, I added manual calculations for it but it only runs if server view size is calculated manually (if view has a fixed height or fixed width or a weight)
+                    items: [
+                    ServerText(text: "Overlay", modifier: ServerModifier(backgroundColor: "#FF0000")),
+                    ServerSpacer(),
+                    ServerText(text: "Overlay", modifier: ServerModifier(backgroundColor: "#FF0000"))
+                ])
+            ])
+        ]),
+        ServerRow(modifier: ServerModifier(height: 150, weight: 1, backgroundColor: "00ffff"), items: [
+            ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
+                ServerRow(modifier: ServerModifier(weight: 0.5, backgroundColor: "#ff0000"), items: [
+                    ServerText(text: "row/column/row/text", modifier: ServerModifier(backgroundColor: "#ffff00"))
+                ]),
+                ServerRow(modifier: ServerModifier(weight: 0.5, backgroundColor: "#0000ff"), items: [
+                    ServerText(text: "row/column/row/text", modifier: ServerModifier(backgroundColor: "#ffff00"))
+                ])
+            ])
+        ]),
+        ServerSpacer(modifier: ServerModifier(height: 20)),
+        ServerRow(modifier: ServerModifier(weight: 1, backgroundColor: "00ffff"), items: [
+            ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
+                ServerRow(modifier: ServerModifier(weight: 0.45, backgroundColor: "#ff0000"), items: [
+                    ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
+                        ServerText(text: "row/column/row/column/text", modifier: ServerModifier(backgroundColor: "#ffff00")),
+                        ServerText(text: "row/column/row/column/text", modifier: ServerModifier(backgroundColor: "#ffff00")),
+                        ServerText(text: "row/column/row/column/text", modifier: ServerModifier(backgroundColor: "#ffff00"))
+                    ])
+                ]),
+                ServerSpacer(modifier: ServerModifier(weight: 0.1)), // We can't use fixes sized spacer here, it will break the weight calculations
+                ServerRow(modifier: ServerModifier(weight: 0.45, backgroundColor: "#0000ff"), items: [
+                    ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
+                        ServerText(text: "row/column/row/column/text", modifier: ServerModifier(backgroundColor: "#ffff00")),
+                        ServerText(text: "row/column/row/column/text", modifier: ServerModifier(backgroundColor: "#ffff00")),
+                        ServerText(text: "row/column/row/column/text", modifier: ServerModifier(backgroundColor: "#ffff00"))
+                    ])
+                ])
+            ])
+        ]),
+        
+        ServerColumn(modifier: ServerModifier(paddingStart: 40, paddingEnd: 40, paddingTop: 40, paddingBottom: 40, weight: 1, backgroundColor: "#808080"), items: [
+            ServerRow(modifier: ServerModifier(weight: 0.2, backgroundColor: "008000"), items: [
+                ServerColumn(modifier: ServerModifier(weight: 0.2, backgroundColor: "0000ff"), items: [ // Somehow this blue column going out of bounds of green row, with dynamic sized views custom weight calculations are not working since we can't know the final size of the view if it is dynamic
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ]),
+                ServerSpacer(modifier: ServerModifier(weight: 0.2)), // Spacers will fixes sizes will not work here since custom weight code will not consider their sizes
+                ServerColumn(modifier: ServerModifier(weight: 0.2), items: [
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ]),
+                ServerSpacer(modifier: ServerModifier(weight: 0.2)),
+                ServerColumn(modifier: ServerModifier(weight: 0.2), items: [
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ])
+            ]),
+            ServerSpacer(modifier: ServerModifier(weight: 0.2)),
+            ServerRow(modifier: ServerModifier(weight: 0.2, backgroundColor: "008000"), items: [
+                ServerColumn(modifier: ServerModifier(weight: 0.2), items: [
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ]),
+                ServerSpacer(modifier: ServerModifier(weight: 0.2)),
+                ServerColumn(modifier: ServerModifier(weight: 0.2), items: [
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ]),
+                ServerSpacer(modifier: ServerModifier(weight: 0.2)),
+                ServerColumn(modifier: ServerModifier(weight: 0.2), items: [
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ])
+            ]),
+            ServerSpacer(modifier: ServerModifier(weight: 0.2)),
+            ServerRow(modifier: ServerModifier(weight: 0.2, backgroundColor: "008000"), items: [
+                ServerColumn(modifier: ServerModifier(weight: 0.2), items: [
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ]),
+                ServerSpacer(modifier: ServerModifier(weight: 0.2)),
+                ServerColumn(modifier: ServerModifier(weight: 0.2), items: [
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ]),
+                ServerSpacer(modifier: ServerModifier(weight: 0.2)),
+                ServerColumn(modifier: ServerModifier(weight: 0.2), items: [
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ])
+            ])
+        ]),
+        ServerSpacer(),
+        
+        // Same with the above but without weights
+        ServerColumn(modifier: ServerModifier(paddingStart: 40, paddingEnd: 40, paddingTop: 40, paddingBottom: 40, weight: 1, backgroundColor: "#808080"), items: [
+            ServerRow(modifier: ServerModifier(weight: nil, backgroundColor: "008000"), items: [
+                ServerColumn(modifier: ServerModifier(weight: nil), items: [
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ]),
+                ServerSpacer(modifier: ServerModifier(weight: nil)),
+                ServerColumn(modifier: ServerModifier(weight: nil), items: [
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ]),
+                ServerSpacer(modifier: ServerModifier(weight: nil)),
+                ServerColumn(modifier: ServerModifier(weight: nil), items: [
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ])
+            ]),
+            ServerSpacer(modifier: ServerModifier(weight: nil)),
+            ServerRow(modifier: ServerModifier(weight: nil, backgroundColor: "008000"), items: [
+                ServerColumn(modifier: ServerModifier(weight: nil), items: [
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ]),
+                ServerSpacer(modifier: ServerModifier(weight: nil)),
+                ServerColumn(modifier: ServerModifier(weight: nil), items: [
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ]),
+                ServerSpacer(modifier: ServerModifier(weight: nil)),
+                ServerColumn(modifier: ServerModifier(weight: nil), items: [
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ])
+            ]),
+            ServerSpacer(modifier: ServerModifier(weight: nil)),
+            ServerRow(modifier: ServerModifier(weight: nil, backgroundColor: "008000"), items: [
+                ServerColumn(modifier: ServerModifier(weight: nil), items: [
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ]),
+                ServerSpacer(modifier: ServerModifier(weight: nil)),
+                ServerColumn(modifier: ServerModifier(weight: nil), items: [
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ]),
+                ServerSpacer(modifier: ServerModifier(weight: nil)),
+                ServerColumn(modifier: ServerModifier(weight: nil), items: [
+                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
+                    ServerSpacer(modifier: ServerModifier(height: 10)),
+                    ServerText(text: "Disappointed")
+                ])
+            ])
+        ])
+        
+        
     ]
-    
-    
-    
-    /*
-     
-     ServerColumn(
-         items = listOf(
-             ServerBox(
-                 items = listOf(
-                     ServerRow(
-                         items = listOf(
-                             ServerImage(
-                                 drawableRes = R.drawable.ic_background,
-                                 alignment = ImageAlignment.TOP_END,
-                                 modifier = ServerModifier(
-                                     weight = 1f,
-                                     aspectRatio = 1.2f
-                                 ),
-                                 contentScale = ImageContentScale.FILL_HEIGHT
-                             )
-                         )
-                     ),
-                     ServerColumn(
-                         items = listOf(
-                             ServerText(
-                                 text = "Overlay",
-                                 modifier = ServerModifier(backgroundColor = "#FF0000")
-                             ),
-                             ServerSpacer(),
-                             ServerText(
-                                 text = "Overlay",
-                                 modifier = ServerModifier(backgroundColor = "#FF0000")
-                             ),
-                         ),
-                         modifier = ServerModifier(
-                             weight = 1f,
-                             aspectRatio = 1.2f
-                         ),
-                     )
-
-                 )
-             ),
-         )
-     )
-     
-     
-     */
-    
-    
 }

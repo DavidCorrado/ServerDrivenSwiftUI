@@ -463,6 +463,34 @@ func testing() -> [GenericIdentifiable] {
                     ServerText(text: "Disappointed")
                 ])
             ])
+        ]),
+        ServerBox(modifier: ServerModifier(weight: 1), items: [
+            ServerImage(drawableRes: "Background"),
+            ServerColumn(alignment: .CENTER ,items: [
+                ServerRow(alignment: .CENTER, items: [
+                    ServerText(text: "Centered Text Alignment", color: "ffffff")
+                ])
+            ])
+        ]),
+        ServerBox(modifier: ServerModifier(weight: 1), items: [
+            ServerImage(drawableRes: "Background"),
+            ServerColumn(modifier: ServerModifier(weight: 1), alignment: .CENTER ,items: [
+                ServerRow(modifier: ServerModifier(weight: 1), alignment: .CENTER, items: [
+                    ServerText(text: "Centered Text Alignment + Weight", color: "ffffff")
+                ])
+            ])
+        ]),
+        ServerBox(modifier: ServerModifier(weight: 1), items: [
+            ServerImage(drawableRes: "Background"),
+            ServerColumn(items: [
+                ServerSpacer(),
+                ServerRow(items: [
+                    ServerSpacer(),
+                    ServerText(text: "Centered Text Spacers", color: "ffffff"),
+                    ServerSpacer()
+                ]),
+                ServerSpacer()
+            ])
         ])
         
         

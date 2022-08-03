@@ -339,6 +339,7 @@ func testing() -> [GenericIdentifiable] {
         ]),
         ServerSpacer(modifier: ServerModifier(height: 20)),
         ServerRow(modifier: ServerModifier(weight: 1, backgroundColor: "00ffff"), items: [
+            // Since this column has no fixed height and we used weights, last text (row/column/row/column/text) goings out of bounds, it will get more buggy if we add more views
             ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
                 ServerRow(modifier: ServerModifier(weight: 0.45, backgroundColor: "#ff0000"), items: [
                     ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
@@ -357,7 +358,7 @@ func testing() -> [GenericIdentifiable] {
                 ])
             ])
         ]),
-        
+        ServerSpacer(modifier: ServerModifier(height: 20)),
         ServerColumn(modifier: ServerModifier(paddingStart: 40, paddingEnd: 40, paddingTop: 40, paddingBottom: 40, weight: 1, backgroundColor: "#808080"), items: [
             ServerRow(modifier: ServerModifier(weight: 0.2, backgroundColor: "008000"), items: [
                 ServerColumn(modifier: ServerModifier(weight: 0.2, backgroundColor: "0000ff"), items: [ // Somehow this blue column going out of bounds of green row, with dynamic sized views custom weight calculations are not working since we can't know the final size of the view if it is dynamic
@@ -419,7 +420,7 @@ func testing() -> [GenericIdentifiable] {
                 ])
             ])
         ]),
-        ServerSpacer(),
+        ServerSpacer(modifier: ServerModifier(height: 20)),
         
         // Same with the above but without weights
         ServerColumn(modifier: ServerModifier(paddingStart: 40, paddingEnd: 40, paddingTop: 40, paddingBottom: 40, weight: 1, backgroundColor: "#808080"), items: [

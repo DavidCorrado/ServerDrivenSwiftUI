@@ -9,4 +9,5 @@ import Foundation
 
 protocol GenericIdentifiable {
     var id: UUID { get }
+    var modifier: ServerModifier? { get }
 }

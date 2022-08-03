@@ -242,12 +242,31 @@ func testing() -> [GenericIdentifiable] {
                 ServerText(text: "Mid 50", modifier: ServerModifier(weight: 0.5, backgroundColor: "#00ff00")),
                 ServerText(text: "Right 25", modifier: ServerModifier(weight: 0.25, backgroundColor: "#0000ff")),
         ]),
+        ServerSpacer(modifier: ServerModifier(height: 10)),
         ServerRow(items: [
             ServerRow(modifier: ServerModifier(width: 200), items: [
                 ServerText(text: "Left 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#ff0000")),
                 ServerText(text: "Mid 50 is going to get really long", modifier: ServerModifier(weight: 0.5, backgroundColor: "#00ff00")),
                 ServerText(text: "Right 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#0000ff")),
             ])
+        ]),
+        ServerSpacer(modifier: ServerModifier(height: 10)),
+        ServerRow(modifier: ServerModifier(weight: 1), items: [
+            ServerText(text: "Left 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#ff0000")),
+            ServerText(text: "Mid 50 is going to get really long", modifier: ServerModifier(weight: 0.5, backgroundColor: "#00ff00")),
+            ServerText(text: "Right 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#0000ff")),
+        ]),
+        ServerSpacer(modifier: ServerModifier(height: 10)),
+        ServerColumn(modifier: ServerModifier(weight: 1), items: [ // This case also fails on Android, dynamic sized view with weights in container direction
+            ServerText(text: "Top 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#ff0000")),
+            ServerText(text: "Mid 50 is going to get really long", modifier: ServerModifier(weight: 0.5, backgroundColor: "#00ff00")),
+            ServerText(text: "Bottom 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#0000ff")),
+        ]),
+        ServerSpacer(modifier: ServerModifier(height: 10)),
+        ServerColumn(modifier: ServerModifier(height: 200, weight: 1), items: [
+            ServerText(text: "Top 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#ff0000")),
+            ServerText(text: "Mid 50 is going to get really long", modifier: ServerModifier(weight: 0.5, backgroundColor: "#00ff00")),
+            ServerText(text: "Bottom 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#0000ff")),
         ]),
         ServerCard(modifier: ServerModifier(
             paddingStart: 20,

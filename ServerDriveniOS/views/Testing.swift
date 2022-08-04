@@ -116,6 +116,18 @@ func testing() -> [GenericIdentifiable] {
             ServerText(text: "Row Padding HW"),
             ServerText(text: "Row 2")
         ]),
+        ServerRow(spacing: 20, modifier: ServerModifier(
+            paddingStart: 30,
+            paddingEnd: 30,
+            paddingTop: 30,
+            paddingBottom: 30,
+            backgroundColor: "#ffff00",
+            cornerRadius: 5
+        ),
+        items: [
+            ServerText(text: "Row Padding HW"),
+            ServerText(text: "Row 2")
+        ]),
         ServerColumn(spacing: 20, modifier: ServerModifier(
             paddingStart: 30,
             paddingEnd: 30,
@@ -241,6 +253,34 @@ func testing() -> [GenericIdentifiable] {
                 ServerText(text: "Left 25", modifier: ServerModifier(weight: 0.25, backgroundColor: "#ff0000")),
                 ServerText(text: "Mid 50", modifier: ServerModifier(weight: 0.5, backgroundColor: "#00ff00")),
                 ServerText(text: "Right 25", modifier: ServerModifier(weight: 0.25, backgroundColor: "#0000ff")),
+        ]),
+        ServerSpacer(modifier: ServerModifier(height: 10)),
+        ServerRow(modifier: ServerModifier(weight: 1),
+            items: [
+                ServerText(text: "Left 25", modifier: ServerModifier(
+                    paddingStart: 20,
+                    paddingEnd: 20,
+                    paddingTop: 20,
+                    paddingBottom: 20,
+                    weight: 0.25,
+                    backgroundColor: "#ff0000"
+                )),
+                ServerText(text: "Mid 50", modifier: ServerModifier(
+                    paddingStart: 20,
+                    paddingEnd: 20,
+                    paddingTop: 20,
+                    paddingBottom: 20,
+                    weight: 0.5,
+                    backgroundColor: "#00ff00"
+                )),
+                ServerText(text: "Right 25", modifier: ServerModifier(
+                    paddingStart: 20,
+                    paddingEnd: 20,
+                    paddingTop: 20,
+                    paddingBottom: 20,
+                    weight: 0.25,
+                    backgroundColor: "#0000ff"
+                )),
         ]),
         ServerSpacer(modifier: ServerModifier(height: 10)),
         ServerRow(items: [

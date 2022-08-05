@@ -227,6 +227,79 @@ func testing() -> [GenericIdentifiable] {
                 ServerText(text: "Row Border Background")
             ])
         ]),
+        ServerRow(modifier: ServerModifier(
+            paddingStart: 20,
+            paddingEnd: 20,
+            paddingTop: 20,
+            paddingBottom: 20,
+            weight: 1, // we also need a weight here to fill horizontally, adding this doesn't break android
+            backgroundColor: "#ff0000",
+            cornerRadius: 20
+        ), items: [
+            ServerColumn(modifier: ServerModifier(
+                paddingStart: 20,
+                paddingEnd: 20,
+                paddingTop: 20,
+                paddingBottom: 20,
+                weight: 1,
+                backgroundColor: "#00ff00",
+                cornerRadius: 20
+            ), items: [
+                ServerText(text: "Column Border Background")
+            ])
+        ]),
+        ServerRow(modifier: ServerModifier(
+            paddingStart: 20,
+            paddingEnd: 20,
+            paddingTop: 20,
+            paddingBottom: 20,
+            weight: 1, // we also need a weight here to fill horizontally, adding this doesn't break android
+            backgroundColor: "#ff0000",
+            cornerRadius: 20
+        ), items: [
+            ServerColumn(modifier: ServerModifier(
+                paddingStart: 20,
+                paddingEnd: 20,
+                paddingTop: 20,
+                paddingBottom: 20,
+                weight: 1,
+                backgroundColor: "#00ff00",
+                cornerRadius: 20
+            ), items: [
+                ServerRow(modifier: ServerModifier(
+                    paddingStart: 20,
+                    paddingEnd: 20,
+                    paddingTop: 20,
+                    paddingBottom: 20,
+                    weight: 1,
+                    backgroundColor: "#00ff00",
+                    cornerRadius: 20
+                ), items: [
+                    ServerText(text: "Row/Col/Row Border Background")
+                ])
+            ])
+        ]),
+        ServerRow(modifier: ServerModifier(
+            paddingStart: 20,
+            paddingEnd: 20,
+            paddingTop: 20,
+            paddingBottom: 20,
+            weight: 1.0, // we also need a weight here to fill horizontally, adding this doesn't break android
+            backgroundColor: "#ff0000",
+            cornerRadius: 20
+        ), items: [
+            ServerRow(modifier: ServerModifier(
+                paddingStart: 20,
+                paddingEnd: 20,
+                paddingTop: 20,
+                paddingBottom: 20,
+                weight: 0.25,
+                backgroundColor: "#00ff00",
+                cornerRadius: 20
+            ), items: [
+                ServerText(text: "Row Border Background")
+            ])
+        ]),
         ServerRow(modifier: ServerModifier(weight: 1), // we need the weight here to fill horizontally
             items: [
                 ServerSpacer(modifier: ServerModifier(

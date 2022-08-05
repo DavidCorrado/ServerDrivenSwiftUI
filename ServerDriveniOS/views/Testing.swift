@@ -321,6 +321,38 @@ func testing() -> [GenericIdentifiable] {
                 ]),
             ])
         ]),
+        ServerColumn(modifier: ServerModifier(
+            paddingStart: 20,
+            paddingEnd: 20,
+            paddingTop: 20,
+            paddingBottom: 20,
+            weight: 1,
+            backgroundColor: "#00ff00",
+            cornerRadius: 20
+        ), items: [
+            ServerRow(modifier: ServerModifier(
+                paddingStart: 20,
+                paddingEnd: 20,
+                paddingTop: 20,
+                paddingBottom: 20,
+                weight: 0.5,
+                backgroundColor: "#ffff00",
+                cornerRadius: 20
+            ), items: [
+                ServerText(text: "Row/Col/Row Border Background with a really long text that can be very long and multiple lines for sure")
+            ]),
+            ServerRow(modifier: ServerModifier(
+                paddingStart: 20,
+                paddingEnd: 20,
+                paddingTop: 20,
+                paddingBottom: 20,
+                weight: 0.5,
+                backgroundColor: "#00ffff",
+                cornerRadius: 20
+            ), items: [
+                ServerText(text: "Row/Col/Row Border Background with a really long text that can be very long and multiple lines for sure")
+            ]),
+        ]),
         ServerRow(modifier: ServerModifier(
             paddingStart: 20,
             paddingEnd: 20,

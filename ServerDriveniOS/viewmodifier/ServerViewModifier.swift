@@ -153,8 +153,7 @@ extension View {
     }
 
     func size(serverModifier: ServerModifier?, weight: CGFloat?, alignment: Alignment?, parentWeightDirection: WeightDirection, parentSize: CGFloat, parentTotalWeight: CGFloat?) -> some View {
-        print("\(weight): \(parentTotalWeight)")
-        return modifier(SizeViewModifier(serverModifier: serverModifier, weight: weight, alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight))
+        modifier(SizeViewModifier(serverModifier: serverModifier, weight: weight, alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight))
     }
     
     func aspectRatio(serverModifier: ServerModifier?) -> some View {

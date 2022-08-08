@@ -31,6 +31,18 @@ import SwiftUI
 //
 func testing() -> [ServerView] {
     return [
+        
+        ServerRow(modifier: ServerModifier(height: 150, backgroundColor: "00ffff"), items: [
+            ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
+                ServerRow(modifier: ServerModifier(weight: 0.5, backgroundColor: "#ff0000"), items: [
+                    ServerText(text: "row/column/row/text", modifier: ServerModifier(backgroundColor: "#ffff00"))
+                ]),
+                ServerRow(modifier: ServerModifier(weight: 0.5, backgroundColor: "#0000ff"), items: [
+                    ServerText(text: "row/column/row/text", modifier: ServerModifier(backgroundColor: "#ffff00"))
+                ])
+            ])
+        ])
+        
         /*ServerRow(modifier: ServerModifier(
             paddingStart: 20,
             paddingEnd: 20,
@@ -67,7 +79,7 @@ func testing() -> [ServerView] {
         ]),*/
         
         
-        ServerRow(items: [
+        /*ServerRow(items: [
             ServerText(text: "Read Me"),
             ServerText(text: "Do Not Read", modifier: ServerModifier(adaText: "Read Me")),
             ServerText(text: "Read me Heading", isHeading: true),
@@ -637,7 +649,7 @@ func testing() -> [ServerView] {
                 ])
             ])
         ]),
-        ServerBox(modifier: ServerModifier(weight: 1), items: [
+        ServerBox(items: [
             ServerImage(drawableRes: "Background"),
             ServerColumn(alignment: .CENTER ,items: [
                 ServerRow(alignment: .CENTER, items: [
@@ -645,7 +657,7 @@ func testing() -> [ServerView] {
                 ])
             ])
         ]),
-        ServerBox(modifier: ServerModifier(weight: 1), items: [
+        ServerBox(items: [
             ServerImage(drawableRes: "Background"),
             ServerColumn(modifier: ServerModifier(weight: 1), alignment: .CENTER ,items: [
                 ServerRow(modifier: ServerModifier(weight: 1), alignment: .CENTER, items: [
@@ -664,7 +676,7 @@ func testing() -> [ServerView] {
                 ]),
                 ServerSpacer()
             ])
-        ])
+        ])*/
         
         
     ]

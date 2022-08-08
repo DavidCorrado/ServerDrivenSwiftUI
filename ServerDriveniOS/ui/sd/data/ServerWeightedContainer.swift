@@ -25,9 +25,6 @@ extension ServerWeightedContainer {
                 }
             }
         }
-        
-        print(totalWeight)
-        
         return totalWeight > 0 ? totalWeight: nil
     }
 }

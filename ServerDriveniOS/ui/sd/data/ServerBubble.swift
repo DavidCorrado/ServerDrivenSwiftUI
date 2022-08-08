@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ServerBubble: GenericIdentifiable {
+struct ServerBubble: ServerView {
     var type: ServerItemType = .BUBBLE
     var id = UUID()
     var text: ServerText

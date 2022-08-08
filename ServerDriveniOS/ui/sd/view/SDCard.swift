@@ -39,7 +39,7 @@ struct SDCard: View, SDWeightedContainer {
             VStack(alignment: .leading, spacing: serverCard.spacing) {
                 SDContent(items: serverCard.items, parentWeightDirection: weightDirection, parentSize: calculateAvailableSpace(from: height))
             }
-            .serverModifier(serverModifier: serverCard.modifier, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+            .serverModifier(serverView: serverCard, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
             .shadow(color: Color(UIColor.black.withAlphaComponent(0.08)), radius: 15, x: 0, y: 5)
         }
 

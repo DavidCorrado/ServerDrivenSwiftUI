@@ -43,7 +43,7 @@ struct SDColumn: View, SDWeightedContainer {
             VStack(alignment: stackAlignment, spacing: serverColumn.spacing ?? 0) {
                 SDContent(items: serverColumn.items, parentWeightDirection: weightDirection, parentSize: calculateAvailableSpace(from: height))
             }
-            .serverModifier(serverModifier: serverColumn.modifier, alignment: sizeAlignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+            .serverModifier(serverView: serverColumn, alignment: sizeAlignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
         }
     }
 }

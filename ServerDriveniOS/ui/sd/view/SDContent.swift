@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct SDContent: View {
-    var items: [GenericIdentifiable]
+    var items: [ServerView]
     var parentWeightDirection: WeightDirection
     var parentSize: CGFloat
     var body: some View {

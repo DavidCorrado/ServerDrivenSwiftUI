@@ -17,18 +17,18 @@ enum WeightDirection {
 }
 
 struct ServerViewModifier: ViewModifier {
-    var serverModifier: ServerModifier?
+    var serverView: ServerView
     var alignment: Alignment?
     var parentWeightDirection: WeightDirection // Weight filling direction
     var parentSize: CGFloat // Available size of the parent after removing spacings and paddings for supporting weights
     func body(content: Content) -> some View {
         content
-            .padding(serverModifier: serverModifier)
-            .size(serverModifier: serverModifier, alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
-            .aspectRatio(serverModifier: serverModifier)
-            .backgroundColor(serverModifier: serverModifier)
-            .cornerRadius(serverModifier: serverModifier)
-            .accessibilityLabel(serverModifier: serverModifier)
+            .padding(serverModifier: serverView.modifier)
+            .size(serverModifier: serverView.modifier, weight: serverView.getWeight(for: parentWeightDirection, parentDirection: (serverView as? SDWeightedContainer)?.weightDirection), alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+            .aspectRatio(serverModifier: serverView.modifier)
+            .backgroundColor(serverModifier: serverView.modifier)
+            .cornerRadius(serverModifier: serverView.modifier)
+            .accessibilityLabel(serverModifier: serverView.modifier)
     }
 }
 
@@ -45,6 +45,7 @@ struct PaddingViewModifier: ViewModifier {
 
 struct SizeViewModifier: ViewModifier {
     var serverModifier: ServerModifier?
+    var weight: CGFloat?
     var alignment: Alignment?
     var parentWeightDirection: WeightDirection
     var parentSize: CGFloat
@@ -60,7 +61,7 @@ struct SizeViewModifier: ViewModifier {
         }
  
         // If there is no fixed height, but view has a weight and can grow vertically with weight calculate new height
-        if height == nil, let weight = serverModifier?.weight, parentWeightDirection == .vertical, parentSize > 0 {
+        if height == nil, let weight = weight, parentWeightDirection == .vertical, parentSize > 0 {
             height = parentSize * weight // Calculate height from the available height of the parent
         }
         // Manually calculate height for aspect ratio if we have manually calculated width and there is no height
@@ -77,7 +78,7 @@ struct SizeViewModifier: ViewModifier {
             width = fixedWidth + (serverModifier?.paddingStart ?? 0) + (serverModifier?.paddingEnd ?? 0)
         }
         // If there is no fixed width, but view has a weight and can grow horizontally with weight calculate new height
-        if width == nil, let weight = serverModifier?.weight, parentWeightDirection == .horizontal, parentSize > 0 {
+        if width == nil, let weight = weight, parentWeightDirection == .horizontal, parentSize > 0 {
             width = parentSize * weight // Calculate width from the available width of the parent
         }
         // Manually calculate width for aspect ratio if we have manually calculated height and there is no width
@@ -133,16 +134,16 @@ struct AccessibilityLabelModifier: ViewModifier {
 }
 
 extension View {
-    func serverModifier(serverModifier: ServerModifier?, alignment: Alignment? = nil, parentWeightDirection: WeightDirection, parentSize: CGFloat) -> some View {
-        modifier(ServerViewModifier(serverModifier: serverModifier, alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize))
+    func serverModifier(serverView: ServerView, alignment: Alignment? = nil, parentWeightDirection: WeightDirection, parentSize: CGFloat) -> some View {
+        modifier(ServerViewModifier(serverView: serverView, alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize))
     }
     
     func padding(serverModifier: ServerModifier?) -> some View {
         modifier(PaddingViewModifier(serverModifier: serverModifier))
     }
 
-    func size(serverModifier: ServerModifier?, alignment: Alignment?, parentWeightDirection: WeightDirection, parentSize: CGFloat) -> some View {
-        modifier(SizeViewModifier(serverModifier: serverModifier, alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize))
+    func size(serverModifier: ServerModifier?, weight: CGFloat?, alignment: Alignment?, parentWeightDirection: WeightDirection, parentSize: CGFloat) -> some View {
+        modifier(SizeViewModifier(serverModifier: serverModifier, weight: weight, alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize))
     }
     
     func aspectRatio(serverModifier: ServerModifier?) -> some View {

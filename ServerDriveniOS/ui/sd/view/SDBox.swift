@@ -16,7 +16,7 @@ struct SDBox: View {
     var body: some View {
         ZStack(alignment: .topLeading) { // Should this be top leading as hardcoded?
             SDContent(items: serverBox.items, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
-                .serverModifier(serverModifier: serverBox.modifier, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+                .serverModifier(serverView: serverBox, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
         }
     }
 }

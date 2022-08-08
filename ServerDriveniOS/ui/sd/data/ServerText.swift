@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct ServerText: GenericIdentifiable {
+struct ServerText: ServerView {
     var type: ServerItemType = .TEXT
     var id = UUID()
     var text: String

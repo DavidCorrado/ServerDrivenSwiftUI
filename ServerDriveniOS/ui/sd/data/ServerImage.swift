@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ServerImage: GenericIdentifiable {
+struct ServerImage: ServerView {
     var type: ServerItemType = .IMAGE
     var id = UUID()
     var drawableRes: String

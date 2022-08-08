@@ -15,6 +15,6 @@ struct SDSpacer: View {
     
     var body: some View {
         Spacer(minLength: 0)
-            .serverModifier(serverModifier: serverSpacer.modifier, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+            .serverModifier(serverView: serverSpacer, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
     }
 }

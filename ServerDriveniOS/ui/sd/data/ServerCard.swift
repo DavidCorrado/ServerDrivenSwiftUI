@@ -7,13 +7,17 @@
 
 import SwiftUI
 
-struct ServerCard: GenericIdentifiable, ServerWeightedContainer {
+struct ServerCard: ServerView, ServerWeightedContainer {
     var type: ServerItemType = .CARD
     var id = UUID()
     var modifier: ServerModifier?
-    var items: [GenericIdentifiable]
+    var items: [ServerView]
     
     var spacing: CGFloat? {
         0
+    }
+    
+    var weightDirection: WeightDirection {
+        .vertical
     }
 }

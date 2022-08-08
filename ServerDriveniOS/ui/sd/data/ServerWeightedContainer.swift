@@ -10,5 +10,7 @@ import SwiftUI
 protocol ServerWeightedContainer {
     var spacing: CGFloat? { get }
     var modifier: ServerModifier? { get }
-    var items: [GenericIdentifiable] { get }
+    var items: [ServerView] { get }
+    var weightDirection: WeightDirection { get }
+
 }

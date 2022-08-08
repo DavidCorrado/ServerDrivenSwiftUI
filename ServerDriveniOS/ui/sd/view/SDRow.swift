@@ -43,7 +43,7 @@ struct SDRow: View, SDWeightedContainer {
             HStack(alignment: stackAlignment, spacing: serverRow.spacing ?? 0) {
                 SDContent(items: serverRow.items, parentWeightDirection: weightDirection, parentSize: calculateAvailableSpace(from: width))
             }
-            .serverModifier(serverModifier: serverRow.modifier, alignment: sizeAlignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+            .serverModifier(serverView: serverRow, alignment: sizeAlignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
         }
     }
 }

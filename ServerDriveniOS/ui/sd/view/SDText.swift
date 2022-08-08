@@ -26,6 +26,6 @@ struct SDText: View {
             .modifyIf(serverText.isHeading ?? false, transform: {
                 $0.accessibilityAddTraits(.isHeader)
             })
-            .serverModifier(serverModifier: serverText.modifier, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+            .serverModifier(serverView: serverText, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
     }
 }

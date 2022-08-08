@@ -14,7 +14,7 @@ struct Counters_Previews: PreviewProvider {
     }
 }
 
-func counters() -> [GenericIdentifiable] {
+func counters() -> [ServerView] {
     return [ServerRow(spacing: 10, items: [
         counter(count: 27, label: "Active streak", image: "Streak"),
         counter(count: 451, label: "Total entries", image: "TotalEntries")

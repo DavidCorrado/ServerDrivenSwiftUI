@@ -29,8 +29,33 @@ import SwiftUI
 //    }
 // }
 //
-func testing() -> [GenericIdentifiable] {
+func testing() -> [ServerView] {
     return [
+        /*ServerRow(modifier: ServerModifier(
+            paddingStart: 20,
+            paddingEnd: 20,
+            paddingTop: 20,
+            paddingBottom: 20,
+            backgroundColor: "#ff0000",
+            cornerRadius: 20
+        ), items: [
+            ServerRow(items: [
+                ServerRow(modifier: ServerModifier(
+                    paddingStart: 20,
+                    paddingEnd: 20,
+                    paddingTop: 20,
+                    paddingBottom: 20,
+                    weight: 1,
+                    backgroundColor: "#00ff00",
+                    cornerRadius: 20
+                ), items: [
+                    ServerText(text: "Row Border Background")
+                ])
+            
+            ])
+        ]),*/
+        
+        
         ServerRow(items: [
             ServerText(text: "Read Me"),
             ServerText(text: "Do Not Read", modifier: ServerModifier(adaText: "Read Me")),
@@ -211,7 +236,6 @@ func testing() -> [GenericIdentifiable] {
             paddingEnd: 20,
             paddingTop: 20,
             paddingBottom: 20,
-            weight: 1, // we also need a weight here to fill horizontally, adding this doesn't break android
             backgroundColor: "#ff0000",
             cornerRadius: 20
         ), items: [
@@ -232,7 +256,6 @@ func testing() -> [GenericIdentifiable] {
             paddingEnd: 20,
             paddingTop: 20,
             paddingBottom: 20,
-            weight: 1, // we also need a weight here to fill horizontally, adding this doesn't break android
             backgroundColor: "#ff0000",
             cornerRadius: 20
         ), items: [
@@ -253,7 +276,6 @@ func testing() -> [GenericIdentifiable] {
             paddingEnd: 20,
             paddingTop: 20,
             paddingBottom: 20,
-            weight: 1, // we also need a weight here to fill horizontally, adding this doesn't break android
             backgroundColor: "#ff0000",
             cornerRadius: 20
         ), items: [
@@ -284,7 +306,6 @@ func testing() -> [GenericIdentifiable] {
             paddingEnd: 20,
             paddingTop: 20,
             paddingBottom: 20,
-            weight: 1, // we also need a weight here to fill horizontally, adding this doesn't break android
             backgroundColor: "#ff0000",
             cornerRadius: 20
         ), items: [
@@ -326,7 +347,6 @@ func testing() -> [GenericIdentifiable] {
             paddingEnd: 20,
             paddingTop: 20,
             paddingBottom: 20,
-            weight: 1,
             backgroundColor: "#00ff00",
             cornerRadius: 20
         ), items: [
@@ -358,7 +378,6 @@ func testing() -> [GenericIdentifiable] {
             paddingEnd: 20,
             paddingTop: 20,
             paddingBottom: 20,
-            weight: 1.0, // we also need a weight here to fill horizontally, adding this doesn't break android
             backgroundColor: "#ff0000",
             cornerRadius: 20
         ), items: [
@@ -374,7 +393,7 @@ func testing() -> [GenericIdentifiable] {
                 ServerText(text: "Row Border Background")
             ])
         ]),
-        ServerRow(modifier: ServerModifier(weight: 1), // we need the weight here to fill horizontally
+        ServerRow(
             items: [
                 ServerSpacer(modifier: ServerModifier(
                     height: 20, // we don't need a weight here because spacers on iOS take all space by default, tried on android it is also working same if we remove it and att it to ServerRow
@@ -395,14 +414,14 @@ func testing() -> [GenericIdentifiable] {
             ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(width: 20, height: 20)),
             ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(paddingStart: 20, paddingEnd: 20, paddingTop: 20, paddingBottom: 20, width: 20, height: 20)) // This will be squished to zero since  we are adding 20 padding to 20x20 image because of the call order
         ]),
-        ServerRow(modifier: ServerModifier(weight: 1),
+        ServerRow(
             items: [
                 ServerText(text: "Left 25", modifier: ServerModifier(weight: 0.25, backgroundColor: "#ff0000")),
                 ServerText(text: "Mid 50", modifier: ServerModifier(weight: 0.5, backgroundColor: "#00ff00")),
                 ServerText(text: "Right 25", modifier: ServerModifier(weight: 0.25, backgroundColor: "#0000ff")),
         ]),
         ServerSpacer(modifier: ServerModifier(height: 10)),
-        ServerRow(modifier: ServerModifier(weight: 1),
+        ServerRow(
             items: [
                 ServerText(text: "Left 25", modifier: ServerModifier(
                     paddingStart: 20,
@@ -438,19 +457,19 @@ func testing() -> [GenericIdentifiable] {
             ])
         ]),
         ServerSpacer(modifier: ServerModifier(height: 10)),
-        ServerRow(modifier: ServerModifier(weight: 1, backgroundColor: "#ffff00"), items: [
+        ServerRow(modifier: ServerModifier(backgroundColor: "#ffff00"), items: [
             ServerText(text: "Left 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#ff0000")),
             ServerText(text: "Mid 50 is going to get really long", modifier: ServerModifier(weight: 0.5, backgroundColor: "#00ff00")),
             ServerText(text: "Right 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#0000ff")),
         ]),
         ServerSpacer(modifier: ServerModifier(height: 10)),
-        ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#ffff00"), items: [ // This case also fails on Android, dynamic sized view with weights in container direction
+        ServerColumn(modifier: ServerModifier(backgroundColor: "#ffff00"), items: [ // This case also fails on Android, dynamic sized view with weights in container direction
             ServerText(text: "Top 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#ff0000")),
             ServerText(text: "Mid 50 is going to get really long", modifier: ServerModifier(weight: 0.5, backgroundColor: "#00ff00")),
             ServerText(text: "Bottom 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#0000ff")),
         ]),
         ServerSpacer(modifier: ServerModifier(height: 10)),
-        ServerColumn(modifier: ServerModifier(height: 200, weight: 1, backgroundColor: "#ffff00"), items: [
+        ServerColumn(modifier: ServerModifier(height: 200, backgroundColor: "#ffff00"), items: [
             ServerText(text: "Top 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#ff0000")),
             ServerText(text: "Mid 50 is going to get really long", modifier: ServerModifier(weight: 0.5, backgroundColor: "#00ff00")),
             ServerText(text: "Bottom 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#0000ff")),
@@ -469,7 +488,7 @@ func testing() -> [GenericIdentifiable] {
             ServerText(text: "Text is going to get really long.Left 30 is going to get really long", modifier: ServerModifier(backgroundColor: "#ff0000")),
             ServerText(text: "Text", modifier: ServerModifier(backgroundColor: "#00ff00"))
         ]),
-        ServerRow(modifier: ServerModifier(weight: 1), // We need to define a weight here otherwise spacer will only fill the serverrow which has no weight
+        ServerRow(
             items: [
             ServerSpacer(modifier: ServerModifier(
                 paddingStart: 20, paddingEnd: 20, paddingTop: 20, paddingBottom: 20, weight: 1, backgroundColor: "#ff0000", cornerRadius: 20
@@ -487,7 +506,7 @@ func testing() -> [GenericIdentifiable] {
             )
         ),
         ServerImage(drawableRes: "Running", tint: "#ff0000", modifier: ServerModifier(width: 20, height: 20)),
-        ServerColumn(modifier: ServerModifier(weight: 1), items: [
+        ServerColumn(items: [
             ServerBox(modifier: ServerModifier(weight: 1),items: [
                 ServerRow(modifier: ServerModifier(weight: 1), items: [
                     ServerImage(drawableRes: "Background", contentScale: .FILL_HEIGHT, alignment: .TOP_END, modifier: ServerModifier(weight: 1, aspectRatio: 1.2))
@@ -501,7 +520,7 @@ func testing() -> [GenericIdentifiable] {
             ])
         
         ]),
-        ServerColumn(modifier: ServerModifier(weight: 1), items: [ // need weight on nested views if child has weight because child can only fill its parent
+        ServerColumn(items: [ // need weight on nested views if child has weight because child can only fill its parent
             ServerBox(modifier: ServerModifier(weight: 1),items: [
                 ServerRow(modifier: ServerModifier(weight: 1), items: [
                     ServerImage(drawableRes: "Background", contentScale: .FILL_HEIGHT, alignment: .BOTTOM_END, modifier: ServerModifier(weight: 1, aspectRatio: 3))
@@ -514,7 +533,7 @@ func testing() -> [GenericIdentifiable] {
                 ])
             ])
         ]),
-        ServerRow(modifier: ServerModifier(height: 150, weight: 1, backgroundColor: "00ffff"), items: [
+        ServerRow(modifier: ServerModifier(height: 150, backgroundColor: "00ffff"), items: [
             ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
                 ServerRow(modifier: ServerModifier(weight: 0.5, backgroundColor: "#ff0000"), items: [
                     ServerText(text: "row/column/row/text", modifier: ServerModifier(backgroundColor: "#ffff00"))
@@ -525,7 +544,7 @@ func testing() -> [GenericIdentifiable] {
             ])
         ]),
         ServerSpacer(modifier: ServerModifier(height: 20)),
-        ServerRow(modifier: ServerModifier(weight: 1, backgroundColor: "00ffff"), items: [
+        ServerRow(modifier: ServerModifier(backgroundColor: "00ffff"), items: [
             // Since this column has no fixed height and we used weights, last text (row/column/row/column/text) goings out of bounds, it will get more buggy if we add more views
             ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
                 ServerRow(modifier: ServerModifier(weight: 0.45, backgroundColor: "#ff0000"), items: [
@@ -687,7 +706,7 @@ func testing() -> [GenericIdentifiable] {
                 ])
             ])
         ]),
-        ServerBox(modifier: ServerModifier(weight: 1), items: [
+        ServerBox(items: [
             ServerImage(drawableRes: "Background"),
             ServerColumn(items: [
                 ServerSpacer(),

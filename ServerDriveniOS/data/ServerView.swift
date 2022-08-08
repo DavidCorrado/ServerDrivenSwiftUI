@@ -10,11 +10,11 @@ import SwiftUI
 protocol ServerView {
     var id: UUID { get }
     var modifier: ServerModifier? { get }
-    func getWeight(for direction: WeightDirection, parentDirection: WeightDirection?) -> CGFloat?
+    func getWeight(for direction: WeightDirection) -> CGFloat?
 }
 
 extension ServerView {
-    func getWeight(for direction: WeightDirection, parentDirection: WeightDirection?) -> CGFloat? {
+    func getWeight(for direction: WeightDirection) -> CGFloat? {
         if let weight = modifier?.weight {
             return weight
         }
@@ -23,16 +23,6 @@ extension ServerView {
             return nil
         }
         
-        var totalWeight: CGFloat = 0
-        let parentDirection = weightedContainer.weightDirection
-        for item in weightedContainer.items {
-            if let itemWeight = item.getWeight(for: direction, parentDirection: parentDirection) {
-                if parentDirection == direction {
-                    totalWeight += itemWeight
-                }
-            }
-        }
-        
-        return totalWeight > 0 ? totalWeight: nil
+        return weightedContainer.getTotalWeight(for: direction)
     }
 }

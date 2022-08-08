@@ -12,14 +12,13 @@ struct SDCard: View, SDWeightedContainer {
     var serverCard: ServerCard
     var parentWeightDirection: WeightDirection
     var parentSize: CGFloat
-    
-    var weightDirection = WeightDirection.vertical
-    
+    var parentTotalWeight: CGFloat?
+
     var weightedContainer: ServerWeightedContainer {
         serverCard
     }
     
-    init(serverCard: ServerCard, parentWeightDirection: WeightDirection, parentSize: CGFloat) {
+    init(serverCard: ServerCard, parentWeightDirection: WeightDirection, parentSize: CGFloat, parentTotalWeight: CGFloat?) {
         // Provide default values for backgroundColor and cornerRadius if they are empty
         // They can still be overriden by the server
         var serverCard = serverCard
@@ -32,14 +31,15 @@ struct SDCard: View, SDWeightedContainer {
         self.serverCard = serverCard
         self.parentWeightDirection = parentWeightDirection
         self.parentSize = parentSize
+        self.parentTotalWeight = parentTotalWeight
     }
     
     var body: some View {
         SingleAxisGeometryReader(axis: .vertical) { height in
             VStack(alignment: .leading, spacing: serverCard.spacing) {
-                SDContent(items: serverCard.items, parentWeightDirection: weightDirection, parentSize: calculateAvailableSpace(from: height))
+                SDContent(items: serverCard.items, parentWeightDirection: serverCard.weightDirection, parentSize: calculateAvailableSpace(from: height), parentTotalWeight: serverCard.getTotalWeight(for: serverCard.weightDirection))
             }
-            .serverModifier(serverView: serverCard, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+            .serverModifier(serverView: serverCard, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight)
             .shadow(color: Color(UIColor.black.withAlphaComponent(0.08)), radius: 15, x: 0, y: 5)
         }
 

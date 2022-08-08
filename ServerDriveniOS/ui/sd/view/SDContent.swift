@@ -12,23 +12,24 @@ struct SDContent: View {
     var items: [ServerView]
     var parentWeightDirection: WeightDirection
     var parentSize: CGFloat
+    var parentTotalWeight: CGFloat?
     var body: some View {
         ForEach(items, id: \.id) { item in
             switch item {
             case let item as ServerText:
-                SDText(serverText: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+                SDText(serverText: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight)
             case let item as ServerColumn:
-                SDColumn(serverColumn: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+                SDColumn(serverColumn: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight)
             case let item as ServerSpacer:
-                SDSpacer(serverSpacer: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+                SDSpacer(serverSpacer: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight)
             case let item as ServerRow:
-                SDRow(serverRow: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+                SDRow(serverRow: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight)
             case let item as ServerImage:
-                SDImage(serverImage: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+                SDImage(serverImage: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight)
             case let item as ServerCard:
-                SDCard(serverCard: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+                SDCard(serverCard: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight)
             case let item as ServerBox:
-                SDBox(serverBox: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+                SDBox(serverBox: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight)
             default:
                 Text("Not View Found")
             }

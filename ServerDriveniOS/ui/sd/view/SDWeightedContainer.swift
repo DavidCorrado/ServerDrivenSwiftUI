@@ -9,7 +9,6 @@ import SwiftUI
 
 protocol SDWeightedContainer {
     var weightedContainer: ServerWeightedContainer { get }
-    var weightDirection: WeightDirection { get }
     func calculateAvailableSpace(from size: CGFloat) -> CGFloat
 }
 
@@ -20,7 +19,7 @@ extension SDWeightedContainer {
             adjustedSize -= CGFloat(weightedContainer.items.count - 1) * spacing
         }
         
-        switch(weightDirection) {
+        switch(weightedContainer.weightDirection) {
         case .vertical:
             if let paddingTop = weightedContainer.modifier?.paddingTop {
                 adjustedSize -= paddingTop // Total height - top padding

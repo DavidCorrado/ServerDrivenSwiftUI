@@ -12,7 +12,7 @@ struct SDColumn: View, SDWeightedContainer {
     var serverColumn: ServerColumn
     var parentWeightDirection: WeightDirection
     var parentSize: CGFloat
-    var weightDirection = WeightDirection.vertical
+    var parentTotalWeight: CGFloat?
     
     var sizeAlignment: Alignment {
         if serverColumn.alignment == .END {
@@ -41,9 +41,9 @@ struct SDColumn: View, SDWeightedContainer {
     var body: some View {
         SingleAxisGeometryReader(axis: .vertical) { height in
             VStack(alignment: stackAlignment, spacing: serverColumn.spacing ?? 0) {
-                SDContent(items: serverColumn.items, parentWeightDirection: weightDirection, parentSize: calculateAvailableSpace(from: height))
+                SDContent(items: serverColumn.items, parentWeightDirection: serverColumn.weightDirection, parentSize: calculateAvailableSpace(from: height), parentTotalWeight: serverColumn.getTotalWeight(for: serverColumn.weightDirection))
             }
-            .serverModifier(serverView: serverColumn, alignment: sizeAlignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+            .serverModifier(serverView: serverColumn, alignment: sizeAlignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight)
         }
     }
 }

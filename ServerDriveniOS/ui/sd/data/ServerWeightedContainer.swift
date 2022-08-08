@@ -12,5 +12,22 @@ protocol ServerWeightedContainer {
     var modifier: ServerModifier? { get }
     var items: [ServerView] { get }
     var weightDirection: WeightDirection { get }
+    func getTotalWeight(for direction: WeightDirection) -> CGFloat?
+}
 
+extension ServerWeightedContainer {
+    func getTotalWeight(for direction: WeightDirection) -> CGFloat? {
+        var totalWeight: CGFloat = 0
+        for item in items {
+            if let itemWeight = item.getWeight(for: direction) {
+                if weightDirection == direction {
+                    totalWeight += itemWeight
+                }
+            }
+        }
+        
+        print(totalWeight)
+        
+        return totalWeight > 0 ? totalWeight: nil
+    }
 }

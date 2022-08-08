@@ -12,11 +12,12 @@ struct SDBox: View {
     var serverBox: ServerBox
     var parentWeightDirection: WeightDirection
     var parentSize: CGFloat
+    var parentTotalWeight: CGFloat?
 
     var body: some View {
         ZStack(alignment: .topLeading) { // Should this be top leading as hardcoded?
-            SDContent(items: serverBox.items, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
-                .serverModifier(serverView: serverBox, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+            SDContent(items: serverBox.items, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: serverBox.getTotalWeight(for: parentWeightDirection))
+                .serverModifier(serverView: serverBox, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight)
         }
     }
 }

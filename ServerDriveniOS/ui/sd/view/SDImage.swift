@@ -12,11 +12,12 @@ struct SDImage: View {
     var serverImage: ServerImage
     var parentWeightDirection: WeightDirection
     var parentSize: CGFloat
+    var parentTotalWeight: CGFloat?
     var body: some View {
         Image(serverImage.drawableRes)
             .renderingMode(serverImage.tint != nil ? .template: .original)
             .resizable()
-            .serverModifier(serverView: serverImage, alignment: serverImage.alignment?.alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize)
+            .serverModifier(serverView: serverImage, alignment: serverImage.alignment?.alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: nil)
             .modifyIf(serverImage.tint != nil, transform: {
                 $0.foregroundColor(Color(UIColor(withHex: serverImage.tint!)))
             })

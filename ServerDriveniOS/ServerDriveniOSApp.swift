@@ -23,7 +23,7 @@ struct ContentView: View {
         SingleAxisGeometryReader(axis: .horizontal) { width in
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 0) {
-                    SDContent(items: testing(), parentWeightDirection: .horizontal, parentSize: width)
+                    SDContent(items: testing(), parentWeightDirection: .horizontal, parentSize: width, nestedInVerticalLayout: false, nestedInHorizontalLayout: true)
                 }
             }
         }

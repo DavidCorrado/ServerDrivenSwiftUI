@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Counters_Previews: PreviewProvider {
     static var previews: some View {
-        SDContent(items: counters(), parentWeightDirection: .none, parentSize: .zero)
+        SDContent(items: counters(), parentWeightDirection: .none, parentSize: .zero, nestedInVerticalLayout: false, nestedInHorizontalLayout: false)
     }
 }
 

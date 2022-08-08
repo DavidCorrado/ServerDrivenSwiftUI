@@ -22,10 +22,13 @@ struct ServerViewModifier: ViewModifier {
     var parentWeightDirection: WeightDirection // Weight filling direction
     var parentSize: CGFloat // Available size of the parent after removing spacings and paddings for supporting weights
     var parentTotalWeight: CGFloat?
+    var nestedInVerticalLayout: Bool
+    var nestedInHorizontalLayout: Bool
+    
     func body(content: Content) -> some View {
         content
             .padding(serverModifier: serverView.modifier)
-            .size(serverModifier: serverView.modifier, weight: serverView.getWeight(for: parentWeightDirection), alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight)
+            .size(serverModifier: serverView.modifier, weight: serverView.getWeight(for: parentWeightDirection), alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout)
             .aspectRatio(serverModifier: serverView.modifier)
             .backgroundColor(serverModifier: serverView.modifier)
             .cornerRadius(serverModifier: serverView.modifier)
@@ -51,6 +54,8 @@ struct SizeViewModifier: ViewModifier {
     var parentWeightDirection: WeightDirection
     var parentSize: CGFloat
     var parentTotalWeight: CGFloat?
+    var nestedInVerticalLayout: Bool
+    var nestedInHorizontalLayout: Bool
     
     func body(content: Content) -> some View {
         let width = getWidth()
@@ -81,7 +86,7 @@ struct SizeViewModifier: ViewModifier {
                     multiplier = weight / parentTotalWeight
                 }
                 height = parentSize * multiplier // Calculate height from the available height of the parent
-            } else if parentTotalWeight == weight {
+            } else if nestedInVerticalLayout == false {
                 height = .infinity
             }
         }
@@ -106,8 +111,8 @@ struct SizeViewModifier: ViewModifier {
                     multiplier = weight / parentTotalWeight
                 }
                 width = parentSize * multiplier // Calculate width from the available width of the parent
-            } else if parentTotalWeight == weight {
-                width = .infinity // take available space on other direction if
+            } else if nestedInHorizontalLayout == false {
+                width = .infinity // take available space on other direction
             }
         }
         // Manually calculate width for aspect ratio if we have manually calculated height and there is no width
@@ -163,16 +168,16 @@ struct AccessibilityLabelModifier: ViewModifier {
 }
 
 extension View {
-    func serverModifier(serverView: ServerView, alignment: Alignment? = nil, parentWeightDirection: WeightDirection, parentSize: CGFloat, parentTotalWeight: CGFloat?) -> some View {
-        modifier(ServerViewModifier(serverView: serverView, alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight))
+    func serverModifier(serverView: ServerView, alignment: Alignment? = nil, parentWeightDirection: WeightDirection, parentSize: CGFloat, parentTotalWeight: CGFloat?, nestedInVerticalLayout: Bool, nestedInHorizontalLayout: Bool) -> some View {
+        modifier(ServerViewModifier(serverView: serverView, alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout))
     }
     
     func padding(serverModifier: ServerModifier?) -> some View {
         modifier(PaddingViewModifier(serverModifier: serverModifier))
     }
 
-    func size(serverModifier: ServerModifier?, weight: CGFloat?, alignment: Alignment?, parentWeightDirection: WeightDirection, parentSize: CGFloat, parentTotalWeight: CGFloat?) -> some View {
-        modifier(SizeViewModifier(serverModifier: serverModifier, weight: weight, alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight))
+    func size(serverModifier: ServerModifier?, weight: CGFloat?, alignment: Alignment?, parentWeightDirection: WeightDirection, parentSize: CGFloat, parentTotalWeight: CGFloat?, nestedInVerticalLayout: Bool, nestedInHorizontalLayout: Bool) -> some View {
+        modifier(SizeViewModifier(serverModifier: serverModifier, weight: weight, alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout))
     }
     
     func aspectRatio(serverModifier: ServerModifier?) -> some View {

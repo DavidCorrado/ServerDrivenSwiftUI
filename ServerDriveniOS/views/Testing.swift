@@ -31,7 +31,6 @@ import SwiftUI
 //
 func testing() -> [ServerView] {
     return [
-        
         ServerRow(modifier: ServerModifier(height: 150, backgroundColor: "00ffff"), items: [
             ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
                 ServerRow(modifier: ServerModifier(weight: 0.5, backgroundColor: "#ff0000"), items: [
@@ -41,7 +40,36 @@ func testing() -> [ServerView] {
                     ServerText(text: "row/column/row/text", modifier: ServerModifier(backgroundColor: "#ffff00"))
                 ])
             ])
-        ])
+        ]),
+        ServerSpacer(modifier: ServerModifier(height: 10)),
+        ServerRow(modifier: ServerModifier(height: 150, backgroundColor: "00ffff"), items: [
+            ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
+                ServerRow(modifier: ServerModifier(weight: 0.5, backgroundColor: "#ff0000"), items: [
+                    ServerText(text: "row/column/row/text", modifier: ServerModifier(backgroundColor: "#ffff00"))
+                ]),
+            ])
+        ]),
+        ServerSpacer(modifier: ServerModifier(height: 10)),
+        ServerRow(modifier: ServerModifier(height: 150, backgroundColor: "00ffff"), items: [
+            ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
+                ServerRow(modifier: ServerModifier(weight: 0.5, backgroundColor: "#ff00ff"), items: [
+                    ServerColumn(modifier: ServerModifier(weight: 0.5, backgroundColor: "#ff0000"), items: [
+                        ServerText(text: "row/column/row/text", modifier: ServerModifier(backgroundColor: "#ffff00"))
+                    ])
+                ]),
+            ])
+        ]),
+        ServerSpacer(modifier: ServerModifier(height: 10)),
+        ServerColumn(modifier: ServerModifier(height: 150, backgroundColor: "00ffff"), items: [
+            ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
+                ServerRow(modifier: ServerModifier(weight: 0.5, backgroundColor: "#ff0000"), items: [
+                    ServerText(text: "row/column/row/text", modifier: ServerModifier(backgroundColor: "#ffff00"))
+                ]),
+                ServerRow(modifier: ServerModifier(weight: 0.5, backgroundColor: "#0000ff"), items: [
+                    ServerText(text: "row/column/row/text", modifier: ServerModifier(backgroundColor: "#ffff00"))
+                ])
+            ])
+        ]),
         
         /*ServerRow(modifier: ServerModifier(
             paddingStart: 20,

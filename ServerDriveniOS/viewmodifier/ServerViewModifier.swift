@@ -51,9 +51,20 @@ struct SizeViewModifier: ViewModifier {
     var parentWeightDirection: WeightDirection
     var parentSize: CGFloat
     var parentTotalWeight: CGFloat?
+    
     func body(content: Content) -> some View {
-        content
-            .frame(width: getWidth(), height: getHeight(), alignment: alignment ?? .topLeading)
+        let width = getWidth()
+        let height = getHeight()
+        
+        let fixedWidth = width == .infinity ? nil: width
+        let fixedHeight = height == .infinity ? nil: height
+        
+        let maxWidth: CGFloat? = width == .infinity ? width: nil
+        let maxHeight = height == .infinity ? height: nil
+        
+        return content
+            .frame(width: fixedWidth, height: fixedHeight, alignment: alignment ?? .topLeading)
+            .frame(maxWidth: maxWidth, maxHeight: maxHeight, alignment: alignment ?? .topLeading)
     }
     
     private func getHeight(ignoreAspectRatio: Bool = false) -> CGFloat? {
@@ -63,12 +74,16 @@ struct SizeViewModifier: ViewModifier {
         }
  
         // If there is no fixed height, but view has a weight and can grow vertically with weight calculate new height
-        if height == nil, let weight = weight, parentWeightDirection == .vertical, parentSize > 0 {
-            var multiplier: CGFloat = 1
-            if let parentTotalWeight = parentTotalWeight {
-                multiplier = weight / parentTotalWeight
+        if height == nil, let weight = weight, parentSize > 0 {
+            if parentWeightDirection == .vertical {
+                var multiplier: CGFloat = 1
+                if let parentTotalWeight = parentTotalWeight {
+                    multiplier = weight / parentTotalWeight
+                }
+                height = parentSize * multiplier // Calculate height from the available height of the parent
+            } else if parentTotalWeight == weight {
+                height = .infinity
             }
-            height = parentSize * multiplier // Calculate height from the available height of the parent
         }
         // Manually calculate height for aspect ratio if we have manually calculated width and there is no height
         if ignoreAspectRatio == false, let aspectRatio = serverModifier?.aspectRatio, height == nil, let width = getWidth(ignoreAspectRatio: true) {
@@ -84,12 +99,16 @@ struct SizeViewModifier: ViewModifier {
             width = fixedWidth + (serverModifier?.paddingStart ?? 0) + (serverModifier?.paddingEnd ?? 0)
         }
         // If there is no fixed width, but view has a weight and can grow horizontally with weight calculate new height
-        if width == nil, let weight = weight, parentWeightDirection == .horizontal, parentSize > 0 {
-            var multiplier: CGFloat = 1
-            if let parentTotalWeight = parentTotalWeight {
-                multiplier = weight / parentTotalWeight
+        if width == nil, let weight = weight, parentSize > 0 {
+            if parentWeightDirection == .horizontal {
+                var multiplier: CGFloat = 1
+                if let parentTotalWeight = parentTotalWeight {
+                    multiplier = weight / parentTotalWeight
+                }
+                width = parentSize * multiplier // Calculate width from the available width of the parent
+            } else if parentTotalWeight == weight {
+                width = .infinity // take available space on other direction if
             }
-            width = parentSize * multiplier // Calculate width from the available width of the parent
         }
         // Manually calculate width for aspect ratio if we have manually calculated height and there is no width
         if ignoreAspectRatio == false, let aspectRatio = serverModifier?.aspectRatio, width == nil, let height = getHeight(ignoreAspectRatio: true) {

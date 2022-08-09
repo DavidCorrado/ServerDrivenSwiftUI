@@ -43,7 +43,7 @@ struct SDColumn: View, SDWeightedContainer {
     var body: some View {
         SingleAxisGeometryReader(axis: .vertical) { height in
             VStack(alignment: stackAlignment, spacing: serverColumn.spacing ?? 0) {
-                SDContent(items: serverColumn.items, parentWeightDirection: serverColumn.weightDirection, parentSize: calculateAvailableSpace(from: height), parentTotalWeight: serverColumn.getTotalWeight(for: serverColumn.weightDirection), nestedInVerticalLayout: true, nestedInHorizontalLayout: nestedInHorizontalLayout)
+                SDContent(items: serverColumn.items, parentWeightDirection: serverColumn.weightDirection, parentSize: calculateAvailableSpace(from: height), parentTotalWeight: serverColumn.getTotalWeight(for: serverColumn.weightDirection), nestedInVerticalLayout: true, nestedInHorizontalLayout: false)
             }
             .serverModifier(serverView: serverColumn, alignment: sizeAlignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout)
         }

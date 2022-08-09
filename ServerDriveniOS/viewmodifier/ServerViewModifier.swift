@@ -28,7 +28,7 @@ struct ServerViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding(serverModifier: serverView.modifier)
-            .size(serverModifier: serverView.modifier, weight: serverView.getWeight(for: parentWeightDirection), alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout)
+            .size(serverView: serverView, serverModifier: serverView.modifier, weight: serverView.getWeight(for: parentWeightDirection), alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout)
             .aspectRatio(serverModifier: serverView.modifier)
             .backgroundColor(serverModifier: serverView.modifier)
             .cornerRadius(serverModifier: serverView.modifier)
@@ -48,6 +48,7 @@ struct PaddingViewModifier: ViewModifier {
 }
 
 struct SizeViewModifier: ViewModifier {
+    var serverView: ServerView
     var serverModifier: ServerModifier?
     var weight: CGFloat?
     var alignment: Alignment?
@@ -86,8 +87,10 @@ struct SizeViewModifier: ViewModifier {
                     multiplier = weight / parentTotalWeight
                 }
                 height = parentSize * multiplier // Calculate height from the available height of the parent
-            } else if nestedInVerticalLayout == false {
-                height = .infinity
+            } else if nestedInVerticalLayout == false { // just else might also work but boxes can inherit weight direction, maybe we should disable that then we can remove nestedInVerticalLayout completely
+                if let weightedContainer = serverView as? ServerWeightedContainer, weightedContainer.weightDirection == .vertical, weightedContainer.getTotalWeight(for: .vertical) ?? 0 > 0 {
+                    height = .infinity
+                }
             }
         }
         // Manually calculate height for aspect ratio if we have manually calculated width and there is no height
@@ -111,8 +114,10 @@ struct SizeViewModifier: ViewModifier {
                     multiplier = weight / parentTotalWeight
                 }
                 width = parentSize * multiplier // Calculate width from the available width of the parent
-            } else if nestedInHorizontalLayout == false {
-                width = .infinity // take available space on other direction
+            } else if nestedInHorizontalLayout == false {// just else might also work but boxes can inherit weight direction, maybe we should disable that then we can remove nestedInHorizontalLayout completely
+                if let weightedContainer = serverView as? ServerWeightedContainer, weightedContainer.weightDirection == .horizontal, weightedContainer.getTotalWeight(for: .horizontal) ?? 0 > 0 {
+                    width = .infinity
+                }
             }
         }
         // Manually calculate width for aspect ratio if we have manually calculated height and there is no width
@@ -176,8 +181,8 @@ extension View {
         modifier(PaddingViewModifier(serverModifier: serverModifier))
     }
 
-    func size(serverModifier: ServerModifier?, weight: CGFloat?, alignment: Alignment?, parentWeightDirection: WeightDirection, parentSize: CGFloat, parentTotalWeight: CGFloat?, nestedInVerticalLayout: Bool, nestedInHorizontalLayout: Bool) -> some View {
-        modifier(SizeViewModifier(serverModifier: serverModifier, weight: weight, alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout))
+    func size(serverView: ServerView, serverModifier: ServerModifier?, weight: CGFloat?, alignment: Alignment?, parentWeightDirection: WeightDirection, parentSize: CGFloat, parentTotalWeight: CGFloat?, nestedInVerticalLayout: Bool, nestedInHorizontalLayout: Bool) -> some View {
+        modifier(SizeViewModifier(serverView: serverView, serverModifier: serverModifier, weight: weight, alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout))
     }
     
     func aspectRatio(serverModifier: ServerModifier?) -> some View {

@@ -43,7 +43,7 @@ struct SDRow: View, SDWeightedContainer {
     var body: some View {
         SingleAxisGeometryReader(axis: .horizontal) { width in
             HStack(alignment: stackAlignment, spacing: serverRow.spacing ?? 0) {
-                SDContent(items: serverRow.items, parentWeightDirection: serverRow.weightDirection, parentSize: calculateAvailableSpace(from: width), parentTotalWeight: serverRow.getTotalWeight(for: serverRow.weightDirection), nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: true)
+                SDContent(items: serverRow.items, parentWeightDirection: serverRow.weightDirection, parentSize: calculateAvailableSpace(from: width), parentTotalWeight: serverRow.getTotalWeight(for: serverRow.weightDirection), nestedInVerticalLayout: false, nestedInHorizontalLayout: true)
             }
             .serverModifier(serverView: serverRow, alignment: sizeAlignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout)
         }

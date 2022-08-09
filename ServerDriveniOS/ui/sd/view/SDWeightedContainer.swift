@@ -38,6 +38,14 @@ extension SDWeightedContainer {
             fatalError("Weights only supported on horizontal and vertical directions")
         }
         
+        for view in weightedContainer.items {
+            if weightedContainer.weightDirection == .vertical, let itemHeight = view.modifier?.height {
+                adjustedSize -= itemHeight
+            } else if weightedContainer.weightDirection == .horizontal, let itemWidth = view.modifier?.width {
+                adjustedSize -= itemWidth
+            }
+        }
+        
         // Ignore negative values because they can cause layout errors
         // GeometryReader only calculates size for once but SingleAxisGeometryReader calculates it after every size change
         // We need to ignore paddings on first calculations, since they are small values they will create negative sizes

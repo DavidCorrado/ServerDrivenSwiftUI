@@ -69,8 +69,8 @@ func testing() -> [ServerView] {
                     ServerText(text: "row/column/row/text", modifier: ServerModifier(backgroundColor: "#ffff00"))
                 ])
             ])
-        ])
-        /*ServerSpacer(modifier: ServerModifier(height: 10)),
+        ]),
+        ServerSpacer(modifier: ServerModifier(height: 10)),
         ServerRow(modifier: ServerModifier(
             paddingStart: 20,
             paddingEnd: 20,
@@ -106,10 +106,8 @@ func testing() -> [ServerView] {
             ServerText(text: "Top 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#ff0000")),
             ServerText(text: "Mid 50 is going to get really long", modifier: ServerModifier(weight: 0.5, backgroundColor: "#00ff00")),
             ServerText(text: "Bottom 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#0000ff")),
-        ])*/
-        
-        
-        /*ServerRow(items: [
+        ]),
+        ServerRow(items: [
             ServerText(text: "Read Me"),
             ServerText(text: "Do Not Read", modifier: ServerModifier(adaText: "Read Me")),
             ServerText(text: "Read me Heading", isHeading: true),
@@ -597,27 +595,6 @@ func testing() -> [ServerView] {
             ])
         ]),
         ServerSpacer(modifier: ServerModifier(height: 20)),
-        ServerRow(modifier: ServerModifier(backgroundColor: "00ffff"), items: [
-            // Since this column has no fixed height and we used weights, last text (row/column/row/column/text) goings out of bounds, it will get more buggy if we add more views
-            ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
-                ServerRow(modifier: ServerModifier(weight: 0.45, backgroundColor: "#ff0000"), items: [
-                    ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
-                        ServerText(text: "row/column/row/column/text", modifier: ServerModifier(backgroundColor: "#ffff00")),
-                        ServerText(text: "row/column/row/column/text", modifier: ServerModifier(backgroundColor: "#ffff00")),
-                        ServerText(text: "row/column/row/column/text", modifier: ServerModifier(backgroundColor: "#ffff00"))
-                    ])
-                ]),
-                ServerSpacer(modifier: ServerModifier(weight: 0.1)), // We can't use fixes sized spacer here, it will break the weight calculations
-                ServerRow(modifier: ServerModifier(weight: 0.45, backgroundColor: "#0000ff"), items: [
-                    ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
-                        ServerText(text: "row/column/row/column/text", modifier: ServerModifier(backgroundColor: "#ffff00")),
-                        ServerText(text: "row/column/row/column/text", modifier: ServerModifier(backgroundColor: "#ffff00")),
-                        ServerText(text: "row/column/row/column/text", modifier: ServerModifier(backgroundColor: "#ffff00"))
-                    ])
-                ])
-            ])
-        ]),
-        ServerSpacer(modifier: ServerModifier(height: 20)),
         ServerColumn(modifier: ServerModifier(paddingStart: 40, paddingEnd: 40, paddingTop: 40, paddingBottom: 40, weight: 1, backgroundColor: "#808080"), items: [
             ServerRow(modifier: ServerModifier(weight: nil, backgroundColor: "008000"), items: [
                 ServerColumn(modifier: ServerModifier(weight: nil), items: [
@@ -706,7 +683,7 @@ func testing() -> [ServerView] {
                 ]),
                 ServerSpacer()
             ])
-        ])*/
+        ])
         
         
     ]

@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+// This will be .vertical for VStack, horizontal for HStack and outer LazyVStack with a scroll view
+// Because weight needs to fill horizontally on scrolling views with a VStack
+enum WeightDirection {
+    case vertical
+    case horizontal
+    case none
+}
+
 protocol ServerWeightedContainer {
     var spacing: CGFloat? { get }
     var modifier: ServerModifier? { get }

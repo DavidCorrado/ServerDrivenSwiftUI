@@ -595,7 +595,7 @@ func testing() -> [ServerView] {
             ])
         ]),
         ServerSpacer(modifier: ServerModifier(height: 20)),
-        ServerColumn(modifier: ServerModifier(paddingStart: 40, paddingEnd: 40, paddingTop: 40, paddingBottom: 40, weight: 1, backgroundColor: "#808080"), items: [
+        ServerColumn(modifier: ServerModifier(paddingStart: 40, paddingEnd: 40, paddingTop: 40, paddingBottom: 40, backgroundColor: "#808080"), items: [
             ServerRow(modifier: ServerModifier(weight: nil, backgroundColor: "008000"), items: [
                 ServerColumn(modifier: ServerModifier(weight: nil), items: [
                     ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),

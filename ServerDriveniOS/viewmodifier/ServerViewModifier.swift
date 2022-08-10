@@ -42,43 +42,50 @@ struct PaddingViewModifier: ViewModifier {
 struct AspectRatioModifier: ViewModifier {
     var serverModifier: ServerModifier?
     func body(content: Content) -> some View {
-        content
-            .modifyIf(serverModifier?.aspectRatio != nil, transform: {
+        if let aspectRatio = serverModifier?.wrappedAspectRatio {
+            content
                 // content mode can conflict with the image content mode
-                $0.aspectRatio(serverModifier!.wrappedAspectRatio!, contentMode: .fill)
-            })
+                .aspectRatio(aspectRatio, contentMode: .fill)
+        } else {
+            content
+        }
     }
 }
 
 struct BackgroundColorViewModifier: ViewModifier {
     var serverModifier: ServerModifier?
     func body(content: Content) -> some View {
-        content
-            .modifyIf(serverModifier?.backgroundColor != nil, transform: {
-                $0.background(Color(UIColor(withHex: serverModifier!.backgroundColor!)))
-            })
+        if let backgroundColor = serverModifier?.backgroundColor{
+            content
+                .background(Color(UIColor(withHex: backgroundColor)))
+        } else {
+            content
+        }
     }
 }
 
 struct CornerRadiusViewModifier: ViewModifier {
     var serverModifier: ServerModifier?
     func body(content: Content) -> some View {
-        content
-            .modifyIf(serverModifier?.cornerRadius != nil, transform: {
-                $0.cornerRadius(CGFloat(serverModifier!.cornerRadius!))
-            })
+        if let cornerRadius = serverModifier?.cornerRadius {
+            content
+                .cornerRadius(CGFloat(cornerRadius))
+        } else {
+            content
+        }
     }
 }
 
 struct AccessibilityLabelModifier: ViewModifier {
     var serverModifier: ServerModifier?
     func body(content: Content) -> some View {
-        content
-            .modifyIf(serverModifier?.adaText != nil, transform: {
-                $0
-                    .accessibilityElement(children: .ignore) // Ignore the children and read adaText for the whole view
-                    .accessibilityLabel(serverModifier!.adaText!)
-            })
+        if let adaText = serverModifier?.adaText {
+            content
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(adaText)
+        } else {
+            content
+        }
     }
 }
 

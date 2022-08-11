@@ -31,6 +31,37 @@ import SwiftUI
 //
 func testing() -> [ServerView] {
     return [
+        ServerRow(modifier : ServerModifier(paddingStart: 10, paddingEnd: 10, paddingTop: 10, paddingBottom: 10, height: 100),items: [
+            ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00", cornerRadius: 16),
+                         items: [
+                            ServerText(text: "Column Left"),
+                            ServerSpacer(),
+                            ServerText(text: "Column Left Desc"),
+                         ]),
+            ServerSpacer(modifier: ServerModifier(width: 10)),
+            ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00", cornerRadius: 16),
+                         items: [
+                            ServerText(text: "Column Right"),
+                            ServerSpacer(),
+                            ServerText(text: "Column Right Desc"),
+                         ])
+        ]),
+        
+        ServerRow(modifier : ServerModifier(paddingStart: 10, paddingEnd: 10, paddingTop: 10, paddingBottom: 10, height: 100),items: [
+            ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00"),
+                         items: [
+                            ServerText(text: "Column Left"),
+                            ServerSpacer(),
+                            ServerText(text: "Column Left Desc"),
+                         ]),
+            ServerSpacer(),
+            ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00"),
+                         items: [
+                            ServerText(text: "Column Right"),
+                            ServerSpacer(),
+                            ServerText(text: "Column Right Desc"),
+                         ])
+        ]),
         ServerRow(modifier: ServerModifier(height: 150, backgroundColor: "00ffff"), items: [
             ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
                 ServerRow(modifier: ServerModifier(weight: 0.5, backgroundColor: "#ff0000"), items: [
@@ -683,8 +714,7 @@ func testing() -> [ServerView] {
                 ]),
                 ServerSpacer()
             ])
-        ])
-        
+        ]),
         
     ]
 }

@@ -33,6 +33,7 @@ struct SDContent: View {
                 SDCard(serverCard: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout)
             case let item as ServerBox:
                 SDBox(serverBox: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout)
+                
             default:
                 Text("Not View Found")
             }

@@ -17,7 +17,7 @@ struct ServerImage: ServerView {
     var modifier: ServerModifier?
 }
 
-enum ImageContentScale {
+enum ImageContentScale: String, Decodable {
     case NONE
     case FILL_HEIGHT
     case FILL_WIDTH
@@ -25,7 +25,7 @@ enum ImageContentScale {
     case FIT
 }
 
-enum ImageAlignment {
+enum ImageAlignment: String, Decodable {
     case TOP_START
     case TOP_CENTER
     case TOP_END

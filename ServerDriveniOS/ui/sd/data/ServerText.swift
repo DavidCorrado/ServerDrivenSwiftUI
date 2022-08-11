@@ -35,12 +35,12 @@ struct ServerText: ServerView {
     }
 }
 
-enum DecorationType {
+enum DecorationType: String, Decodable {
     case STRIKETHROUGH
     case UNKNOWN
 }
 
-enum FontType {
+enum FontType: String, Decodable {
     case NORMAL
     case ITALIC
     case UNKNOWN

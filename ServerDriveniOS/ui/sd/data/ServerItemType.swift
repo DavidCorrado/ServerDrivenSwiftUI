@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ServerItemType {
+enum ServerItemType: String, Decodable {
     case TEXT
     case SPACER
     case CARD

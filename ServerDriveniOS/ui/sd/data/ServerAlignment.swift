@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ServerAlignment {
+enum ServerAlignment: String, Decodable {
     case CENTER
     case END
     case START

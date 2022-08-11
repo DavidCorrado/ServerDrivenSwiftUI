@@ -31,31 +31,14 @@ import SwiftUI
 //
 func testing() -> [ServerView] {
     return [
-        ServerRow(modifier : ServerModifier(paddingStart: 10, paddingEnd: 10, paddingTop: 10, paddingBottom: 10, height: 100),items: [
+        ServerRow(spacing: 10, modifier : ServerModifier(paddingStart: 10, paddingEnd: 10, paddingTop: 10, paddingBottom: 10, height: 100),items: [
             ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00", cornerRadius: 16),
                          items: [
                             ServerText(text: "Column Left"),
                             ServerSpacer(),
                             ServerText(text: "Column Left Desc"),
                          ]),
-            ServerSpacer(modifier: ServerModifier(width: 10)),
             ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00", cornerRadius: 16),
-                         items: [
-                            ServerText(text: "Column Right"),
-                            ServerSpacer(),
-                            ServerText(text: "Column Right Desc"),
-                         ])
-        ]),
-        
-        ServerRow(modifier : ServerModifier(paddingStart: 10, paddingEnd: 10, paddingTop: 10, paddingBottom: 10, height: 100),items: [
-            ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00"),
-                         items: [
-                            ServerText(text: "Column Left"),
-                            ServerSpacer(),
-                            ServerText(text: "Column Left Desc"),
-                         ]),
-            ServerSpacer(),
-            ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00"),
                          items: [
                             ServerText(text: "Column Right"),
                             ServerSpacer(),
@@ -361,108 +344,6 @@ func testing() -> [ServerView] {
             backgroundColor: "#ff0000",
             cornerRadius: 20
         ), items: [
-            ServerColumn(modifier: ServerModifier(
-                paddingStart: 20,
-                paddingEnd: 20,
-                paddingTop: 20,
-                paddingBottom: 20,
-                weight: 1,
-                backgroundColor: "#00ff00",
-                cornerRadius: 20
-            ), items: [
-                ServerRow(modifier: ServerModifier(
-                    paddingStart: 20,
-                    paddingEnd: 20,
-                    paddingTop: 20,
-                    paddingBottom: 20,
-                    weight: 1,
-                    backgroundColor: "#00ff00",
-                    cornerRadius: 20
-                ), items: [
-                    ServerText(text: "Row/Col/Row Border Background")
-                ]),
-            ])
-        ]),
-        ServerRow(modifier: ServerModifier(
-            paddingStart: 20,
-            paddingEnd: 20,
-            paddingTop: 20,
-            paddingBottom: 20,
-            backgroundColor: "#ff0000",
-            cornerRadius: 20
-        ), items: [
-            ServerColumn(modifier: ServerModifier(
-                paddingStart: 20,
-                paddingEnd: 20,
-                paddingTop: 20,
-                paddingBottom: 20,
-                weight: 1,
-                backgroundColor: "#00ff00",
-                cornerRadius: 20
-            ), items: [
-                ServerRow(modifier: ServerModifier(
-                    paddingStart: 20,
-                    paddingEnd: 20,
-                    paddingTop: 20,
-                    paddingBottom: 20,
-                    weight: 0.5,
-                    backgroundColor: "#ffff00",
-                    cornerRadius: 20
-                ), items: [
-                    ServerText(text: "Row/Col/Row Border Background with a really long text that can be very long and multiple lines for sure")
-                ]),
-                ServerRow(modifier: ServerModifier(
-                    paddingStart: 20,
-                    paddingEnd: 20,
-                    paddingTop: 20,
-                    paddingBottom: 20,
-                    weight: 0.5,
-                    backgroundColor: "#00ffff",
-                    cornerRadius: 20
-                ), items: [
-                    ServerText(text: "Row/Col/Row Border Background with a really long text that can be very long and multiple lines for sure")
-                ]),
-            ])
-        ]),
-        ServerColumn(modifier: ServerModifier(
-            paddingStart: 20,
-            paddingEnd: 20,
-            paddingTop: 20,
-            paddingBottom: 20,
-            backgroundColor: "#00ff00",
-            cornerRadius: 20
-        ), items: [
-            ServerRow(modifier: ServerModifier(
-                paddingStart: 20,
-                paddingEnd: 20,
-                paddingTop: 20,
-                paddingBottom: 20,
-                weight: 0.5,
-                backgroundColor: "#ffff00",
-                cornerRadius: 20
-            ), items: [
-                ServerText(text: "Row/Col/Row Border Background with a really long text that can be very long and multiple lines for sure")
-            ]),
-            ServerRow(modifier: ServerModifier(
-                paddingStart: 20,
-                paddingEnd: 20,
-                paddingTop: 20,
-                paddingBottom: 20,
-                weight: 0.5,
-                backgroundColor: "#00ffff",
-                cornerRadius: 20
-            ), items: [
-                ServerText(text: "Row/Col/Row Border Background with a really long text that can be very long and multiple lines for sure")
-            ]),
-        ]),
-        ServerRow(modifier: ServerModifier(
-            paddingStart: 20,
-            paddingEnd: 20,
-            paddingTop: 20,
-            paddingBottom: 20,
-            backgroundColor: "#ff0000",
-            cornerRadius: 20
-        ), items: [
             ServerRow(modifier: ServerModifier(
                 paddingStart: 20,
                 paddingEnd: 20,
@@ -545,12 +426,6 @@ func testing() -> [ServerView] {
             ServerText(text: "Right 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#0000ff")),
         ]),
         ServerSpacer(modifier: ServerModifier(height: 10)),
-        ServerColumn(modifier: ServerModifier(backgroundColor: "#ffff00"), items: [ // This case also fails on Android, dynamic sized view with weights in container direction
-            ServerText(text: "Top 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#ff0000")),
-            ServerText(text: "Mid 50 is going to get really long", modifier: ServerModifier(weight: 0.5, backgroundColor: "#00ff00")),
-            ServerText(text: "Bottom 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#0000ff")),
-        ]),
-        ServerSpacer(modifier: ServerModifier(height: 10)),
         ServerColumn(modifier: ServerModifier(height: 200, backgroundColor: "#ffff00"), items: [
             ServerText(text: "Top 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#ff0000")),
             ServerText(text: "Mid 50 is going to get really long", modifier: ServerModifier(weight: 0.5, backgroundColor: "#00ff00")),
@@ -614,107 +489,6 @@ func testing() -> [ServerView] {
                     ServerText(text: "Overlay", modifier: ServerModifier(backgroundColor: "#FF0000"))
                 ])
             ])
-        ]),
-        ServerRow(modifier: ServerModifier(height: 150, backgroundColor: "00ffff"), items: [
-            ServerColumn(modifier: ServerModifier(weight: 1, backgroundColor: "#00ff00"), items: [
-                ServerRow(modifier: ServerModifier(weight: 0.5, backgroundColor: "#ff0000"), items: [
-                    ServerText(text: "row/column/row/text", modifier: ServerModifier(backgroundColor: "#ffff00"))
-                ]),
-                ServerRow(modifier: ServerModifier(weight: 0.5, backgroundColor: "#0000ff"), items: [
-                    ServerText(text: "row/column/row/text", modifier: ServerModifier(backgroundColor: "#ffff00"))
-                ])
-            ])
-        ]),
-        ServerSpacer(modifier: ServerModifier(height: 20)),
-        ServerColumn(modifier: ServerModifier(paddingStart: 40, paddingEnd: 40, paddingTop: 40, paddingBottom: 40, backgroundColor: "#808080"), items: [
-            ServerRow(modifier: ServerModifier(weight: nil, backgroundColor: "008000"), items: [
-                ServerColumn(modifier: ServerModifier(weight: nil), items: [
-                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
-                    ServerSpacer(modifier: ServerModifier(height: 10)),
-                    ServerText(text: "Disappointed")
-                ]),
-                ServerSpacer(modifier: ServerModifier(weight: nil)),
-                ServerColumn(modifier: ServerModifier(weight: nil), items: [
-                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
-                    ServerSpacer(modifier: ServerModifier(height: 10)),
-                    ServerText(text: "Disappointed")
-                ]),
-                ServerSpacer(modifier: ServerModifier(weight: nil)),
-                ServerColumn(modifier: ServerModifier(weight: nil), items: [
-                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
-                    ServerSpacer(modifier: ServerModifier(height: 10)),
-                    ServerText(text: "Disappointed")
-                ])
-            ]),
-            ServerSpacer(modifier: ServerModifier(weight: nil)),
-            ServerRow(modifier: ServerModifier(weight: nil, backgroundColor: "008000"), items: [
-                ServerColumn(modifier: ServerModifier(weight: nil), items: [
-                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
-                    ServerSpacer(modifier: ServerModifier(height: 10)),
-                    ServerText(text: "Disappointed")
-                ]),
-                ServerSpacer(modifier: ServerModifier(weight: nil)),
-                ServerColumn(modifier: ServerModifier(weight: nil), items: [
-                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
-                    ServerSpacer(modifier: ServerModifier(height: 10)),
-                    ServerText(text: "Disappointed")
-                ]),
-                ServerSpacer(modifier: ServerModifier(weight: nil)),
-                ServerColumn(modifier: ServerModifier(weight: nil), items: [
-                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
-                    ServerSpacer(modifier: ServerModifier(height: 10)),
-                    ServerText(text: "Disappointed")
-                ])
-            ]),
-            ServerSpacer(modifier: ServerModifier(weight: nil)),
-            ServerRow(modifier: ServerModifier(weight: nil, backgroundColor: "008000"), items: [
-                ServerColumn(modifier: ServerModifier(weight: nil), items: [
-                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
-                    ServerSpacer(modifier: ServerModifier(height: 10)),
-                    ServerText(text: "Disappointed")
-                ]),
-                ServerSpacer(modifier: ServerModifier(weight: nil)),
-                ServerColumn(modifier: ServerModifier(weight: nil), items: [
-                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
-                    ServerSpacer(modifier: ServerModifier(height: 10)),
-                    ServerText(text: "Disappointed")
-                ]),
-                ServerSpacer(modifier: ServerModifier(weight: nil)),
-                ServerColumn(modifier: ServerModifier(weight: nil), items: [
-                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(aspectRatio: 1.1)),
-                    ServerSpacer(modifier: ServerModifier(height: 10)),
-                    ServerText(text: "Disappointed")
-                ])
-            ])
-        ]),
-        ServerBox(items: [
-            ServerImage(drawableRes: "Background"),
-            ServerColumn(alignment: .CENTER ,items: [
-                ServerRow(alignment: .CENTER, items: [
-                    ServerText(text: "Centered Text Alignment", color: "ffffff")
-                ])
-            ])
-        ]),
-        ServerBox(items: [
-            ServerImage(drawableRes: "Background"),
-            ServerColumn(modifier: ServerModifier(weight: 1), alignment: .CENTER ,items: [
-                ServerRow(modifier: ServerModifier(weight: 1), alignment: .CENTER, items: [
-                    ServerText(text: "Centered Text Alignment + Weight", color: "ffffff")
-                ])
-            ])
-        ]),
-        ServerBox(items: [
-            ServerImage(drawableRes: "Background"),
-            ServerColumn(items: [
-                ServerSpacer(),
-                ServerRow(items: [
-                    ServerSpacer(),
-                    ServerText(text: "Centered Text Spacers", color: "ffffff"),
-                    ServerSpacer()
-                ]),
-                ServerSpacer()
-            ])
-        ]),
-        
+        ])
     ]
 }

@@ -31,6 +31,13 @@ import SwiftUI
 //
 func testing() -> [ServerView] {
     return [
+        ServerRow(items: [
+            ServerSpacer(modifier: ServerModifier(width: 70)),
+            ServerColumn(alignment: ServerAlignment.CENTER, items: [
+                ServerText(text: "This is a multiline text that needs all lines to be center aligned.")
+            ]),
+            ServerSpacer(modifier: ServerModifier(width: 70)),
+        ]),
         ServerRow(spacing: 10, modifier : ServerModifier(paddingStart: 10, paddingEnd: 10, paddingTop: 10, paddingBottom: 10, height: 100),items: [
             ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00", cornerRadius: 16),
                          items: [

@@ -44,8 +44,8 @@ struct SDCard: View, SDWeightedContainer {
                 SDContent(items: serverCard.items, parentWeightDirection: serverCard.weightDirection, parentSize: calculateAvailableSpace(from: height), parentTotalWeight: serverCard.getTotalWeight(for: serverCard.weightDirection), nestedInVerticalLayout: true, nestedInHorizontalLayout: false)
             }
             .serverModifier(serverView: serverCard, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout)
-            .shadow(color: Color(UIColor.black.withAlphaComponent(0.08)), radius: 15, x: 0, y: 5)
-        }
+            
+        }.shadow(color: Color(UIColor.black.withAlphaComponent(0.08)), radius: 15, x: 0, y: 5)
 
     }
 }

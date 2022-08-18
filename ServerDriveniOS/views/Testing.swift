@@ -64,7 +64,7 @@ func testing() -> [ServerView] {
         ServerRow(items: [
             ServerSpacer(modifier: ServerModifier(width: 70)),
             ServerColumn(alignment: ServerAlignment.CENTER, items: [
-                ServerText(text: "This is a multiline text that needs all lines to be center aligned.")
+                ServerText(text: "This is a multiline text that needs all lines to be center aligned.", textAlignment: .CENTER)
             ]),
             ServerSpacer(modifier: ServerModifier(width: 70)),
         ]),

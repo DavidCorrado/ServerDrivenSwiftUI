@@ -33,6 +33,7 @@ struct SDText: View {
             .modifyIf(serverText.isHeading ?? false, transform: {
                 $0.accessibilityAddTraits(.isHeader)
             })
+            .multilineTextAlignment(serverText.textAlignment?.alignment ?? .leading)
             .serverModifier(serverView: serverText, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout)
     }
 }

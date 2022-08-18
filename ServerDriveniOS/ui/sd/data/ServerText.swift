@@ -19,6 +19,8 @@ struct ServerText: ServerView {
     var weight: String?
     var isHeading: Bool?
     var modifier: ServerModifier?
+    var textAlignment: ServerTextAlignment?
+    
     func fontWeight() -> Font.Weight {
         switch weight {
             case "100": return .light
@@ -44,4 +46,21 @@ enum FontType {
     case NORMAL
     case ITALIC
     case UNKNOWN
+}
+
+enum ServerTextAlignment {
+    case START
+    case CENTER
+    case END
+    
+    var alignment: TextAlignment {
+        switch self {
+        case .START:
+            return .leading
+        case .CENTER:
+            return .center
+        case .END:
+            return .trailing
+        }
+    }
 }

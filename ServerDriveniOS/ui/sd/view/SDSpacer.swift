@@ -18,6 +18,6 @@ struct SDSpacer: View {
     
     var body: some View {
         Spacer(minLength: 0)
-            .serverModifier(serverView: serverSpacer, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: nil, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout)
+            .serverModifier(serverView: serverSpacer, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout)
     }
 }

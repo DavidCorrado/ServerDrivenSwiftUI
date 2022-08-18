@@ -31,12 +31,36 @@ import SwiftUI
 //
 func testing() -> [ServerView] {
     return [
+        ServerRow(modifier : ServerModifier(paddingStart: 10, paddingEnd: 10, paddingTop: 10, paddingBottom: 10, height: 100),items: [
+                    ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00", cornerRadius: 16),
+                                 items: [
+                                    ServerText(text: "Column Left"),
+                                    ServerSpacer(),
+                                    ServerText(text: "Column Left Desc"),
+                                 ]),
+                    ServerColumn(modifier: ServerModifier(weight: 1), items: []),
+                    ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00", cornerRadius: 16),
+                                 items: [
+                                    ServerText(text: "Column Right"),
+                                    ServerSpacer(),
+                                    ServerText(text: "Column Right Desc"),
+                                 ])
+        ]),
         ServerRow(items: [
             ServerSpacer(modifier: ServerModifier(width: 70)),
             ServerColumn(alignment: ServerAlignment.CENTER, items: [
                 ServerText(text: "This is a multiline text that needs all lines to be center aligned.")
             ]),
             ServerSpacer(modifier: ServerModifier(width: 70)),
+        ]),
+        ServerRow(modifier: ServerModifier(paddingStart:20, paddingEnd: 20, backgroundColor: "#ff0000"), items: [
+            ServerCard(modifier: ServerModifier(weight: 1), items: [
+                ServerColumn(modifier: ServerModifier(paddingStart:20, paddingEnd: 20, paddingTop: 20, paddingBottom: 20, backgroundColor: "#0000ff"), items: [
+                    ServerText(text: "List text in card"),
+                    ServerText(text: "List text in card"),
+                    ServerText(text: "List text in card")
+                ])
+            ])
         ]),
         ServerRow(spacing: 10, modifier : ServerModifier(paddingStart: 10, paddingEnd: 10, paddingTop: 10, paddingBottom: 10, height: 100),items: [
             ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00", cornerRadius: 16),
@@ -470,7 +494,7 @@ func testing() -> [ServerView] {
             )
         ),
         ServerImage(drawableRes: "Running", tint: "#ff0000", modifier: ServerModifier(width: 20, height: 20)),
-        ServerColumn(items: [
+        ServerRow(items: [
             ServerBox(modifier: ServerModifier(weight: 1),items: [
                 ServerRow(modifier: ServerModifier(weight: 1), items: [
                     ServerImage(drawableRes: "Background", contentScale: .FILL_HEIGHT, alignment: .TOP_END, modifier: ServerModifier(weight: 1, aspectRatio: 1.2))
@@ -484,10 +508,10 @@ func testing() -> [ServerView] {
             ])
         
         ]),
-        ServerColumn(items: [ // need weight on nested views if child has weight because child can only fill its parent
+        ServerRow(items: [
             ServerBox(modifier: ServerModifier(weight: 1),items: [
                 ServerRow(modifier: ServerModifier(weight: 1), items: [
-                    ServerImage(drawableRes: "Background", contentScale: .FILL_HEIGHT, alignment: .BOTTOM_END, modifier: ServerModifier(weight: 1, aspectRatio: 3))
+                    ServerImage(drawableRes: "Background", contentScale: .FILL_WIDTH, alignment: .BOTTOM_END, modifier: ServerModifier(weight: 1, aspectRatio: 3))
                 ]),
                 ServerRow(modifier: ServerModifier(weight: 1, aspectRatio: 3), // Normally aspectRatio modifier only works for images (also maybe shapes) on swiftui, I added manual calculations for it but it only runs if server view size is calculated manually (if view has a fixed height or fixed width or a weight)
                     items: [

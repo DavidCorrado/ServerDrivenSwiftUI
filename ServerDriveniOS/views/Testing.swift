@@ -38,7 +38,22 @@ func testing() -> [ServerView] {
                                     ServerSpacer(),
                                     ServerText(text: "Column Left Desc"),
                                  ]),
-                    ServerColumn(modifier: ServerModifier(weight: 1), items: []),
+                    ServerSpacer(), // Spacer in weighted container will squished if has no width
+                    ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00", cornerRadius: 16),
+                                 items: [
+                                    ServerText(text: "Column Right"),
+                                    ServerSpacer(),
+                                    ServerText(text: "Column Right Desc"),
+                                 ])
+        ]),
+        ServerRow(modifier : ServerModifier(paddingStart: 10, paddingEnd: 10, paddingTop: 10, paddingBottom: 10, height: 100),items: [
+                    ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00", cornerRadius: 16),
+                                 items: [
+                                    ServerText(text: "Column Left"),
+                                    ServerSpacer(),
+                                    ServerText(text: "Column Left Desc"),
+                                 ]),
+                    ServerSpacer(modifier : ServerModifier(weight: 1)), // spacer will weight broke the ui, can be replaced with an empty row or column
                     ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00", cornerRadius: 16),
                                  items: [
                                     ServerText(text: "Column Right"),

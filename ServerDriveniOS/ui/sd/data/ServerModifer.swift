@@ -19,13 +19,5 @@ struct ServerModifier {
     var backgroundColor: String?
     var cornerRadius: Float?
     var adaText: String?
-    var aspectRatio: Float?
-    
-    var wrappedAspectRatio: CGSize? {
-        guard let aspectRatio = aspectRatio else {
-            return nil
-        }
-        
-        return CGSize(width: Int(aspectRatio * 1000), height: 1000)
-    }
+    var aspectRatio: CGFloat?
 }

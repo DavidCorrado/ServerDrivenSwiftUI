@@ -53,7 +53,7 @@ func testing() -> [ServerView] {
                                     ServerSpacer(),
                                     ServerText(text: "Column Left Desc"),
                                  ]),
-                    ServerSpacer(modifier : ServerModifier(weight: 1)), // spacer will weight broke the ui, can be replaced with an empty row or column
+                    ServerSpacer(modifier : ServerModifier(weight: 1)),
                     ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00", cornerRadius: 16),
                                  items: [
                                     ServerText(text: "Column Right"),
@@ -535,6 +535,11 @@ func testing() -> [ServerView] {
                     ServerText(text: "Overlay", modifier: ServerModifier(backgroundColor: "#FF0000"))
                 ])
             ])
-        ])
+        ]),
+        ServerImage(drawableRes: "Background", contentScale: .FILL_WIDTH, alignment: .CENTER_CENTER, modifier: ServerModifier(width: 100, height: 100)),
+        ServerImage(drawableRes: "Background", contentScale: .FILL_HEIGHT, alignment: .CENTER_END, modifier: ServerModifier(width: 100, height: 200)),
+        ServerImage(drawableRes: "Background", contentScale: .CROP, alignment: .CENTER_END, modifier: ServerModifier(width: 100, height: 100)),
+        ServerImage(drawableRes: "Background", contentScale: .FIT, alignment: .CENTER_CENTER, modifier: ServerModifier(width: 100, height: 100)),
+        ServerImage(drawableRes: "Background", contentScale: .FILL_WIDTH, alignment: .CENTER_CENTER, modifier: ServerModifier(width: 200, height: 100))
     ]
 }

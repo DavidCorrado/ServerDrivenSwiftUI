@@ -21,7 +21,6 @@ struct ServerViewModifier: ViewModifier {
         content
             .padding(serverModifier: serverView.modifier)
             .size(serverView: serverView, serverModifier: serverView.modifier, weight: serverView.getWeight(for: parentWeightDirection), alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout)
-            .aspectRatio(serverModifier: serverView.modifier)
             .backgroundColor(serverModifier: serverView.modifier)
             .cornerRadius(serverModifier: serverView.modifier)
             .accessibilityLabel(serverModifier: serverView.modifier)
@@ -36,19 +35,6 @@ struct PaddingViewModifier: ViewModifier {
             .modifyIf(serverModifier?.paddingEnd != nil, transform: { $0.padding(.trailing, serverModifier?.paddingEnd) })
             .modifyIf(serverModifier?.paddingTop != nil, transform: { $0.padding(.top, serverModifier?.paddingTop) })
             .modifyIf(serverModifier?.paddingBottom != nil, transform: { $0.padding(.bottom, serverModifier?.paddingBottom) })
-    }
-}
-
-struct AspectRatioModifier: ViewModifier {
-    var serverModifier: ServerModifier?
-    func body(content: Content) -> some View {
-        if let aspectRatio = serverModifier?.wrappedAspectRatio {
-            content
-                // content mode can conflict with the image content mode
-                .aspectRatio(aspectRatio, contentMode: .fill)
-        } else {
-            content
-        }
     }
 }
 
@@ -100,10 +86,6 @@ extension View {
 
     func size(serverView: ServerView, serverModifier: ServerModifier?, weight: CGFloat?, alignment: Alignment?, parentWeightDirection: WeightDirection, parentSize: CGFloat, parentTotalWeight: CGFloat?, nestedInVerticalLayout: Bool, nestedInHorizontalLayout: Bool) -> some View {
         modifier(SizeViewModifier(serverView: serverView, serverModifier: serverModifier, weight: weight, alignment: alignment, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout))
-    }
-    
-    func aspectRatio(serverModifier: ServerModifier?) -> some View {
-        modifier(AspectRatioModifier(serverModifier: serverModifier))
     }
     
     func backgroundColor(serverModifier: ServerModifier?) -> some View {

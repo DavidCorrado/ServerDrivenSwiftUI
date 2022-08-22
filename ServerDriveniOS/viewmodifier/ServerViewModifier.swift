@@ -31,10 +31,10 @@ struct PaddingViewModifier: ViewModifier {
     var serverModifier: ServerModifier?
     func body(content: Content) -> some View {
         content
-            .modifyIf(serverModifier?.paddingStart != nil, transform: { $0.padding(.leading, serverModifier?.paddingStart) })
-            .modifyIf(serverModifier?.paddingEnd != nil, transform: { $0.padding(.trailing, serverModifier?.paddingEnd) })
-            .modifyIf(serverModifier?.paddingTop != nil, transform: { $0.padding(.top, serverModifier?.paddingTop) })
-            .modifyIf(serverModifier?.paddingBottom != nil, transform: { $0.padding(.bottom, serverModifier?.paddingBottom) })
+            .modifyIf(serverModifier?.spacingStart != nil, transform: { $0.padding(.leading, serverModifier?.spacingStart) })
+            .modifyIf(serverModifier?.spacingEnd != nil, transform: { $0.padding(.trailing, serverModifier?.spacingEnd) })
+            .modifyIf(serverModifier?.spacingTop != nil, transform: { $0.padding(.top, serverModifier?.spacingTop) })
+            .modifyIf(serverModifier?.spacingBottom != nil, transform: { $0.padding(.bottom, serverModifier?.spacingBottom) })
     }
 }
 

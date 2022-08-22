@@ -31,7 +31,7 @@ import SwiftUI
 //
 func testing() -> [ServerView] {
     return [
-        ServerRow(modifier : ServerModifier(paddingStart: 10, paddingEnd: 10, paddingTop: 10, paddingBottom: 10, height: 100),items: [
+        ServerRow(modifier : ServerModifier(spacingStart: 10, spacingEnd: 10, spacingTop: 10, spacingBottom: 10, height: 100),items: [
                     ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00", cornerRadius: 16),
                                  items: [
                                     ServerText(text: "Column Left"),
@@ -46,7 +46,7 @@ func testing() -> [ServerView] {
                                     ServerText(text: "Column Right Desc"),
                                  ])
         ]),
-        ServerRow(modifier : ServerModifier(paddingStart: 10, paddingEnd: 10, paddingTop: 10, paddingBottom: 10, height: 100),items: [
+        ServerRow(modifier : ServerModifier(spacingStart: 10, spacingEnd: 10, spacingTop: 10, spacingBottom: 10, height: 100),items: [
                     ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00", cornerRadius: 16),
                                  items: [
                                     ServerText(text: "Column Left"),
@@ -68,16 +68,16 @@ func testing() -> [ServerView] {
             ]),
             ServerSpacer(modifier: ServerModifier(width: 70)),
         ]),
-        ServerRow(modifier: ServerModifier(paddingStart:20, paddingEnd: 20, backgroundColor: "#ff0000"), items: [
+        ServerRow(modifier: ServerModifier(spacingStart:20, spacingEnd: 20, backgroundColor: "#ff0000"), items: [
             ServerCard(modifier: ServerModifier(weight: 1), items: [
-                ServerColumn(modifier: ServerModifier(paddingStart:20, paddingEnd: 20, paddingTop: 20, paddingBottom: 20, backgroundColor: "#0000ff"), items: [
+                ServerColumn(modifier: ServerModifier(spacingStart:20, spacingEnd: 20, spacingTop: 20, spacingBottom: 20, backgroundColor: "#0000ff"), items: [
                     ServerText(text: "List text in card"),
                     ServerText(text: "List text in card"),
                     ServerText(text: "List text in card")
                 ])
             ])
         ]),
-        ServerRow(spacing: 10, modifier : ServerModifier(paddingStart: 10, paddingEnd: 10, paddingTop: 10, paddingBottom: 10, height: 100),items: [
+        ServerRow(spacing: 10, modifier : ServerModifier(spacingStart: 10, spacingEnd: 10, spacingTop: 10, spacingBottom: 10, height: 100),items: [
             ServerColumn(modifier : ServerModifier(weight: 1, backgroundColor: "#00ff00", cornerRadius: 16),
                          items: [
                             ServerText(text: "Column Left"),
@@ -132,19 +132,19 @@ func testing() -> [ServerView] {
         ]),
         ServerSpacer(modifier: ServerModifier(height: 10)),
         ServerRow(modifier: ServerModifier(
-            paddingStart: 20,
-            paddingEnd: 20,
-            paddingTop: 20,
-            paddingBottom: 20,
+            spacingStart: 20,
+            spacingEnd: 20,
+            spacingTop: 20,
+            spacingBottom: 20,
             backgroundColor: "#ff0000",
             cornerRadius: 20
         ), items: [
             ServerRow(items: [
                 ServerRow(modifier: ServerModifier(
-                    paddingStart: 20,
-                    paddingEnd: 20,
-                    paddingTop: 20,
-                    paddingBottom: 20,
+                    spacingStart: 20,
+                    spacingEnd: 20,
+                    spacingTop: 20,
+                    spacingBottom: 20,
                     weight: 1,
                     backgroundColor: "#00ff00",
                     cornerRadius: 20
@@ -186,18 +186,18 @@ func testing() -> [ServerView] {
             ServerText(text: "Card")
         ]),
         ServerCard(modifier: ServerModifier(
-            paddingStart: 30,
-            paddingEnd: 30,
-            paddingTop: 30,
-            paddingBottom: 30
+            spacingStart: 30,
+            spacingEnd: 30,
+            spacingTop: 30,
+            spacingBottom: 30
         ), items: [
             ServerText(text: "Card Padding")
         ]),
         ServerCard(modifier: ServerModifier(
-            paddingStart: 30,
-            paddingEnd: 30,
-            paddingTop: 30,
-            paddingBottom: 30,
+            spacingStart: 30,
+            spacingEnd: 30,
+            spacingTop: 30,
+            spacingBottom: 30,
             width: 200,
             height: 200
         ), items: [
@@ -239,10 +239,10 @@ func testing() -> [ServerView] {
             ServerText(text: "Row End")
         ]),
         ServerRow(spacing: 20, modifier: ServerModifier(
-            paddingStart: 30,
-            paddingEnd: 30,
-            paddingTop: 30,
-            paddingBottom: 30,
+            spacingStart: 30,
+            spacingEnd: 30,
+            spacingTop: 30,
+            spacingBottom: 30,
             width: 200,
             height: 200,
             backgroundColor: "#ff0000",
@@ -253,10 +253,10 @@ func testing() -> [ServerView] {
             ServerText(text: "Row 2")
         ]),
         ServerRow(spacing: 20, modifier: ServerModifier(
-            paddingStart: 30,
-            paddingEnd: 30,
-            paddingTop: 30,
-            paddingBottom: 30,
+            spacingStart: 30,
+            spacingEnd: 30,
+            spacingTop: 30,
+            spacingBottom: 30,
             backgroundColor: "#ffff00",
             cornerRadius: 5
         ),
@@ -265,10 +265,10 @@ func testing() -> [ServerView] {
             ServerText(text: "Row 2")
         ]),
         ServerColumn(spacing: 20, modifier: ServerModifier(
-            paddingStart: 30,
-            paddingEnd: 30,
-            paddingTop: 30,
-            paddingBottom: 30,
+            spacingStart: 30,
+            spacingEnd: 30,
+            spacingTop: 30,
+            spacingBottom: 30,
             width: 200,
             height: 200,
             backgroundColor: "#00ff00",
@@ -279,19 +279,19 @@ func testing() -> [ServerView] {
             ServerText(text: "Col 2")
         ]),
         ServerRow(modifier: ServerModifier(
-            paddingStart: 30,
-            paddingEnd: 30,
-            paddingTop: 30,
-            paddingBottom: 30,
+            spacingStart: 30,
+            spacingEnd: 30,
+            spacingTop: 30,
+            spacingBottom: 30,
             backgroundColor:"#ff0000",
             cornerRadius: 5
         ), items: [
             ServerText(text: "Row"),
             ServerColumn(modifier: ServerModifier(
-                paddingStart: 30,
-                paddingEnd: 30,
-                paddingTop: 30,
-                paddingBottom: 30,
+                spacingStart: 30,
+                spacingEnd: 30,
+                spacingTop: 30,
+                spacingBottom: 30,
                 backgroundColor:"#00ff00",
                 cornerRadius: 5
             ), items: [
@@ -320,20 +320,20 @@ func testing() -> [ServerView] {
              ServerText(text: "Row Spacer")
         ]),
         ServerRow(modifier: ServerModifier(
-            paddingStart: 20,
-            paddingEnd: 20,
-            paddingTop: 20,
-            paddingBottom: 20,
+            spacingStart: 20,
+            spacingEnd: 20,
+            spacingTop: 20,
+            spacingBottom: 20,
             width: 200,
             height: 200,
             backgroundColor: "#ff0000",
             cornerRadius: 20
         ), items: [
             ServerRow(modifier: ServerModifier(
-                paddingStart: 20,
-                paddingEnd: 20,
-                paddingTop: 20,
-                paddingBottom: 20,
+                spacingStart: 20,
+                spacingEnd: 20,
+                spacingTop: 20,
+                spacingBottom: 20,
                 width: 160, // Those are 200 on Android, but should be 200 - (20 0 2) = 160 on iOS
                 height: 160,
                 backgroundColor: "#00ff00",
@@ -343,18 +343,18 @@ func testing() -> [ServerView] {
             ])
         ]),
         ServerRow(modifier: ServerModifier(
-            paddingStart: 20,
-            paddingEnd: 20,
-            paddingTop: 20,
-            paddingBottom: 20,
+            spacingStart: 20,
+            spacingEnd: 20,
+            spacingTop: 20,
+            spacingBottom: 20,
             backgroundColor: "#ff0000",
             cornerRadius: 20
         ), items: [
             ServerRow(modifier: ServerModifier(
-                paddingStart: 20,
-                paddingEnd: 20,
-                paddingTop: 20,
-                paddingBottom: 20,
+                spacingStart: 20,
+                spacingEnd: 20,
+                spacingTop: 20,
+                spacingBottom: 20,
                 weight: 1,
                 backgroundColor: "#00ff00",
                 cornerRadius: 20
@@ -363,18 +363,18 @@ func testing() -> [ServerView] {
             ])
         ]),
         ServerRow(modifier: ServerModifier(
-            paddingStart: 20,
-            paddingEnd: 20,
-            paddingTop: 20,
-            paddingBottom: 20,
+            spacingStart: 20,
+            spacingEnd: 20,
+            spacingTop: 20,
+            spacingBottom: 20,
             backgroundColor: "#ff0000",
             cornerRadius: 20
         ), items: [
             ServerColumn(modifier: ServerModifier(
-                paddingStart: 20,
-                paddingEnd: 20,
-                paddingTop: 20,
-                paddingBottom: 20,
+                spacingStart: 20,
+                spacingEnd: 20,
+                spacingTop: 20,
+                spacingBottom: 20,
                 weight: 1,
                 backgroundColor: "#00ff00",
                 cornerRadius: 20
@@ -383,18 +383,18 @@ func testing() -> [ServerView] {
             ])
         ]),
         ServerRow(modifier: ServerModifier(
-            paddingStart: 20,
-            paddingEnd: 20,
-            paddingTop: 20,
-            paddingBottom: 20,
+            spacingStart: 20,
+            spacingEnd: 20,
+            spacingTop: 20,
+            spacingBottom: 20,
             backgroundColor: "#ff0000",
             cornerRadius: 20
         ), items: [
             ServerRow(modifier: ServerModifier(
-                paddingStart: 20,
-                paddingEnd: 20,
-                paddingTop: 20,
-                paddingBottom: 20,
+                spacingStart: 20,
+                spacingEnd: 20,
+                spacingTop: 20,
+                spacingBottom: 20,
                 weight: 0.25,
                 backgroundColor: "#00ff00",
                 cornerRadius: 20
@@ -421,7 +421,7 @@ func testing() -> [ServerView] {
         ]),
         ServerRow(items: [
             ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(width: 20, height: 20)),
-            ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(paddingStart: 20, paddingEnd: 20, paddingTop: 20, paddingBottom: 20, width: 20, height: 20)) // This will be squished to zero since  we are adding 20 padding to 20x20 image because of the call order
+            ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(spacingStart: 20, spacingEnd: 20, spacingTop: 20, spacingBottom: 20, width: 20, height: 20)) // This will be squished to zero since  we are adding 20 padding to 20x20 image because of the call order
         ]),
         ServerRow(
             items: [
@@ -433,26 +433,26 @@ func testing() -> [ServerView] {
         ServerRow(
             items: [
                 ServerText(text: "Left 25", modifier: ServerModifier(
-                    paddingStart: 20,
-                    paddingEnd: 20,
-                    paddingTop: 20,
-                    paddingBottom: 20,
+                    spacingStart: 20,
+                    spacingEnd: 20,
+                    spacingTop: 20,
+                    spacingBottom: 20,
                     weight: 0.25,
                     backgroundColor: "#ff0000"
                 )),
                 ServerText(text: "Mid 50", modifier: ServerModifier(
-                    paddingStart: 20,
-                    paddingEnd: 20,
-                    paddingTop: 20,
-                    paddingBottom: 20,
+                    spacingStart: 20,
+                    spacingEnd: 20,
+                    spacingTop: 20,
+                    spacingBottom: 20,
                     weight: 0.5,
                     backgroundColor: "#00ff00"
                 )),
                 ServerText(text: "Right 25", modifier: ServerModifier(
-                    paddingStart: 20,
-                    paddingEnd: 20,
-                    paddingTop: 20,
-                    paddingBottom: 20,
+                    spacingStart: 20,
+                    spacingEnd: 20,
+                    spacingTop: 20,
+                    spacingBottom: 20,
                     weight: 0.25,
                     backgroundColor: "#0000ff"
                 )),
@@ -478,10 +478,10 @@ func testing() -> [ServerView] {
             ServerText(text: "Bottom 25 is going to get really long", modifier: ServerModifier(weight: 0.25, backgroundColor: "#0000ff")),
         ]),
         ServerCard(modifier: ServerModifier(
-            paddingStart: 20,
-            paddingEnd: 20,
-            paddingTop: 20,
-            paddingBottom: 20,
+            spacingStart: 20,
+            spacingEnd: 20,
+            spacingTop: 20,
+            spacingBottom: 20,
             backgroundColor: "#ff0000",
             cornerRadius: 60
         ),items: [
@@ -494,16 +494,16 @@ func testing() -> [ServerView] {
         ServerRow(
             items: [
             ServerSpacer(modifier: ServerModifier(
-                paddingStart: 20, paddingEnd: 20, paddingTop: 20, paddingBottom: 20, weight: 1, backgroundColor: "#ff0000", cornerRadius: 20
+                spacingStart: 20, spacingEnd: 20, spacingTop: 20, spacingBottom: 20, weight: 1, backgroundColor: "#ff0000", cornerRadius: 20
             ))
         ]),
         ServerText(
             text: "Test",
             modifier: ServerModifier(
-                paddingStart: 20,
-                paddingEnd: 20,
-                paddingTop: 20,
-                paddingBottom: 20,
+                spacingStart: 20,
+                spacingEnd: 20,
+                spacingTop: 20,
+                spacingBottom: 20,
                 backgroundColor: "#ff0000",
                 cornerRadius: 60
             )

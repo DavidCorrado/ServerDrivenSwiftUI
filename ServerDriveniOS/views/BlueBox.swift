@@ -21,10 +21,10 @@ func blueBox() -> ServerBox{
         items: [
             ServerColumn(
                 modifier: ServerModifier(
-                    paddingStart: 24,
-                    paddingEnd: 36,
-                    paddingTop: 61,
-                    paddingBottom: 33
+                    spacingStart: 24,
+                    spacingEnd: 36,
+                    spacingTop: 61,
+                    spacingBottom: 33
                 ),
                 items: [
                     ServerText(text: "Introducing", size: 14, color: "#FFFFFF", weight: "600" ),
@@ -36,7 +36,7 @@ func blueBox() -> ServerBox{
                         items: [
                             ServerImage(
                                 drawableRes: "Arrow_Right",
-                                modifier: ServerModifier(paddingEnd: 5, paddingTop: 5, width: 10, height: 6 )
+                                modifier: ServerModifier(spacingEnd: 5, spacingTop: 5, width: 10, height: 6 )
                             ),
                             ServerText(text: "Some of the data you record in journeys will appear here, too.", size: 12, color: "#FFFFFF", weight: "500")
                         ]

@@ -21,17 +21,17 @@ extension SDWeightedContainer {
         
         switch(weightedContainer.weightDirection) {
         case .vertical:
-            if let paddingTop = weightedContainer.modifier?.paddingTop {
+            if let paddingTop = weightedContainer.modifier?.spacingTop {
                 adjustedSize -= paddingTop // Total height - top padding
             }
-            if let paddingBottom = weightedContainer.modifier?.paddingBottom {
+            if let paddingBottom = weightedContainer.modifier?.spacingBottom {
                 adjustedSize -= paddingBottom // Total height - bottom padding
             }
         case .horizontal:
-            if let paddingStart = weightedContainer.modifier?.paddingStart {
+            if let paddingStart = weightedContainer.modifier?.spacingStart {
                 adjustedSize -= paddingStart // Total width - start padding
             }
-            if let paddingEnd = weightedContainer.modifier?.paddingEnd {
+            if let paddingEnd = weightedContainer.modifier?.spacingEnd {
                 adjustedSize -= paddingEnd // Total width - end padding
             }
         case .none:

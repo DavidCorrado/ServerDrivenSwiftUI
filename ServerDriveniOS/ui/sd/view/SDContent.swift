@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct SDContent: View {
-    var items: [ServerView]
+    var subviews: [ServerView]
     var parentWeightDirection: WeightDirection
     var parentSize: CGFloat
     var parentTotalWeight: CGFloat?
@@ -17,7 +17,7 @@ struct SDContent: View {
     var nestedInHorizontalLayout: Bool
     
     var body: some View {
-        ForEach(items, id: \.id) { item in
+        ForEach(subviews, id: \.id) { item in
             switch item {
             case let item as ServerText:
                 SDText(serverText: item, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout)

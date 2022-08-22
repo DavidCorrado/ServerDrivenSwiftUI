@@ -41,7 +41,7 @@ struct SDCard: View, SDWeightedContainer {
     var body: some View {
         SingleAxisGeometryReader(axis: .vertical) { height in
             VStack(alignment: .leading, spacing: serverCard.spacing) {
-                SDContent(items: serverCard.items, parentWeightDirection: serverCard.weightDirection, parentSize: calculateAvailableSpace(from: height), parentTotalWeight: serverCard.getTotalWeight(for: serverCard.weightDirection), nestedInVerticalLayout: true, nestedInHorizontalLayout: false)
+                SDContent(subviews: serverCard.subviews, parentWeightDirection: serverCard.weightDirection, parentSize: calculateAvailableSpace(from: height), parentTotalWeight: serverCard.getTotalWeight(for: serverCard.weightDirection), nestedInVerticalLayout: true, nestedInHorizontalLayout: false)
             }
             .serverModifier(serverView: serverCard, parentWeightDirection: parentWeightDirection, parentSize: parentSize, parentTotalWeight: parentTotalWeight, nestedInVerticalLayout: nestedInVerticalLayout, nestedInHorizontalLayout: nestedInHorizontalLayout)
             

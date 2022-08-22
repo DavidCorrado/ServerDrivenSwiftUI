@@ -11,7 +11,7 @@ struct ServerBox: ServerView, ServerWeightedContainer {
     var type: ServerItemType = .BOX
     var id = UUID()
     var modifier: ServerModifier?
-    var items: [ServerView]
+    var subviews: [ServerView]
     var spacing: CGFloat? { nil }
     var weightDirection: WeightDirection { .none }
 }

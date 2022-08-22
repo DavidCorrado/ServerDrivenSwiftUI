@@ -10,7 +10,7 @@ import SwiftUI
 
 struct BlueBox_Previews: PreviewProvider {
     static var previews: some View {
-        SDContent(items: [blueBox()],parentWeightDirection: .none, parentSize: .zero, nestedInVerticalLayout: false, nestedInHorizontalLayout: false)
+        SDContent(subviews: [blueBox()],parentWeightDirection: .none, parentSize: .zero, nestedInVerticalLayout: false, nestedInHorizontalLayout: false)
     }
 }
 
@@ -18,7 +18,7 @@ struct BlueBox_Previews: PreviewProvider {
 func blueBox() -> ServerBox{
     return ServerBox(
         modifier: ServerModifier(backgroundColor: "#002F8C", cornerRadius: 16),
-        items: [
+        subviews: [
             ServerColumn(
                 modifier: ServerModifier(
                     spacingStart: 24,
@@ -26,14 +26,14 @@ func blueBox() -> ServerBox{
                     spacingTop: 61,
                     spacingBottom: 33
                 ),
-                items: [
+                subviews: [
                     ServerText(text: "Introducing", size: 14, color: "#FFFFFF", weight: "600" ),
                     ServerText(text: "Check-ins", size: 28, color: "#87C5FF", weight: "700"),
                     ServerSpacer(modifier: ServerModifier(height: 22)),
                     ServerText(text: "Create your first entry and let’s start connecting the dots for your health.", size: 16,color: "#FFFFFF", weight: "500" ),
                     ServerSpacer(modifier: ServerModifier(height: 27)),
                     ServerRow(
-                        items: [
+                        subviews: [
                             ServerImage(
                                 drawableRes: "Arrow_Right",
                                 modifier: ServerModifier(spacingEnd: 5, spacingTop: 5, width: 10, height: 6 )

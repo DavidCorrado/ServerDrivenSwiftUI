@@ -14,7 +14,7 @@ struct ServerRow: ServerView, ServerWeightedContainer {
     var spacing: CGFloat?
     var modifier: ServerModifier?
     var alignment: ServerAlignment?
-    var items: [ServerView]
+    var subviews: [ServerView]
     
     var weightDirection: WeightDirection {
         .horizontal

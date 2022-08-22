@@ -18,7 +18,7 @@ enum WeightDirection {
 protocol ServerWeightedContainer {
     var spacing: CGFloat? { get }
     var modifier: ServerModifier? { get }
-    var items: [ServerView] { get }
+    var subviews: [ServerView] { get }
     var weightDirection: WeightDirection { get }
     func getTotalWeight(for direction: WeightDirection) -> CGFloat?
 }
@@ -26,7 +26,7 @@ protocol ServerWeightedContainer {
 extension ServerWeightedContainer {
     func getTotalWeight(for direction: WeightDirection) -> CGFloat? {
         var totalWeight: CGFloat = 0
-        for item in items {
+        for item in subviews {
             if let itemWeight = item.getWeight(for: direction) {
                 if weightDirection == direction {
                     totalWeight += itemWeight

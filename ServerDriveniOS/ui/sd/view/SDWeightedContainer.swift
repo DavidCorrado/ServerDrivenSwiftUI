@@ -16,7 +16,7 @@ extension SDWeightedContainer {
     func calculateAvailableSpace(from size: CGFloat) -> CGFloat {
         var adjustedSize = size
         if let spacing = weightedContainer.spacing, spacing > 0 { // Spacing being optional can cause bugs
-            adjustedSize -= CGFloat(weightedContainer.items.count - 1) * spacing
+            adjustedSize -= CGFloat(weightedContainer.subviews.count - 1) * spacing
         }
         
         switch(weightedContainer.weightDirection) {
@@ -38,7 +38,7 @@ extension SDWeightedContainer {
             fatalError("Weights only supported on horizontal and vertical directions")
         }
         
-        for view in weightedContainer.items {
+        for view in weightedContainer.subviews {
             if weightedContainer.weightDirection == .vertical, let itemHeight = view.modifier?.height {
                 adjustedSize -= itemHeight
             } else if weightedContainer.weightDirection == .horizontal, let itemWidth = view.modifier?.width {

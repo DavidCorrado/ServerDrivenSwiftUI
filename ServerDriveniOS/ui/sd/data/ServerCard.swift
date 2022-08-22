@@ -11,7 +11,7 @@ struct ServerCard: ServerView, ServerWeightedContainer {
     var type: ServerItemType = .CARD
     var id = UUID()
     var modifier: ServerModifier?
-    var items: [ServerView]
+    var subviews: [ServerView]
     
     var spacing: CGFloat? {
         0

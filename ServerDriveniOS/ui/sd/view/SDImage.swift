@@ -17,7 +17,7 @@ struct SDImage: View {
     var nestedInHorizontalLayout: Bool
     
     var body: some View {
-        Image(serverImage.drawableRes)
+        Image(serverImage.url)
             .renderingMode(serverImage.tint != nil ? .template: .original)
             .resizable()
             .modifyIf(serverImage.contentScale == .FIT, transform: {

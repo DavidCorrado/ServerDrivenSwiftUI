@@ -27,7 +27,7 @@ func counter(count: Int, label: String, image: String) -> ServerColumn {
         ServerRow(modifier: ServerModifier(spacingStart: 18, spacingEnd: 14, spacingBottom: 14), alignment: .CENTER, subviews: [
             ServerText(text: label, size: 12, weight: "500"),
             ServerSpacer(),
-            ServerImage(drawableRes: image,
+            ServerImage(url: image,
                         modifier: ServerModifier(spacingStart: 8, width: 33,
                                                  height: 33))
         ])

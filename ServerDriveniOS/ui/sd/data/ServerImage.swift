@@ -10,7 +10,7 @@ import SwiftUI
 struct ServerImage: ServerView {
     var type: ServerItemType = .IMAGE
     var id = UUID()
-    var drawableRes: String
+    var url: String
     var tint: String?
     var contentScale: ImageContentScale?
     var alignment: ImageAlignment?

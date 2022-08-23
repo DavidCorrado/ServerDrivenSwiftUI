@@ -165,12 +165,12 @@ func testing() -> [ServerView] {
             ServerText(text: "Read Me"),
             ServerText(text: "Do Not Read", modifier: ServerModifier(adaText: "Read Me")),
             ServerText(text: "Read me Heading", isHeading: true),
-            ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(
+            ServerImage(url: "Disappointed", modifier: ServerModifier(
                 width: 20,
                 height: 20,
                 adaText: "Disappointed"
             )),
-            ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(width: 20, height: 20))
+            ServerImage(url: "Disappointed", modifier: ServerModifier(width: 20, height: 20))
         ]),
         ServerRow(modifier: ServerModifier(adaText: "Read Me"), subviews: [
             ServerText(text: "Don't Read"),
@@ -414,8 +414,8 @@ func testing() -> [ServerView] {
                 ServerSpacer()
         ]),
         ServerRow(subviews: [
-            ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(width: 20, height: 20)),
-            ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(spacingStart: 20, spacingEnd: 20, spacingTop: 20, spacingBottom: 20, width: 20, height: 20)) // This will be squished to zero since  we are adding 20 padding to 20x20 image because of the call order
+            ServerImage(url: "Disappointed", modifier: ServerModifier(width: 20, height: 20)),
+            ServerImage(url: "Disappointed", modifier: ServerModifier(spacingStart: 20, spacingEnd: 20, spacingTop: 20, spacingBottom: 20, width: 20, height: 20)) // This will be squished to zero since  we are adding 20 padding to 20x20 image because of the call order
         ]),
         ServerRow(
             subviews: [
@@ -502,11 +502,11 @@ func testing() -> [ServerView] {
                 cornerRadius: 60
             )
         ),
-        ServerImage(drawableRes: "Running", tint: "#ff0000", modifier: ServerModifier(width: 20, height: 20)),
+        ServerImage(url: "Running", tint: "#ff0000", modifier: ServerModifier(width: 20, height: 20)),
         ServerRow(subviews: [
             ServerBox(modifier: ServerModifier(weight: 1),subviews: [
                 ServerRow(modifier: ServerModifier(weight: 1), subviews: [
-                    ServerImage(drawableRes: "Background", contentScale: .FILL_HEIGHT, alignment: .TOP_END, modifier: ServerModifier(weight: 1, aspectRatio: 1.2))
+                    ServerImage(url: "Background", contentScale: .FILL_HEIGHT, alignment: .TOP_END, modifier: ServerModifier(weight: 1, aspectRatio: 1.2))
                 ]),
                 ServerColumn(modifier: ServerModifier(weight: 1, aspectRatio: 1.2), // Normally aspectRatio modifier only works for images (also maybe shapes) on swiftui, I added manual calculations for it but it only runs if server view size is calculated manually (if view has a fixed height or fixed width or a weight)
                     subviews: [
@@ -520,7 +520,7 @@ func testing() -> [ServerView] {
         ServerRow(subviews: [
             ServerBox(modifier: ServerModifier(weight: 1),subviews: [
                 ServerRow(modifier: ServerModifier(weight: 1), subviews: [
-                    ServerImage(drawableRes: "Background", contentScale: .FILL_WIDTH, alignment: .BOTTOM_END, modifier: ServerModifier(weight: 1, aspectRatio: 3))
+                    ServerImage(url: "Background", contentScale: .FILL_WIDTH, alignment: .BOTTOM_END, modifier: ServerModifier(weight: 1, aspectRatio: 3))
                 ]),
                 ServerRow(modifier: ServerModifier(weight: 1, aspectRatio: 3), // Normally aspectRatio modifier only works for images (also maybe shapes) on swiftui, I added manual calculations for it but it only runs if server view size is calculated manually (if view has a fixed height or fixed width or a weight)
                     subviews: [
@@ -530,10 +530,10 @@ func testing() -> [ServerView] {
                 ])
             ])
         ]),
-        ServerImage(drawableRes: "Background", contentScale: .FILL_WIDTH, alignment: .CENTER_CENTER, modifier: ServerModifier(width: 100, height: 100)),
-        ServerImage(drawableRes: "Background", contentScale: .FILL_HEIGHT, alignment: .CENTER_END, modifier: ServerModifier(width: 100, height: 200)),
-        ServerImage(drawableRes: "Background", contentScale: .CROP, alignment: .CENTER_END, modifier: ServerModifier(width: 100, height: 100)),
-        ServerImage(drawableRes: "Background", contentScale: .FIT, alignment: .CENTER_CENTER, modifier: ServerModifier(width: 100, height: 100)),
-        ServerImage(drawableRes: "Background", contentScale: .FILL_WIDTH, alignment: .CENTER_CENTER, modifier: ServerModifier(width: 200, height: 100))
+        ServerImage(url: "Background", contentScale: .FILL_WIDTH, alignment: .CENTER_CENTER, modifier: ServerModifier(width: 100, height: 100)),
+        ServerImage(url: "Background", contentScale: .FILL_HEIGHT, alignment: .CENTER_END, modifier: ServerModifier(width: 100, height: 200)),
+        ServerImage(url: "Background", contentScale: .CROP, alignment: .CENTER_END, modifier: ServerModifier(width: 100, height: 100)),
+        ServerImage(url: "Background", contentScale: .FIT, alignment: .CENTER_CENTER, modifier: ServerModifier(width: 100, height: 100)),
+        ServerImage(url: "Background", contentScale: .FILL_WIDTH, alignment: .CENTER_CENTER, modifier: ServerModifier(width: 200, height: 100))
     ]
 }

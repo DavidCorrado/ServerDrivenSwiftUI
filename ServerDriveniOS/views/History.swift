@@ -24,15 +24,15 @@ func history1() -> ServerColumn {
                     ServerText(text: "Nov 1", size: 12, weight: "500")
                 ]),
                 ServerRow(modifier: ServerModifier(spacingTop: 4), alignment: .CENTER, subviews: [
-                    ServerImage(drawableRes: "Running", modifier: ServerModifier(spacingEnd: 8, width: 14, height: 14)),
-                    ServerText(text: "Bubble TBD", modifier: ServerModifier(spacingEnd: 8)),
-                    ServerText(text: "Jogging or running", size: 12, weight: "500"),
+                    ServerImage(url: "Running", modifier: ServerModifier(spacingEnd: 8, width: 14, height: 14)),
+                    generateBubble(),
+                    ServerText(text: "Jogging or running", size: 12, weight: "500", modifier: ServerModifier(spacingStart: 8)),
                     ServerSpacer(),
                     ServerText(text: "10:45 AM", size: 12, weight: "700")
 
                 ])
             ]),
-            ServerImage(drawableRes: "Chevron", modifier: ServerModifier(spacingStart: 36, width: 5, height: 11))
+            ServerImage(url: "Chevron", modifier: ServerModifier(spacingStart: 36, width: 5, height: 11))
         ])
     ])
 }
@@ -42,7 +42,7 @@ func history2() -> ServerColumn {
         ServerRow(alignment: .CENTER, subviews: [
             ServerRow(alignment: .CENTER, subviews: [
                 ServerRow(alignment: .CENTER, subviews: [
-                    ServerImage(drawableRes: "Disappointed", modifier: ServerModifier(spacingEnd: 10, width: 24, height: 22)),
+                    ServerImage(url: "Disappointed", modifier: ServerModifier(spacingEnd: 10, width: 24, height: 22)),
                     ServerText(text: "Disappointed", weight: "500")
                 ]),
                 ServerSpacer(),
@@ -51,7 +51,7 @@ func history2() -> ServerColumn {
                     ServerText(text: "10: 45 AM", size: 12, weight: "700")
                 ])
             ]),
-            ServerImage(drawableRes: "Chevron", modifier: ServerModifier(spacingStart: 36, width: 5, height: 11))
+            ServerImage(url: "Chevron", modifier: ServerModifier(spacingStart: 36, width: 5, height: 11))
         ])
     ])
 }

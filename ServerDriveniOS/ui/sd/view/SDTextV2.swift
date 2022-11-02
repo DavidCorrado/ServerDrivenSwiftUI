@@ -41,6 +41,7 @@ struct SDTextV2: View {
             let newText = Text(styledText.text)
             output = output + newText.foregroundColor(Color(UIColor(withHex: styledText.color ?? "#4C5870")))
                 .fontWeight(styledText.fontWeight())
+                .kerning(styledText.letterSpacing ?? 0)
                 .font(.system(size: UIFontMetrics.default.scaledValue(for: CGFloat(styledText.fontSize()))))
         }
          

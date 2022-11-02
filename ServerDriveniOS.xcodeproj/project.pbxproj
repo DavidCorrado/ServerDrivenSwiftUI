@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2411FB172912798000CAE269 /* ServerTextV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2411FB162912798000CAE269 /* ServerTextV2.swift */; };
+		2411FB1929127A5F00CAE269 /* SDTextV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2411FB1829127A5F00CAE269 /* SDTextV2.swift */; };
 		24F33C3628B4C39400D65219 /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F33C3528B4C39400D65219 /* Bubble.swift */; };
 		364DBE2728927136007C91F9 /* ServerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364DBE2628927136007C91F9 /* ServerBox.swift */; };
 		364DBE2928927379007C91F9 /* SDBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364DBE2828927379007C91F9 /* SDBox.swift */; };
@@ -64,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2411FB162912798000CAE269 /* ServerTextV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTextV2.swift; sourceTree = "<group>"; };
+		2411FB1829127A5F00CAE269 /* SDTextV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDTextV2.swift; sourceTree = "<group>"; };
 		24F33C3528B4C39400D65219 /* Bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
 		364DBE2628927136007C91F9 /* ServerBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerBox.swift; sourceTree = "<group>"; };
 		364DBE2828927379007C91F9 /* SDBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDBox.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 				FFCF24CE286E487700B53EB3 /* ServerCard.swift */,
 				36965F492890273400C2B75C /* ServerWeightedContainer.swift */,
 				364DBE2628927136007C91F9 /* ServerBox.swift */,
+				2411FB162912798000CAE269 /* ServerTextV2.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 				FFF4654828776E2D007E7A13 /* SDCard.swift */,
 				36965F4B2890277500C2B75C /* SDWeightedContainer.swift */,
 				364DBE2828927379007C91F9 /* SDBox.swift */,
+				2411FB1829127A5F00CAE269 /* SDTextV2.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -412,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				364DBE2728927136007C91F9 /* ServerBox.swift in Sources */,
+				2411FB1929127A5F00CAE269 /* SDTextV2.swift in Sources */,
 				FFF4653928762F88007E7A13 /* SDRow.swift in Sources */,
 				FFF4654E2878C201007E7A13 /* ColorExtension.swift in Sources */,
 				FFF4654728776972007E7A13 /* SDImage.swift in Sources */,
@@ -425,6 +432,7 @@
 				FFCF24CB286E47DB00B53EB3 /* ServerImage.swift in Sources */,
 				FFF4654528775A94007E7A13 /* SDText.swift in Sources */,
 				FFCF24C5286E455C00B53EB3 /* ServerModifer.swift in Sources */,
+				2411FB172912798000CAE269 /* ServerTextV2.swift in Sources */,
 				FFCF24D8286F34DD00B53EB3 /* SDContent.swift in Sources */,
 				FF22B2EC287CBE3700390642 /* Testing.swift in Sources */,
 				FFCF2492286E430200B53EB3 /* ServerDriveniOSApp.swift in Sources */,

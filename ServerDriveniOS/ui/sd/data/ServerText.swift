@@ -39,6 +39,7 @@ struct ServerText: ServerView {
 
 enum DecorationType {
     case STRIKETHROUGH
+    case UNDERLINE
     case UNKNOWN
 }
 
@@ -61,6 +62,16 @@ enum ServerTextAlignment {
             return .center
         case .END:
             return .trailing
+        }
+    }
+    var verticalAlignment: VerticalAlignment {
+        switch self {
+        case .START:
+            return .firstTextBaseline
+        case .CENTER:
+            return .center
+        case .END:
+            return .lastTextBaseline
         }
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 
 enum ServerItemType {
     case TEXT
+    case TEXT_V2
     case SPACER
     case CARD
     case ROW

@@ -31,6 +31,7 @@ struct ServerStyledText {
     var style: FontType?
     var color: String?
     var backgroundColor: String?
+    var letterSpacing: CGFloat?
     var decoration: [DecorationType] = []
     var weight: String?
     
@@ -43,7 +44,9 @@ struct ServerStyledText {
             attributedString.backgroundColor = textBackgroundColor()
         }
         attributedString.font = font()
-        
+        if letterSpacing != nil{
+            attributedString.kern = letterSpacing!
+        }
         for deco in decoration
         {
             if deco == DecorationType.STRIKETHROUGH

@@ -33,6 +33,7 @@ func testing() -> [ServerView] {
                             subviews: [
                                 ServerTextV2(modifier: ServerModifier(weight: 1),textAlignment: ServerTextAlignment.CENTER,
                                              styledTexts: [
+                                                ServerStyledText(text: "Letter spacing is 3\n", size: 14, color: "#4C5870", letterSpacing: 3, weight: "500"),
                                                 ServerStyledText(text: "This text has a weight 900\n", size: 14, color: "#4C5870", weight: "900"),
                                                 ServerStyledText(text: "This text has a red color and background is black text size is 16\n", size: 16, color: "#FF0000", backgroundColor: "#000000", weight: "400"),
                                                 ServerStyledText(text: "This is italic\n", size: 14, style: FontType.ITALIC, color: "#4C5870", weight: "400"),
